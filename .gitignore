@@ -1,0 +1,39 @@
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+src-dest
+src/_temp
+src/_bower
+src-gp/_temp
+src-gp
+gallery-db.js
+hexo-tag-flickr-cache.json
+
+
+# windows.gitignore
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+
+### OSX.gitignore
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes

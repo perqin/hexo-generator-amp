@@ -1,0 +1,139 @@
+<!doctype html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <link rel="canonical" href="./index.html" >
+    <title><%= post.title %> - <%= config.subtitle %></title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+    <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <!--<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>-->
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "NewsArticle",
+			"headline": "<%= post.title %>",
+			<% if (post.description){ %>
+			"description": "<%= post.description.split(/。|\./)[0] %>.",
+			<% } else if (post.excerpt){ %>
+			"description": "<%= post.excerpt.split(/。|\./)[0] %>.",
+			<% } %>
+			"mainEntityOfPage":{
+			    "@type":"WebPage",
+			    "@id":"<%= config.url %>/<%= post.path %>"
+			},
+			"datePublished": "<%= post.date.toISOString() %>",
+			"dateModified": "<%= post.updated.toISOString() %>",
+			<% if (post.eyeCatchImage){ %>
+			"image": [
+				"<%= post.eyeCatchImage %>"
+			],
+			<% } %>
+			"author": {
+			    "@type": "Person",
+			    "name": "<%= config.author %>"
+			},
+			"publisher": {
+			    "@type": "Organization",
+			    "name": "<%= config.title %>"
+			    <% if (config.generator_amp.logo.height && config.generator_amp.logo.width && config.generator_amp.logo.height){ %>
+			    ,
+			    "logo": {
+			      "@type": "ImageObject",
+			      "url": "<%= config.url %>/<%= config.generator_amp.logo.path %>",
+			      "width": <%= config.generator_amp.logo.width %>,
+			      "height": <%= config.generator_amp.logo.height %>
+			    }
+			    <% } %>
+			}
+			
+		}
+	</script>
+	<style amp-custom>
+		<%- include style %>
+		body{
+			padding: 20px;
+		}
+	</style>
+  </head>
+  <body>
+  	
+  	
+  	<!--
+  	<amp-analytics type="googleanalytics" id="google-analytics">
+		<script type="application/json">
+		{
+		  "vars": {
+		    "account": "<%- config.generator_amp.google_analytics %>"
+		  },
+		  "triggers": {
+		    "trackPageview": {
+		      "on": "visible",
+		      "request": "pageview"
+		    }
+		  }
+		}
+		</script>
+	</amp-analytics>
+  	-->
+  	
+  	<header id="header">
+  		<% if (config.generator_amp.logo.height && config.generator_amp.logo.width && config.generator_amp.logo.height){ %>
+			<a href="<%- config.root %>"><amp-img src="/<%= config.generator_amp.logo.path %>" width="<%= config.generator_amp.logo.width %>" height="<%= config.generator_amp.logo.height %>"></amp-img></a>
+		<% } else { %>
+			<a href="<%- config.root %>"><%= config.title %></a>
+		<% } %>
+	</header>
+  
+  	
+    <article>
+	    <div class="entry-content">
+	    
+	    	<% if (post.title){ %>
+		      <% if (post.link){ %>
+		        <% if (post.title){ %>
+		          <h1 class="title link"><a href="<%- post.link %>" target="_blank"><%= post.title %></a></h1>
+		        <% } else { %>
+		          <h1 class="title link"><a href="<%- post.link %>" target="_blank"><%= post.link %></a></h1>
+		        <% } %>
+		      <% } else { %>
+		        <h1><a href="<%- config.root %><%- post.path %>"><%= post.title %></a></h1>
+		      <% } %>
+		    <% } %>
+	    
+	  		<%- content %>
+	  	</div>
+  	</article>
+  	
+  	<% if (post.prev || post.next){ %>
+	<nav id="article-nav">
+	  <% if (post.prev){ %>
+	    <a href="<%- config.root %><%- post.prev.path %>" id="article-nav-newer" class="article-nav-link-wrap">
+	      <strong class="article-nav-caption">Newer</strong>
+	      <div class="article-nav-title">
+	        <% if (post.prev.title){ %>
+	          <%= post.prev.title %>
+	        <% } else { %>
+	          (no title)
+	        <% } %>
+	      </div>
+	    </a>
+	  <% } %>
+	  <% if (post.next){ %>
+	    <a href="<%- config.root %><%- post.next.path %>" id="article-nav-older" class="article-nav-link-wrap">
+	      <strong class="article-nav-caption">Older</strong>
+	      <div class="article-nav-title">
+	        <% if (post.next.title){ %>
+	          <%= post.next.title %>
+	        <% } else { %>
+	          (no title)
+	        <% } %>
+	      </div>
+	    </a>
+	  <% } %>
+	</nav>
+	<% } %>
+  	
+  </body>
+</html>
