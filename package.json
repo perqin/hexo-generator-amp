@@ -1,12 +1,12 @@
 {
   "_args": [
     [
-      "hexo-generator-amp@^0.0.1",
+      "hexo-generator-amp@^0.1.0",
       "/Users/gamagori-usen/Desktop/hdd/hexo/blog"
     ]
   ],
-  "_from": "hexo-generator-amp@>=0.0.1 <0.2.0",
-  "_id": "hexo-generator-amp@0.0.1",
+  "_from": "hexo-generator-amp@>=0.1.0 <0.2.0",
+  "_id": "hexo-generator-amp@0.1.0",
   "_inCache": true,
   "_location": "/hexo-generator-amp",
   "_nodeVersion": "0.12.4",
@@ -34,8 +34,8 @@
   "_where": "/Users/gamagori-usen/Desktop/hdd/hexo/blog",
   "author": {
     "email": "test@gmail.com",
-    "name": "Tommy Chen",
-    "url": "http://zespia.tw"
+    "name": "tea3",
+    "url": "https://tea3.github.io/"
   },
   "bugs": {
     "url": "https://github.com/hexojs/hexo-generator-amp/issues"
@@ -44,7 +44,7 @@
     "hexo-pagination": "0.0.2",
     "object-assign": "^2.0.0"
   },
-  "description": "Tag generator for Hexo.",
+  "description": "amp generator for Hexo.",
   "devDependencies": {
     "chai": "^1.9.1",
     "coveralls": "^2.11.2",
@@ -74,7 +74,7 @@
   "keywords": [
     "generator",
     "hexo",
-    "tag"
+    "amp"
   ],
   "license": "MIT",
   "main": "index",
@@ -93,5 +93,5 @@
   "scripts": {
     "test": "gulp test"
   },
-  "version": "0.1.2"
+  "version": "0.1.0"
 }

@@ -1,23 +1,55 @@
-# hexo-generator-tag
+# hexo-generator-amp
 
-[![Build Status](https://travis-ci.org/hexojs/hexo-generator-tag.svg?branch=master)](https://travis-ci.org/hexojs/hexo-generator-tag)  [![NPM version](https://badge.fury.io/js/hexo-generator-tag.svg)](http://badge.fury.io/js/hexo-generator-tag) [![Coverage Status](https://img.shields.io/coveralls/hexojs/hexo-generator-tag.svg)](https://coveralls.io/r/hexojs/hexo-generator-tag?branch=master)
-
-Tag generator for [Hexo].
+Amp generator for [Hexo].
 
 ## Installation
 
 ``` bash
-$ npm install hexo-generator-tag --save
+$ npm install hexo-generator-amp --save
+```
+
+Then add this theme in your `themes/your-theme/layout/_partial/head.ejs`.
+
+``` html
+  <% if (is_post() && config.generator_amp){ %>
+    <link rel="amphtml" href="./index.amp.html">
+  <% } %>
 ```
 
 ## Options
 
 ``` yaml
-tag_generator:
-  per_page: 10
+generator_amp:
+  logo:
+    path: asset/path-to-your-site-logo.jpg
+    width: 800
+    height: 600
+  google_analytics: UA-123456789
+  cssFilePath: asset/your-css-file-for-AMP.css
+  
+authorDetail:
+  authorReading: Your name description
+  avatar:
+    path: asset/path-to-your-icon.jpg
+    width: 150
+    height: 150
+  description: Self introduction
+copyright_notice: The footer copyright notice 
 ```
+### generator_amp options
+- **path**: File path of a your logo image.
+- **width**: Width of a your logo image.
+- **height**: Height of a your logo image.
+- **google_analytics**: Your google analytics tracking ID.
+- **cssFilePath**: File path of a your css file for AMP. (e.g. sample-amp.css)
 
-- **per_page**: Posts displayed per page. (0 = disable pagination)
+### Auther detail options
+- **authorReading**: Your name description.
+- **path**: File path of a your icon image.
+- **width**: Width of a your icon image.
+- **height**: Height of a your icon image.
+- **description**: Self introduction.
+- **copyright_notice**: The footer copyright notice.
 
 ## License
 

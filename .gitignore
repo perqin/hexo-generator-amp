@@ -1,17 +1,3 @@
-db.json
-*.log
-node_modules/
-public/
-.deploy*/
-src-dest
-src/_temp
-src/_bower
-src-gp/_temp
-src-gp
-gallery-db.js
-hexo-tag-flickr-cache.json
-
-
 # windows.gitignore
 Thumbs.db
 ehthumbs.db
