@@ -38,8 +38,8 @@ copyright_notice: The footer copyright notice
 ```
 ### generator_amp options
 - **path**: File path of a your logo image.
-- **width**: Width of a your logo image.
-- **height**: Height of a your logo image.
+- **width**: Width of a your logo image. (width <= 600px)
+- **height**: Height of a your logo image. (height <= 60px)
 - **google_analytics**: Your google analytics tracking ID.
 - **cssFilePath**: File path of a your css file for AMP. (e.g. sample-amp.css)
 

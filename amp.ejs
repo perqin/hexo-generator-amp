@@ -14,12 +14,12 @@
     <script type="application/ld+json">
 		{
 			"@context": "http://schema.org",
-			"@type": "NewsArticle",
+			"@type": "BlogPosting",
 			"headline": "<%= post.title %>",
 			<% if (post.description){ %>
-			"description": "<%= post.description.split(/。|\./)[0] %>.",
+			"description": "<%= post.description %>",
 			<% } else if (post.excerpt){ %>
-			"description": "<%= post.excerpt.split(/。|\./)[0] %>.",
+			"description": "<%= post.excerpt %>",
 			<% } %>
 			"mainEntityOfPage":{
 			    "@type":"WebPage",
@@ -27,10 +27,13 @@
 			},
 			"datePublished": "<%= post.date.toISOString() %>",
 			"dateModified": "<%= post.updated.toISOString() %>",
-			<% if (post.eyeCatchImage){ %>
-			"image": [
-				"<%= post.eyeCatchImage %>"
-			],
+			<% if (post.eyeCatchImage && post.eyeCatchImage != "" && post.eyeCatchImageProperty && post.eyeCatchImageProperty.width && post.eyeCatchImageProperty.height){ %>
+			"image": {
+				"@type": "ImageObject",
+				"url": "<%= post.eyeCatchImage %>",
+				"width" : "<%= post.eyeCatchImageProperty.width %>",
+				"height" : "<%= post.eyeCatchImageProperty.height %>"
+			},
 			<% } %>
 			"author": {
 			    "@type": "Person",
@@ -49,7 +52,6 @@
 			    }
 			    <% } %>
 			}
-			
 		}
 	</script>
 	<% if (cssTxt != ""){ %>
