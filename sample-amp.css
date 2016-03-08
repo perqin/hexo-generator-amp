@@ -14,18 +14,9 @@ h6,
 h6 a:hover {
     color: #141a1b
 }
-body,
-figure.highlight .code {
-    -moz-osx-font-smoothing: grayscale
-}
 #header:after,
 .nav ul:after {
     content: "."
-}
-#page-nav a,
-.article-nav-link-wrap,
-a {
-    text-decoration: none
 }
 #page-nav,
 .article-nav-caption,
@@ -38,6 +29,11 @@ a {
 .nav ul:after {
     clear: both;
     visibility: hidden
+}
+#page-nav a,
+.article-nav-link-wrap,
+a {
+    text-decoration: none
 }
 a,
 abbr,
@@ -145,7 +141,13 @@ body {
     font: 105% '游ゴシック体', 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
     text-rendering: optimizelegibility;
     -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+figure.highlight .code,
+kbd {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale
 }
 a:hover {
     color: #0d4f69
@@ -265,7 +267,7 @@ figure.highlight {
     line-height: 2;
     overflow: auto;
     position: relative;
-    font-size: 1em
+    font-size: .9em
 }
 figure.highlight figcaption {
     color: #999;
@@ -307,8 +309,7 @@ figure.highlight .gutter {
 }
 figure.highlight .code {
     border-left: 1px solid #304047;
-    color: #dadee5;
-    -webkit-font-smoothing: subpixel-antialiased
+    color: #dadee5
 }
 td.code {
     padding: 0
@@ -1131,15 +1132,30 @@ video.responsive-video {
 .authorCap {
     font-size: 1.5em
 }
-.profile-link {
-    margin-top: 2em
-}
 code,
 kbd,
 pre,
 samp {
     font-family: Consolas, Monaco, Menlo, Consolas, monospace;
     font-size: 1em
+}
+.profile-link {
+    margin-top: 2em
+}
+kbd {
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 2px 4px;
+    margin: 0 2px;
+    background: #efefef;
+    border-top: 1px solid #f5f5f5;
+    -webkit-box-shadow: 0 0 25px #e8e8e8 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 2px 3px #333;
+    box-shadow: 0 0 25px #e8e8e8 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 2px 3px #333;
+    color: #141a1b;
+    text-shadow: 0 1px 0 #f5f5f5;
+    text-align: center;
+    line-height: 1.4em;
+    display: inline-block
 }
 .qsFont {
     font-family: sans-serif
