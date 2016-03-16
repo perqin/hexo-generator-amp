@@ -1,6 +1,6 @@
 {
   "name": "hexo-generator-amp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index",
   "dependencies": {
     "hexo-pagination": "0.0.2",
@@ -23,5 +23,29 @@
   },
   "directories": {
     "lib": "./lib"
+  },
+  "author": {
+    "email": "tea3gtinfo@gmail.com",
+    "name": "tea3",
+    "url": "https://tea3.github.io/"
+  },
+  "bugs": {
+    "url": "https://github.com/tea3/hexo-generator-amp/issues"
+  },
+  "keywords": [
+    "generator",
+    "hexo",
+    "amp"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "tea3gt",
+      "email": "tea3gtinfo@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tea3/hexo-generator-amp.git"
   }
 }
