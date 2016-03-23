@@ -1,7 +1,8 @@
 # hexo-generator-amp
 
 Amp generator for [Hexo].
-DEMO : [HTML](http://tea3.github.io/p/published-hexo-generator-amp/index.html) | [AMP HTML](http://tea3.github.io/p/published-hexo-generator-amp/index.amp.html)
+
+DEMO : [HTML](http://tea3.github.io/p/published-hexo-generator-amp/index.html) | [AMP HTML](http://tea3.github.io/p/published-hexo-generator-amp/index.amp.html#development=1)
 
 ## Installation
 
