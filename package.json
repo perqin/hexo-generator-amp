@@ -1,6 +1,6 @@
 {
   "name": "hexo-generator-amp",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "main": "index",
   "dependencies": {
     "hexo-pagination": "0.0.2",
