@@ -1,9 +1,18 @@
 # hexo-generator-amp
 
-Amp generator for [Hexo].
+Accelerated Mobile Pages (AMP) generator for [Hexo](https://github.com/hexojs/hexo).
 
-Documents : [read me](p/published-hexo-generator-amp/)
-DEMO : [HTML](https://tea3.github.io/p/hexo-markdown-notation/index.html) | [AMP HTML](https://tea3.github.io/p/hexo-markdown-notation/index.amp.html#development=1)
+## Orverview
+
+`hexo-generator-amp` helps you hexo's projects that automatically generates AMP. 
+Output file path is the `./index.amp.html`.  Also, You can freely choose the template(.ejs) and style(.css).
+  
+Documents : [read me](https://tea3.github.io/p/published-hexo-generator-amp/)
+  
+  
+## DEMO
+
+DEMO : [HTML page](https://tea3.github.io/p/hexo-markdown-notation/index.html)  |  [generated AMP HTML page](https://tea3.github.io/p/hexo-markdown-notation/index.amp.html#development=1)
 
 ## Installation
 
@@ -11,15 +20,19 @@ DEMO : [HTML](https://tea3.github.io/p/hexo-markdown-notation/index.html) | [AMP
 $ npm install hexo-generator-amp --save
 ```
 
+#### 1. Edit your theme
+
 Then add this theme in your `themes/(your-theme)/layout/_partial/head.ejs`.
 
-``` html
+``` ejs
   <% if (is_post() && config.generator_amp){ %>
     <link rel="amphtml" href="./index.amp.html">
   <% } %>
 ```
 
-.md should contain image file and width height element.
+#### 2. Should contain image
+
+Hexo's Posts file (`your-post.md`) should contain image file and width height element.
 
 ``` markdown
 <img src="image.jpg" width="800" height="600">
@@ -27,9 +40,18 @@ or
 <img src="image.jpg" width="800" data-height="600">
 ```
 
-Please setting option. 
+See the link below for further details.
+
+> Accelerated Mobile Pages Project - [amp-img](https://www.ampproject.org/docs/reference/amp-img.html)
+
+
+
+#### 3. Add your config file
+
+Please set the following options . Please edit your config file (`_config.yml`).
 
 ``` yaml
+# Quick start Settings of hexo-amp-generator
 generator_amp:
   logo:
     path: asset/your-logoForAmp.jpg
@@ -43,18 +65,29 @@ generator_amp:
   warningLog: false
 ```
 
+#### 4. Validate AMP
+
+Output file path is the `./index.amp.html`. Validate your AMP pages. Please see below
+
+> Accelerated Mobile Pages Project - [Validate AMP Pages](https://www.ampproject.org/docs/guides/validate.html)
+
+> How to validate AMP - [my blog](https://tea3.github.io/p/how-to-validate-amp/)
+
 
 ## Options
 
+`hexo-generator-amp` can set the following options.
+
 ``` yaml
+# Advanced Settings of hexo-amp-generator
 generator_amp:
   logo:
     path: asset/path-to-your-site-logo.jpg
     width: 600
     height: 60
   google_analytics: UA-123456789
-  cssFilePath: asset/your-css-file-for-AMP.css (optional)
-  templateFilePath: asset/your-ejs-file-for-AMP.ejs (optional)
+  cssFilePath: asset/your-style-for-AMP.css #(optional)
+  templateFilePath: asset/your-template-for-AMP.ejs #(optional)
   substituteTitleImage: 
     path: asset/path-to-your-substitute-image.jpg
     width: 800
@@ -62,36 +95,48 @@ generator_amp:
   warningLog: true
   
 authorDetail:
-  authorReading: Your name description (optional)
+  authorReading: Your name description #(optional)
   avatar:
-    path: asset/path-to-your-avator.jpg (optional)
-    width: 150 (optional)
-    height: 150 (optional)
-  description: Self introduction (optional)
-copyright_notice: The footer copyright notice (optional)
+    path: asset/path-to-your-avator.jpg #(optional)
+    width: 150 #(optional)
+    height: 150 #(optional)
+  description: Self introduction #(optional)
+copyright_notice: The footer copyright notice #(optional)
 ```
 
 
 
-### generator_amp settings
-- **logo.path**: File path of a your logo image.
-- **logo.width**: Width of a your logo image. (width <= 600px)
-- **logo.height**: Height of a your logo image. (height <= 60px)
+
+### A description of the options
+
+#### generator_amp settings
+- logo
+  - **logo.path**: File path of a your logo image.
+  - **logo.width**: Width of a your logo image. ([width <= 600px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))
+  - **logo.height**: Height of a your logo image. ([height <= 60px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))
 - **google_analytics**: Your google analytics tracking ID.
 - **cssFilePath(optional)**: File path of a your css file for AMP. (e.g. ./style-for-amp.css)
 - **templateFilePath(optional)**: File path of a your template file for AMP. (e.g. ./tamplate-for-amp.ejs)
-- **substituteTitleImage.path**: File path of a your substitute title image. (Use this when the image is not in the markdown)
-- **substituteTitleImage.width**: Width of a your substitute title image. (width <= 600px)
-- **substituteTitleImage.height**: Height of a your substitute title image. (height <= 60px)
+- substituteTitleImage
+  - **substituteTitleImage.path**: File path of a your substitute title image. (Use this when the image is not in the markdown)
+  - **substituteTitleImage.width**: Width of a your substitute title image. ([width >= 696px](https://developers.google.com/structured-data/carousels/top-stories#markup_specification))
+  - **substituteTitleImage.height**: Height of a your substitute title image.
 - **warningLog**: Enabled warnings.
 
-### Auther detail settings (optional)
+#### Auther detail settings (optional)
 - **authorReading**: Your name description.
-- **path**: File path of a your avator image.
-- **width**: Width of a your avator image.
-- **height**: Height of a your avator image.
+- avatar
+  - **avatar.path**: File path of a your avator image.
+  - **avatar.width**: Width of a your avator image.
+  - **avatar.height**: Height of a your avator image.
 - **description**: Self introduction.
+
+#### Auther copyright settings (optional)
+
 - **copyright_notice**: The footer copyright notice.
+
+
+
 
 ## License
 

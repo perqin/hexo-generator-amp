@@ -125,6 +125,11 @@ input::-moz-focus-inner {
     border: 0;
     padding: 0
 }
+.boxCaption p,
+code,
+pre {
+    -webkit-border-radius: 5px
+}
 body {
     line-height: 1;
     background: #fff;
@@ -215,7 +220,6 @@ pre {
     background-color: #f1eeeb;
     padding: 1px 8px;
     margin: 0 3px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
     font-weight: 400
 }
@@ -228,7 +232,7 @@ pre {
     float: right
 }
 .entry-content .gist {
-    background: #263238;
+    background: #fbfbfa;
     border: 1px solid #ddd;
     margin-top: 15px;
     padding: 7px 15px;
@@ -242,7 +246,8 @@ pre {
     border: none;
     font-family: inherit;
     margin: 0;
-    font-size: .9em
+    font-size: 1em;
+    letter-spacing: .5em
 }
 .entry-content .gist .gist-file .gist-data {
     background: 0 0;
@@ -250,7 +255,7 @@ pre {
 }
 .entry-content .gist .gist-file .gist-data pre {
     padding: 0!important;
-    font-family: Consolas, Monaco, Menlo, Consolas, monospace
+    font-family: Menlo, Consolas, Monaco, Consolas, monospace
 }
 .entry-content .gist .gist-file .gist-meta {
     background: 0 0;
@@ -264,11 +269,11 @@ pre {
     color: #e94f76
 }
 figure.highlight {
-    background: #263238;
-    border: 1px solid #ddd;
+    background: #fbfbfa;
+    border: 1px solid #ede9e5;
     padding: 7px 10px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
     line-height: 2;
     overflow: auto;
     position: relative;
@@ -309,20 +314,21 @@ figure.highlight td {
     padding: 0
 }
 figure.highlight .gutter {
-    color: #999;
+    color: #e0dad3;
     padding-right: 10px;
     text-align: left
 }
 figure.highlight .code {
-    border-left: 1px solid #304047;
-    color: #dadee5
+    border-left: 1px solid #ede9e5;
+    color: #4f5759
 }
 td.code {
     padding: 0
 }
 .line {
-    line-height: 1.5em;
-    font-size: 105%
+    line-height: 2em;
+    letter-spacing: .05em;
+    font-size: 95%
 }
 pre .comment,
 pre .diff .header,
@@ -331,8 +337,8 @@ pre .javadoc,
 pre .lisp .string,
 pre .pi,
 pre .template_comment {
-    color: #65737e;
-    font-style: italic
+    color: #cecec1;
+    font-wight: normal
 }
 pre .addition,
 pre .css .tag,
@@ -342,7 +348,7 @@ pre .nginx .title,
 pre .request,
 pre .status,
 pre .winutils {
-    color: #64e1e6
+    color: #1a9ca1
 }
 pre .command,
 pre .hexcolor,
@@ -352,7 +358,7 @@ pre .regexp,
 pre .string,
 pre .tag .value,
 pre .tex .formula {
-    color: #c5e292
+    color: #6c9a1c
 }
 pre .built_in,
 pre .chunk,
@@ -363,7 +369,7 @@ pre .literal,
 pre .localvars,
 pre .title,
 pre .vhdl {
-    color: #e94f76
+    color: #b42147
 }
 pre .attribute,
 pre .class .title,
@@ -373,7 +379,7 @@ pre .lisp .body,
 pre .parent,
 pre .smalltalk .number,
 pre .variable {
-    color: #f0c667
+    color: #c38700
 }
 pre .attr_selector,
 pre .cdata,
@@ -387,10 +393,10 @@ pre .special,
 pre .subst,
 pre .symbol,
 pre .symbol .string {
-    color: #9882eb
+    color: #816ec5
 }
 pre .deletion {
-    color: #e94f76
+    color: #b42147
 }
 #header {
     display: block;
@@ -740,7 +746,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: Consolas, Monaco, Menlo, Consolas, monospace
+    font-family: Menlo, Consolas, Monaco, Consolas, monospace
 }
 .entry-content .pullquote .left {
     margin-left: .5em;
@@ -862,7 +868,8 @@ samp {
     }
 }
 .loadingPutAbsolute,
-.moreRead:before {
+.moreRead:before,
+.titleWrapper {
     position: relative
 }
 .article-nav-link-wrap {
@@ -897,8 +904,9 @@ samp {
 #page-nav,
 .blog-title-circle,
 .entry-content h2,
+.entry-content h3,
 .entry-content p.openMap,
-.footer-archive-h,
+.moreRead:before,
 .useFlame,
 kbd,
 p.article-more-link {
@@ -1033,6 +1041,10 @@ video.responsive-video {
 .clearfix {
     display: block
 }
+.photoby,
+kbd {
+    color: #4f5759
+}
 .site-author-desc {
     font-size: 1.2em;
     line-height: 2.5em;
@@ -1040,14 +1052,6 @@ video.responsive-video {
 }
 .authorCap {
     font-size: 1.5em
-}
-.attention h6.label,
-.r-download h6.label,
-.r-memo h6.label,
-code,
-pre,
-samp {
-    font-size: 1em
 }
 .profile-link {
     margin-top: 1.5em;
@@ -1074,7 +1078,14 @@ samp {
 kbd {
     display: inline-block
 }
+code,
+pre,
+samp {
+    letter-spacing: .05em;
+    font-size: .9em
+}
 kbd {
+    font-size: .85em;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-border-radius: 3px;
@@ -1090,54 +1101,8 @@ kbd {
     border-bottom: 1px solid #e6e6e6;
     -webkit-box-shadow: 0 0 10px #e8e8e8 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 3px 3px #333;
     box-shadow: 0 0 10px #e8e8e8 inset, 0 1px 0 #c3c3c3, 0 2px 0 #c9c9c9, 0 3px 3px #333;
-    color: #4f5759;
     text-shadow: 0 1px 0 #fff;
     line-height: 1
-}
-.attention {
-    border: 1px solid #ce8a8a
-}
-.attention h5.label,
-.attention h6.label {
-    color: #ce8a8a
-}
-.r-memo {
-    border: 1px solid #88b9c1
-}
-.r-memo h5.label,
-.r-memo h6.label {
-    color: #88b9c1
-}
-.r-download {
-    border: 1px solid #88a3c1
-}
-.r-download h5.label,
-.r-download h6.label {
-    color: #88a3c1
-}
-.attention,
-.r-download,
-.r-memo {
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    padding: 0;
-    margin: 2.2em 0
-}
-.attention h5.label,
-.attention h6.label,
-.r-download h5.label,
-.r-download h6.label,
-.r-memo h5.label,
-.r-memo h6.label {
-    margin: 1.2em 1.5em;
-    padding: 0
-}
-.attention p.label,
-.r-download p.label,
-.r-memo p.label {
-    margin: 1.5em;
-    padding: 0;
-    font-size: .85em
 }
 img.outline {
     border: 1px solid #fff;
@@ -1228,7 +1193,6 @@ img.outline {
 .moreRead:before {
     font-family: FontAwesome;
     content: "\f141";
-    text-align: center;
     font-size: 1em;
     line-height: 1em;
     display: inline-block;
@@ -1246,14 +1210,12 @@ img.outline {
     display: block;
     width: 100%
 }
-.photoby {
-    color: #4f5759
-}
 .footer-archive-p {
     margin: 10px 0 0
 }
 .footer-archive-h {
     font-size: 1.6em;
+    text-align: center;
     margin: 1em 0 .5em;
     font-family: Meiryo, Osaka, 'MS PGothic', sans-serif;
     font-wight: normal;
@@ -1321,7 +1283,6 @@ p.article-description {
 .boxCaption p {
     display: block;
     padding: .5em 1em;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
     text-shadow: 0 0 5px #000;
     filter: dropshadow(#000, 0, 0)
@@ -1426,9 +1387,6 @@ p.article-description {
     color: #fff;
     border: 3px solid #cbe0e4
 }
-.titleWrapper {
-    position: relative
-}
 .titleWrapper .subBlogTitle {
     position: absolute;
     bottom: -1.4em;
@@ -1466,7 +1424,14 @@ h6 {
     border-bottom: 1px solid #88b9c1;
     color: #88b9c1
 }
-.entry-content h3,
+.entry-content h3 {
+    margin: 2.2em 0 .5em;
+    padding: .8em .5em;
+    border-left: 6px solid #cbe0e4;
+    border-right: 6px solid #cbe0e4;
+    background-color: #edf4f5;
+    color: #66a5b0
+}
 .entry-content h4,
 .entry-content h5,
 .entry-content h6 {
@@ -1474,26 +1439,71 @@ h6 {
     text-align: left;
     color: #88b9c1
 }
-.entry-content h3 {
-    padding: .8em 0 .2em;
-    border-bottom: 1px solid #88b9c1
-}
 .entry-content h4 {
-    position: relative;
-    padding-left: 1.2em;
-    border-bottom: dotted 1px #88b9c1
+    border-left: 6px solid #cbe0e4;
+    color: #66a5b0;
+    padding-left: 1.2em
 }
-.entry-content h4:before {
-    content: '';
-    height: 0;
-    width: 0;
-    display: block;
-    border: .4em solid transparent;
-    border-right-width: 0;
-    border-left-color: #88b9c1;
-    position: absolute;
-    top: .4em;
-    left: 8px
+.entry-content h5 {
+    border-left: 3px solid #cbe0e4;
+    padding-left: 1.2em
+}
+.attention {
+    border: 1px solid #ce8a8a
+}
+.attention h5.label,
+.attention h6.label {
+    color: #ce8a8a
+}
+.r-memo {
+    border: 1px solid #88b9c1
+}
+.r-memo h5.label,
+.r-memo h6.label {
+    color: #88b9c1
+}
+.r-download {
+    border: 1px solid #88a3c1
+}
+.r-download h5.label,
+.r-download h6.label {
+    color: #88a3c1
+}
+.attention,
+.r-download,
+.r-memo {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0;
+    margin: 2.2em 0
+}
+.attention h5.label,
+.attention h6.label,
+.r-download h5.label,
+.r-download h6.label,
+.r-memo h5.label,
+.r-memo h6.label {
+    border: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: none;
+    background: 0 0;
+    background-color: none;
+    margin: 1.2em 1.5em;
+    padding: 0
+}
+.attention h6.label,
+.r-download h6.label,
+.r-memo h6.label {
+    font-size: 1em
+}
+.attention p.label,
+.r-download p.label,
+.r-memo p.label {
+    margin: 1.5em;
+    padding: 0;
+    font-size: .85em
 }
 .entry-content p {
     margin: 2.8em 1em;
@@ -1922,6 +1932,9 @@ h6 {
         padding: 0;
         font-size: 1.1em
     }
+    .post .entry-content figure.highlight td.code {
+        border-left: 1px solid #ede9e5
+    }
     .post .entry-content iframe {
         width: 100%!important
     }
@@ -2165,6 +2178,9 @@ h6 {
         border: 0;
         padding: 0;
         font-size: 1.1em
+    }
+    .post .entry-content figure.highlight td.code {
+        border-left: 1px solid #ede9e5
     }
     .post .entry-content iframe {
         width: 100%!important
