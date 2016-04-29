@@ -30,23 +30,8 @@ Then add this theme in your `themes/(your-theme)/layout/_partial/head.ejs`.
   <% } %>
 ```
 
-#### 2. Should contain image
 
-Hexo's Posts file (`your-post.md`) should contain image file and width height element.
-
-``` markdown
-<img src="image.jpg" width="800" height="600">
-or
-<img src="image.jpg" width="800" data-height="600">
-```
-
-See the link below for further details.
-
-> Accelerated Mobile Pages Project - [amp-img](https://www.ampproject.org/docs/reference/amp-img.html)
-
-
-
-#### 3. Add your config file
+#### 2. Add your config file
 
 Please set the following options . Please edit your config file (`_config.yml`).
 
@@ -65,7 +50,7 @@ generator_amp:
   warningLog: false
 ```
 
-#### 4. Validate AMP
+#### 3. Validate AMP
 
 Output file path is the `./index.amp.html`. Validate your AMP pages. Please see below
 
