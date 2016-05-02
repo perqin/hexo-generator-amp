@@ -5,7 +5,7 @@ Accelerated Mobile Pages (AMP) generator for [Hexo](https://github.com/hexojs/he
 ## Orverview
 
 `hexo-generator-amp` helps you hexo's projects that automatically generates AMP. 
-Output file path is the `./index.amp.html`.  Also, You can freely choose the template(.ejs) and style(.css).
+Output file path is the `./amp/index.html`.  Also, You can freely choose the template(.ejs) and style(.css).
   
 Documents : [read me](https://tea3.github.io/p/published-hexo-generator-amp/)
   
@@ -38,21 +38,23 @@ Please set the following options . Please edit your config file (`_config.yml`).
 ``` yaml
 # Quick start Settings of hexo-amp-generator
 generator_amp:
+  templateDir: amp-template
+  assetDistDir: amp-dist
   logo:
-    path: asset/your-logoForAmp.jpg
-    width: 300
+    path: sample-logo.png
+    width: 600
     height: 60
-  google_analytics: UA-123456789-1
   substituteTitleImage: 
-    path: asset/your-alt-image.jpg
+    path: sample-substituteTitleImage.png
     width: 1024
-    height: 1024
+    height: 800
+  google_analytics: UA-123456789-1
   warningLog: false
 ```
 
 #### 3. Validate AMP
 
-Output file path is the `./index.amp.html`. Validate your AMP pages. Please see below
+Output file path is the `./amp/index.html`. Validate your AMP pages. Please see below
 
 > Accelerated Mobile Pages Project - [Validate AMP Pages](https://www.ampproject.org/docs/guides/validate.html)
 
@@ -71,18 +73,20 @@ generator_amp:
     data_ad_slot: 0123456789
     width: 336
     height: 280
+  templateDir: amp-template
+  assetDistDir: amp-dist
   logo:
-    path: asset/path-to-your-site-logo.jpg
+    path: sample-logo.png
     width: 600
     height: 60
-  google_analytics: UA-123456789
-  cssFilePath: asset/your-style-for-AMP.css #(optional)
-  templateFilePath: asset/your-template-for-AMP.ejs #(optional)
   substituteTitleImage: 
-    path: asset/path-to-your-substitute-image.jpg
-    width: 800
-    height: 600
+    path: sample-substituteTitleImage.png
+    width: 1024
+    height: 800
+  google_analytics: UA-123456789-1
   warningLog: true
+  cssFilePath: sample-amp.css #(optional)
+  templateFilePath: sample-amp.ejs #(optional)
   
 authorDetail:
   authorReading: Your name description #(optional)
@@ -105,17 +109,19 @@ copyright_notice: The footer copyright notice #(optional)
   - **substituteGoogle_adsense.data_ad_slot**: substitute data_ad_slot id
   - **substituteGoogle_adsense.width**: substitute ad width
   - **substituteGoogle_adsense.height**: substitute ad height
+- **templateDir**: File path of a your AMP template files.
+- **assetDistDir**: File path of a your AMP Assets.
 - logo
   - **logo.path**: File path of a your logo image.
   - **logo.width**: Width of a your logo image. ([width <= 600px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))
   - **logo.height**: Height of a your logo image. ([height <= 60px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))
-- **google_analytics**: Your google analytics tracking ID.
-- **cssFilePath(optional)**: File path of a your css file for AMP. (e.g. ./style-for-amp.css)
-- **templateFilePath(optional)**: File path of a your template file for AMP. (e.g. ./tamplate-for-amp.ejs)
+- **cssFilePath(optional)**: File path of a your css file for AMP. (e.g. ./sample-amp.css)
+- **templateFilePath(optional)**: File path of a your template file for AMP. (e.g. ./sample-amp.ejs)
 - substituteTitleImage
   - **substituteTitleImage.path**: File path of a your substitute title image. (Use this when the image is not in the markdown)
   - **substituteTitleImage.width**: Width of a your substitute title image. ([width >= 696px](https://developers.google.com/structured-data/carousels/top-stories#markup_specification))
   - **substituteTitleImage.height**: Height of a your substitute title image.
+- **google_analytics**: Your google analytics tracking ID.
 - **warningLog**: Enabled warnings.
 
 #### Auther detail settings (optional)
