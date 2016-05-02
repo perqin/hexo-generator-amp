@@ -26,7 +26,7 @@ Then add this theme in your `themes/(your-theme)/layout/_partial/head.ejs`.
 
 ``` ejs
   <% if (is_post() && config.generator_amp){ %>
-    <link rel="amphtml" href="./index.amp.html">
+    <link rel="amphtml" href="./amp/index.html">
   <% } %>
 ```
 
