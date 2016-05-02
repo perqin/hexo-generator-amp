@@ -605,8 +605,8 @@ pre .deletion {
     margin-top: 1.5em
 }
 .entry-content p {
-    text-align: justify;
-    text-justify: inter-ideograph;
+    /*text-align: left;*/
+    /*text-justify: inter-ideograph;*/
     /*word-break: break-all;*/
     letter-spacing: .6pt
 }

@@ -52,7 +52,7 @@
 			    ,
 			    "logo": {
 			      "@type": "ImageObject",
-			      "url": "<%= config.url %>/<%= config.generator_amp.assetDistDir %>/<%= config.generator_amp.logo.path %>",
+			      "url": "<%= logoPath %>",
 			      "width": <%= config.generator_amp.logo.width %>,
 			      "height": <%= config.generator_amp.logo.height %>
 			    }
@@ -95,7 +95,7 @@
 	  		<% if (config.generator_amp.logo.height && config.generator_amp.logo.width && config.generator_amp.logo.height){ %>
 	  		<div class="blog-title">
 				<a href="<%- config.root %>">
-					<amp-img src="/<%= config.generator_amp.assetDistDir %>/<%= config.generator_amp.logo.path %>" width="<%= config.generator_amp.logo.width %>" height="<%= config.generator_amp.logo.height %>">
+					<amp-img src="<%= logoPath %>" width="<%= config.generator_amp.logo.width %>" height="<%= config.generator_amp.logo.height %>" >
 					</amp-img>
 				</a>
 			</div>
@@ -184,7 +184,7 @@
 				<% if (config.authorDetail && config.authorDetail.avatar && config.authorDetail.avatar.path && config.authorDetail.avatar.width && config.authorDetail.avatar.height ){ %>
 				<div class="gravatar-wrapper">
 					<div class="gravatar-area">
-						<amp-img alt="gravatar" class="circle responsive-img" src="<%= config.authorDetail.avatar.path %>" width="<%= config.authorDetail.avatar.width %>" height="<%= config.authorDetail.avatar.height %>"></amp-img>
+						<amp-img alt="gravatar" class="circle responsive-img" src="<%= avatorPath %>" width="<%= config.authorDetail.avatar.width %>" height="<%= config.authorDetail.avatar.height %>"></amp-img>
 					</div>
 				</div>
 				<% } %>

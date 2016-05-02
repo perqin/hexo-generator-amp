@@ -91,7 +91,7 @@ generator_amp:
 authorDetail:
   authorReading: Your name description #(optional)
   avatar:
-    path: asset/path-to-your-avator.jpg #(optional)
+    path: sample-avator.png #(optional)
     width: 150 #(optional)
     height: 150 #(optional)
   description: Self introduction #(optional)
