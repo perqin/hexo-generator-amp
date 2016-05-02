@@ -26,7 +26,7 @@ Then add this theme in your `themes/(your-theme)/layout/_partial/head.ejs`.
 
 ``` ejs
   <% if (is_post() && config.generator_amp){ %>
-    <link rel="amphtml" href="./index.amp.html">
+    <link rel="amphtml" href="./amp/index.html">
   <% } %>
 ```
 
@@ -66,6 +66,11 @@ Output file path is the `./index.amp.html`. Validate your AMP pages. Please see 
 ``` yaml
 # Advanced Settings of hexo-amp-generator
 generator_amp:
+  substituteGoogle_adsense:
+    data_ad_client: ca-pub-123456789876543
+    data_ad_slot: 0123456789
+    width: 336
+    height: 280
   logo:
     path: asset/path-to-your-site-logo.jpg
     width: 600
@@ -95,6 +100,11 @@ copyright_notice: The footer copyright notice #(optional)
 ### A description of the options
 
 #### generator_amp settings
+- substituteGoogle_adsense
+  - **substituteGoogle_adsense.data_ad_client**: substitute data_ad_client id
+  - **substituteGoogle_adsense.data_ad_slot**: substitute data_ad_slot id
+  - **substituteGoogle_adsense.width**: substitute ad width
+  - **substituteGoogle_adsense.height**: substitute ad height
 - logo
   - **logo.path**: File path of a your logo image.
   - **logo.width**: Width of a your logo image. ([width <= 600px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))
