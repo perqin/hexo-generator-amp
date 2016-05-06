@@ -83,10 +83,10 @@ generator_amp:
     path: sample-substituteTitleImage.png
     width: 1024
     height: 800
-  google_analytics: UA-123456789-1
-  warningLog: true
   cssFilePath: sample-amp.css #(optional)
   templateFilePath: sample-amp.ejs #(optional)
+  google_analytics: UA-123456789-1
+  warningLog: true
   
 authorDetail:
   authorReading: Your name description #(optional)
@@ -110,17 +110,17 @@ copyright_notice: The footer copyright notice #(optional)
   - **substituteGoogle_adsense.width**: substitute ad width
   - **substituteGoogle_adsense.height**: substitute ad height
 - **templateDir**: File path of a your AMP template files.
-- **assetDistDir**: File path of a your AMP Assets.
+- **assetDistDir**: File path of a your public AMP Assets.
 - logo
   - **logo.path**: File path of a your logo image.
   - **logo.width**: Width of a your logo image. ([width <= 600px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))
   - **logo.height**: Height of a your logo image. ([height <= 60px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))
-- **cssFilePath(optional)**: File path of a your css file for AMP. (e.g. ./sample-amp.css)
-- **templateFilePath(optional)**: File path of a your template file for AMP. (e.g. ./sample-amp.ejs)
 - substituteTitleImage
   - **substituteTitleImage.path**: File path of a your substitute title image. (Use this when the image is not in the markdown)
   - **substituteTitleImage.width**: Width of a your substitute title image. ([width >= 696px](https://developers.google.com/structured-data/carousels/top-stories#markup_specification))
   - **substituteTitleImage.height**: Height of a your substitute title image.
+- **cssFilePath(optional)**: File path of a your css file for AMP. (e.g. ./sample-amp.css)
+- **templateFilePath(optional)**: File path of a your template file for AMP. (e.g. ./sample-amp.ejs)
 - **google_analytics**: Your google analytics tracking ID.
 - **warningLog**: Enabled warnings.
 
@@ -137,6 +137,44 @@ copyright_notice: The footer copyright notice #(optional)
 - **copyright_notice**: The footer copyright notice.
 
 
+
+## Front-matter option.
+
+
+### ampSettings.titleImage.path (optional)
+You can choose path of schema.org image on a per post. If your post is not contain this option , this plugin search image from content. 
+
+For example : `hello-world.md` , Please set the following options.
+
+``` markdown
+---
+title: Hello World
+ampSettings: 
+ titleImage:
+   path: titleImage-on-the-local-folder.png
+---
+
+Welcome to [Hexo](https://hexo.io/)! This is your very first post. 
+...
+
+```
+
+If image on the external , Please set the width and height options.
+
+``` markdown
+---
+title: Hello World
+ampSettings: 
+ titleImage:
+   path: http://titleImage-on-the-external.png
+   width: 1024
+   height: 800
+---
+
+Welcome to [Hexo](https://hexo.io/)! This is your very first post. 
+...
+
+```
 
 
 ## License
