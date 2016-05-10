@@ -31,9 +31,9 @@ if(!copyAssetsStatus)return null;
 
 
 
-hexo.config.amp_generator = assign({
+hexo.config.generator_amp = assign({
 	
-}, hexo.config.amp_generator, {
+}, hexo.config.generator_amp, {
 	"defaultAssetsPath" : {
 		"ejs" : ejsPath ,
 		"css" : cssPath ,
@@ -42,6 +42,7 @@ hexo.config.amp_generator = assign({
 		"substituteTitleImage" : substituteTitleImagePath
 	}
 });
+
 
 hexo.extend.generator.register('amp', require('./lib/generator'));
 hexo.extend.filter.register('after_post_render', require('./lib/eyeCatchVars') );

@@ -83,9 +83,10 @@ generator_amp:
     path: sample-substituteTitleImage.png
     width: 1024
     height: 800
-  cssFilePath: sample-amp.css #(optional)
-  templateFilePath: sample-amp.ejs #(optional)
+  cssFilePath: sample-amp.css   #(optional)
+  templateFilePath: sample-amp.ejs   #(optional)
   google_analytics: UA-123456789-1
+  html_minifier:     #(optional)
   warningLog: true
   
 authorDetail:
@@ -122,6 +123,7 @@ copyright_notice: The footer copyright notice #(optional)
 - **cssFilePath(optional)**: File path of a your css file for AMP. (e.g. ./sample-amp.css)
 - **templateFilePath(optional)**: File path of a your template file for AMP. (e.g. ./sample-amp.ejs)
 - **google_analytics**: Your google analytics tracking ID.
+- **html_minifier**: Enabled html_minifier. Please see [kangax/html-minifier](https://github.com/kangax/html-minifier) for the details.
 - **warningLog**: Enabled warnings.
 
 #### Auther detail settings (optional)
