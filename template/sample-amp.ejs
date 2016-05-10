@@ -36,7 +36,7 @@
 			<% if (post.eyeCatchImage && post.eyeCatchImage != "" && post.eyeCatchImageProperty && post.eyeCatchImageProperty.width && post.eyeCatchImageProperty.height){ %>
 			"image": {
 				"@type": "ImageObject",
-				"url": "<%= post.eyeCatchImage %>",
+				"url": "<%= post.titleImageForAmp %>",
 				"width" : "<%= post.eyeCatchImageProperty.width %>",
 				"height" : "<%= post.eyeCatchImageProperty.height %>"
 			},
@@ -52,7 +52,7 @@
 			    ,
 			    "logo": {
 			      "@type": "ImageObject",
-			      "url": "<%= logoPath %>",
+			      "url": "<%= logoPathForAmp %>",
 			      "width": <%= config.generator_amp.logo.width %>,
 			      "height": <%= config.generator_amp.logo.height %>
 			    }

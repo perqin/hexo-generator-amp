@@ -1,6 +1,6 @@
 # hexo-generator-amp
 
-Accelerated Mobile Pages (AMP) generator for [Hexo](https://github.com/hexojs/hexo).
+AMP ⚡ HTML (Accelerated Mobile Pages) generator for [Hexo](https://github.com/hexojs/hexo).
 
 ## Orverview
 
