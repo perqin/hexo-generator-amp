@@ -2126,7 +2126,7 @@ h6 {
     .post .entry-content p {
         margin: 1.8em 0;
         line-height: 1.9em;
-        letter-spacing: -.02em;
+        letter-spacing: 0em;
         font-size: .9em
     }
     .post .entry-content blockquote p {

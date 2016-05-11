@@ -8,6 +8,7 @@ var pathFn = require('path');
 var ejsPath     = '../template/sample-amp.ejs';
 var cssPath     = '../template/sample-amp.css';
 var logoPath    = '../template/sample-logo.png';
+var sitelogoPath= '../template/sample-yoursite-logo.png';
 var avatorPath  = '../template/sample-avator.png';
 var substituteTitleImagePath    = '../template/sample-substituteTitleImage.png';
 
@@ -16,17 +17,25 @@ var substituteTitleImagePath    = '../template/sample-substituteTitleImage.png';
 // copy template file
 //------------------------------------
 if(hexo.config.generator_amp && hexo.config.generator_amp.templateDir && hexo.config.generator_amp.assetDistDir && hexo.config.generator_amp.logo && hexo.config.generator_amp.logo.path && hexo.config.generator_amp.substituteTitleImage && hexo.config.generator_amp.substituteTitleImage.path){
-	ic.initCopy(hexo.config.generator_amp.templateDir, [ejsPath, cssPath, logoPath, substituteTitleImagePath, avatorPath]);
+	ic.initCopy( pathFn.join(hexo.config.generator_amp.templateDir) , [ejsPath, cssPath, logoPath, sitelogoPath, substituteTitleImagePath, avatorPath]);
 }else{
 	console.log("\u001b[31m[hexo-generator-amp] (error) please setting option.\u001b[0m ");
 	return null;
 }
 
-var avatorDefaultPath = pathFn.basename( avatorPath );
+var avatorDefaultPath = "sample/" + pathFn.basename( avatorPath );
 if(hexo.config.authorDetail && hexo.config.authorDetail.avatar && hexo.config.authorDetail.avatar.path){
 	avatorDefaultPath = hexo.config.authorDetail.avatar.path;
 }
-var copyAssetsStatus  = ic.copyAssets(hexo.config.generator_amp.templateDir, hexo.config.generator_amp.assetDistDir, [hexo.config.generator_amp.logo.path, hexo.config.generator_amp.substituteTitleImage.path, avatorDefaultPath]);
+
+var siteLogImagePath = "";
+if(hexo.config.generator_amp.logo_topImage && hexo.config.generator_amp.logo_topImage.path){
+	siteLogImagePath = hexo.config.generator_amp.logo_topImage.path;
+}else{
+	siteLogImagePath = hexo.config.generator_amp.logo.path;
+}
+
+var copyAssetsStatus  = ic.copyAssets(hexo.config.generator_amp.templateDir, hexo.config.generator_amp.assetDistDir, [hexo.config.generator_amp.logo.path, hexo.config.generator_amp.substituteTitleImage.path, avatorDefaultPath, siteLogImagePath]);
 if(!copyAssetsStatus)return null;
 
 

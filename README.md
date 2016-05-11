@@ -12,7 +12,7 @@ Documents : [read me](https://tea3.github.io/p/published-hexo-generator-amp/)
   
 ## DEMO
 
-DEMO : [HTML page](https://tea3.github.io/p/hexo-markdown-notation/index.html)  |  [generated AMP HTML page](https://tea3.github.io/p/hexo-markdown-notation/index.amp.html#development=1)
+DEMO : [HTML page](https://tea3.github.io/p/hexo-markdown-notation/index.html)  |  [generated AMP HTML page](https://tea3.github.io/p/hexo-markdown-notation/amp/index.html#development=1)
 
 ## Installation
 
@@ -41,11 +41,11 @@ generator_amp:
   templateDir: amp-template
   assetDistDir: amp-dist
   logo:
-    path: sample-logo.png
+    path: sample/sample-logo.png
     width: 600
     height: 60
   substituteTitleImage: 
-    path: sample-substituteTitleImage.png
+    path: sample/sample-substituteTitleImage.png
     width: 1024
     height: 800
   google_analytics: UA-123456789-1
@@ -76,26 +76,30 @@ generator_amp:
   templateDir: amp-template
   assetDistDir: amp-dist
   logo:
-    path: sample-logo.png
-    width: 600
-    height: 60
+    path: sample/sample-logo.png
+    width: 600  # width <= 600px
+    height: 60  # width <= 60px
+  logo_topImage:                              #(optional)
+    path: sample/sample-yoursite-logo.png     #(optional)
+    width: 1024                               #(optional)
+    height: 400                               #(optional)
   substituteTitleImage: 
-    path: sample-substituteTitleImage.png
-    width: 1024
+    path: sample/sample-substituteTitleImage.png
+    width: 1024 # width >= 696px
     height: 800
-  cssFilePath: sample-amp.css   #(optional)
-  templateFilePath: sample-amp.ejs   #(optional)
+  cssFilePath: sample/sample-amp.css          #(optional)
+  templateFilePath: sample/sample-amp.ejs     #(optional)
   google_analytics: UA-123456789-1
-  html_minifier:     #(optional)
+  html_minifier:                              #(optional)
   warningLog: true
   
 authorDetail:
-  authorReading: Your name description #(optional)
+  authorReading: Your name description        #(optional)
   avatar:
-    path: sample-avator.png #(optional)
-    width: 150 #(optional)
-    height: 150 #(optional)
-  description: Self introduction #(optional)
+    path: sample/sample-avator.png            #(optional)
+    width: 150                                #(optional)
+    height: 150                               #(optional)
+  description: Self introduction              #(optional)
 copyright_notice: The footer copyright notice #(optional)
 ```
 
@@ -113,9 +117,13 @@ copyright_notice: The footer copyright notice #(optional)
 - **templateDir**: File path of a your AMP template files.
 - **assetDistDir**: File path of a your public AMP Assets.
 - logo
-  - **logo.path**: File path of a your logo image.
-  - **logo.width**: Width of a your logo image. ([width <= 600px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))
-  - **logo.height**: Height of a your logo image. ([height <= 60px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))
+  - **logo.path**: File path of a your logo (schema.org logo for AMP) image.
+  - **logo.width**: Width of a your logo (schema.org logo for AMP) image. ([width <= 600px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))
+  - **logo.height**: Height of a your logo (schema.org logo for AMP) image. ([height <= 60px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))
+- logo_topImage
+  - **logo_topImage.path**: File path of a your site logo image.
+  - **logo_topImage.width**: Width of a your site logo image.
+  - **logo_topImage.height**: Height of a your site logo image.
 - substituteTitleImage
   - **substituteTitleImage.path**: File path of a your substitute title image. (Use this when the image is not in the markdown)
   - **substituteTitleImage.width**: Width of a your substitute title image. ([width >= 696px](https://developers.google.com/structured-data/carousels/top-stories#markup_specification))
