@@ -6,10 +6,15 @@ AMP ⚡ HTML (Accelerated Mobile Pages) generator for [Hexo](https://github.com/
 
 `hexo-generator-amp` helps you hexo's projects that automatically generates AMP. 
 Output file path is the `./amp/index.html`.  Also, You can freely choose the template(.ejs) and style(.css).
-  
+
 Documents : [read me](https://tea3.github.io/p/published-hexo-generator-amp/)
-  
-  
+
+### Supports the following external services
+
+- [Youtube](https://github.com/ampproject/amphtml/blob/master/examples/youtube.amp.html)
+- [Vimeo](https://github.com/ampproject/amphtml/blob/master/examples/vimeo.amp.html)
+- [Instagram](https://github.com/ampproject/amphtml/blob/master/examples/instagram.amp.html)
+
 ## DEMO
 
 DEMO : [HTML page](https://tea3.github.io/p/hexo-markdown-notation/index.html)  |  [generated AMP HTML page](https://tea3.github.io/p/hexo-markdown-notation/amp/index.html#development=1)
