@@ -9,15 +9,16 @@ Output file path is the `./amp/index.html`.  Also, You can freely choose the tem
 
 Documents : [read me](https://tea3.github.io/p/published-hexo-generator-amp/)
 
+## DEMO
+
+DEMO : [HTML page](https://tea3.github.io/p/hexo-markdown-notation/index.html)  |  [generated AMP HTML page](https://tea3.github.io/p/hexo-markdown-notation/amp/index.html#development=1)
+
 ### Supports the following external services
 
 - [Youtube](https://github.com/ampproject/amphtml/blob/master/examples/youtube.amp.html)
 - [Vimeo](https://github.com/ampproject/amphtml/blob/master/examples/vimeo.amp.html)
 - [Instagram](https://github.com/ampproject/amphtml/blob/master/examples/instagram.amp.html)
 
-## DEMO
-
-DEMO : [HTML page](https://tea3.github.io/p/hexo-markdown-notation/index.html)  |  [generated AMP HTML page](https://tea3.github.io/p/hexo-markdown-notation/amp/index.html#development=1)
 
 ## Installation
 
