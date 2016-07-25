@@ -134,7 +134,7 @@ copyright_notice: The footer copyright notice #(optional)
   - **substituteTitleImage.path**: File path of a your substitute title image. (Use this when the image is not in the markdown)
   - **substituteTitleImage.width**: Width of a your substitute title image. ([width >= 696px](https://developers.google.com/structured-data/carousels/top-stories#markup_specification))
   - **substituteTitleImage.height**: Height of a your substitute title image.
-- **cssFilePath(optional)**: File path of a your css file for AMP. (e.g. ./sample-amp.css)
+- **cssFilePath(optional)**: File path of a your css file for AMP. (e.g. ./sample-amp.css) [It is a validation error if the author stylesheet is larger than 50,000 bytes.](https://github.com/ampproject/amphtml/blob/master/spec/amp-html-format.md#maximum-size)
 - **templateFilePath(optional)**: File path of a your template file for AMP. (e.g. ./sample-amp.ejs)
 - **google_analytics**: Your google analytics tracking ID.
 - **html_minifier**: Enabled html_minifier. Please see [kangax/html-minifier](https://github.com/kangax/html-minifier) for the details.
