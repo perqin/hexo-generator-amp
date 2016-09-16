@@ -1,6 +1,6 @@
 {
   "name": "hexo-generator-amp",
-  "version": "0.1.16",
+  "version": "0.1.19",
   "main": "index",
   "dependencies": {
     "cheerio": "^0.19.0",
@@ -39,7 +39,9 @@
   "keywords": [
     "generator",
     "hexo",
-    "amp"
+    "amp",
+    "google",
+    "mobile"
   ],
   "license": "MIT",
   "maintainers": [
