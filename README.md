@@ -98,6 +98,7 @@ generator_amp:
   google_analytics: UA-123456789-1
   html_minifier:                              #(optional)
   warningLog: true
+  onlyForDeploy: false                        #(optional)
   
 authorDetail:
   authorReading: Your name description        #(optional)
@@ -139,6 +140,7 @@ copyright_notice: The footer copyright notice #(optional)
 - **google_analytics**: Your google analytics tracking ID.
 - **html_minifier**: Enabled html_minifier. Please see [kangax/html-minifier](https://github.com/kangax/html-minifier) for the details.
 - **warningLog**: Enabled warnings.
+- **onlyForDeploy**: This option to shorten the hours, when you run local server. Option switch from ordinary-use to deploy-only. (default:`false`)
 
 #### Auther detail settings (optional)
 - **authorReading**: Your name description.
