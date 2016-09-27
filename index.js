@@ -1,10 +1,14 @@
 'use strict';
 
-var assign   = require('object-assign');
-var ic       = require('./lib/copyAssets.js');
-var pathFn   = require('path');
-var hexo_env = require('hexo-env');
-var isEnableAMP  = true;
+var assign      = require('object-assign');
+var pathFn      = require('path');
+var hexo_env    = require('hexo-env');
+var ic          = require('./lib/copyAssets.js');
+var lg          = require('./lib/log.js');
+var isEnableAMP = true;
+
+lg.setConfig(hexo.config);
+ic.setConfig(hexo.config);
 
 if(hexo.config.generator_amp && hexo.config.generator_amp.onlyForDeploy){
 	isEnableAMP = hexo.config.generator_amp.onlyForDeploy && (hexo_env.env(hexo) == 'production');
@@ -26,7 +30,7 @@ if( isEnableAMP ){
 	if(hexo.config.generator_amp && hexo.config.generator_amp.templateDir && hexo.config.generator_amp.assetDistDir && hexo.config.generator_amp.logo && hexo.config.generator_amp.logo.path && hexo.config.generator_amp.substituteTitleImage && hexo.config.generator_amp.substituteTitleImage.path){
 		ic.initCopy( pathFn.join(hexo.config.generator_amp.templateDir) , [ejsPath, cssPath, logoPath, sitelogoPath, substituteTitleImagePath, avatorPath]);
 	}else{
-		console.log("\u001b[31m[hexo-generator-amp] (error) please setting option.\u001b[0m ");
+		lg.log("error", "Please set the generator_amp option." , "_config.yml");
 		return null;
 	}
 

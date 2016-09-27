@@ -1,24 +1,15 @@
 # hexo-generator-amp
 
-AMP ⚡ HTML (Accelerated Mobile Pages) generator for [Hexo](https://github.com/hexojs/hexo).
+AMP ⚡ HTML (Accelerated Mobile Pages Project HTML) generator for [Hexo](https://github.com/hexojs/hexo).
 
 ## Orverview
 
-`hexo-generator-amp` helps you hexo's projects that automatically generates AMP. 
-Output file path is the `./amp/index.html`.  Also, You can freely choose the template(.ejs) and style(.css).
-
-Documents : [read me](https://tea3.github.io/p/published-hexo-generator-amp/)
+This plugin automatically generates [AMP HTML](https://www.ampproject.org/docs/get_started/about-amp.html) pages.
+Output file path is `./your-parmalink/amp/`.  Also, You can freely choose the template(.ejs) and style(.css).
 
 ## DEMO
 
-DEMO : [HTML page](https://tea3.github.io/p/hexo-markdown-notation/index.html)  |  [generated AMP HTML page](https://tea3.github.io/p/hexo-markdown-notation/amp/index.html#development=1)
-
-### Supports the following external services
-
-- [Youtube](https://github.com/ampproject/amphtml/blob/master/examples/youtube.amp.html)
-- [Vimeo](https://github.com/ampproject/amphtml/blob/master/examples/vimeo.amp.html)
-- [Instagram](https://github.com/ampproject/amphtml/blob/master/examples/instagram.amp.html)
-
+DEMO : [HTML page](https://tea3.github.io/p/hexo-markdown-notation/)  |  [generated AMP HTML page](https://tea3.github.io/p/hexo-markdown-notation/amp/#development=1)
 
 ## Installation
 
@@ -26,9 +17,11 @@ DEMO : [HTML page](https://tea3.github.io/p/hexo-markdown-notation/index.html)  
 $ npm install hexo-generator-amp --save
 ```
 
-#### 1. Edit your theme
+## Usage
 
-Then add this theme in your `themes/(your-theme)/layout/_partial/head.ejs`.
+### 1. Edit your theme
+
+First, add the following in your template files. For example , Please edit `themes/(your-theme)/layout/_partial/head.ejs`.
 
 ``` ejs
   <% if (is_post() && config.generator_amp){ %>
@@ -37,12 +30,12 @@ Then add this theme in your `themes/(your-theme)/layout/_partial/head.ejs`.
 ```
 
 
-#### 2. Add your config file
+### 2. Add your config file
 
-Please set the following options . Please edit your config file (`_config.yml`).
+Please set the following options. Please edit `_config.yml`.
 
 ``` yaml
-# Quick start Settings of hexo-amp-generator
+# The following settings is the quick start options.
 generator_amp:
   templateDir: amp-template
   assetDistDir: amp-dist
@@ -58,9 +51,19 @@ generator_amp:
   warningLog: false
 ```
 
-#### 3. Validate AMP
+### 3. Run server
 
-Output file path is the `./amp/index.html`. Validate your AMP pages. Please see below
+Starts a local server. By default, this is at `http://localhost:4000/`.
+
+``` bash
+$ hexo server
+```
+
+### 4. Validate AMP Pages
+
+This plugin generated the AMP HTML. Output file path is `./your-parmalink/amp/`. 
+
+Now validate your AMP pages. Open your AMP page in your browser. Open the Chrome DevTools console and check for validation errors. Please Append `http://localhost:4000/your-parmalink/amp/#development=1` to the URL. Please see below for the details.
 
 > Accelerated Mobile Pages Project - [Validate AMP Pages](https://www.ampproject.org/docs/guides/validate.html)
 
@@ -69,7 +72,7 @@ Output file path is the `./amp/index.html`. Validate your AMP pages. Please see 
 
 ## Options
 
-`hexo-generator-amp` can set the following options.
+This plugin can set the following options. Please edit `_config.yml`.
 
 ``` yaml
 # Advanced Settings of hexo-amp-generator
@@ -109,8 +112,6 @@ authorDetail:
   description: Self introduction              #(optional)
 copyright_notice: The footer copyright notice #(optional)
 ```
-
-
 
 
 ### A description of the options
@@ -193,6 +194,14 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post.
 ...
 
 ```
+
+## Supports external services
+
+Supports the following external services.
+
+- [Youtube](https://github.com/ampproject/amphtml/blob/master/examples/youtube.amp.html)
+- [Vimeo](https://github.com/ampproject/amphtml/blob/master/examples/vimeo.amp.html)
+- [Instagram](https://github.com/ampproject/amphtml/blob/master/examples/instagram.amp.html)
 
 
 ## License
