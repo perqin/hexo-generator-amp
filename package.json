@@ -1,6 +1,6 @@
 {
   "name": "hexo-generator-amp",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "index",
   "dependencies": {
     "cheerio": "^0.22.0",

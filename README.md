@@ -36,7 +36,10 @@ First, add the following in your template files. For example , Please edit `them
   <% } %>
 ```
 
-Please refer [#13](https://github.com/tea3/hexo-generator-amp/issues/13) about how to use this plugin with jade based templates.
+Please refer follow as about how to use this plugin with based other templates.
+
+- [jade](https://github.com/tea3/hexo-generator-amp/issues/13)
+- [swig](https://github.com/tea3/hexo-generator-amp/issues/14)
 
 
 ### 2. Add your config file
