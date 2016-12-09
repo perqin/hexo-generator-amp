@@ -24,5 +24,8 @@ Icon
 .Spotlight-V100
 .Trashes
 
+# VS Code
+.vscode
+
 # Folder Ignores
 node_modules
