@@ -130,7 +130,7 @@
 					  </h1>
 					<% } else if (post.title){ %>
 					  <h1 class="article-title entry-title" itemprop="name">
-					    <%= post.title %>
+					    <a href="<%- config.url %>/<%- post.path %>" target="_blank" itemprop="url"><%= post.title %></a>
 					  </h1>
 					<% } %>
 				</header>
@@ -138,15 +138,49 @@
 				<!-- entry content -->
 			    <div class="entry-content ecp">
 			  		<%- content %>
+			  		<!--
+			  		<div class="htmlPageLink">
+			  			<a href="<%- config.url %>/<%- post.path %>" target="_blank" itemprop="url">jump to HTML Page</a>
+			  		</div>
+			  		-->
 			  	</div>
 				
 		  	</article>
 		  	
+		  	<% if (post.tags && post.tags.length){ %>
+		  	<h6 class="categories">Category</h6>
+		  	<div class="article-categories">
+				<ul class="article-categories-list">
+					<% post.categories.data.forEach(function(item){ %>
+			    		<li class="article-categories-list-item">
+			    			<a class="article-categories-list-link" href="/<%- item.path %>" class="link-gaTrack" data-linkType="link-categories">
+			    				<%- item.name %>
+			    			</a>
+			    		</li>
+					<% }); %>
+				</ul>
+			</div>
+			<% } %>
+		  	
+		  	<% if (post.tags && post.tags.length){ %>
+		  	<h6 class="tag">Tag</h6>
+		  	<div class="article-tag">
+				<ul class="article-tag-list">
+					<% post.tags.data.forEach(function(item){ %>
+			    		<li class="article-tag-list-item">
+			    			<a class="article-tag-list-link" href="/<%- item.path %>" class="link-gaTrack" data-linkType="link-tag">
+			    				<%- item.name %>
+			    			</a>
+			    		</li>
+					<% }); %>
+				</ul>
+			</div>
+			<% } %>
+
+		  	
 		  	<hr class="article-devider">
 		  	
-		  	<div class="homeLink">
-		  		<a href="/"><strong class="article-nav-caption">HOME</strong></a>
-		  	</div>
+		  	
 		  	
 		  	<!-- article nav -->
 		  	<% if (post.prev || post.next){ %>
@@ -207,6 +241,11 @@
 				
 			</div>
 			
+			<div class="homeLink">
+		  		<a href="/">Home</a>
+		  	</div>
+			
+			<div id="totop"><a href="#"></a></div>
 			
 			<div class="copyright-tool">
 				<div class="copyright-title">
@@ -222,6 +261,7 @@
 				</div>
 				<% } %>
 			</div>
+			
 			
 			
 		</footer>

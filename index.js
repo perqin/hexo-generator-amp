@@ -5,6 +5,8 @@ var pathFn      = require('path');
 var hexo_env    = require('hexo-env');
 var ic          = require('./lib/copyAssets.js');
 var lg          = require('./lib/log.js');
+var su          = require('./lib/settingsUpdate.js');
+var cache       = require('./lib/cache.js');
 var isEnableAMP = true;
 
 lg.setConfig(hexo.config);
@@ -63,6 +65,16 @@ hexo.config.generator_amp = assign({
 	}
 });
 
+var shush     = su.chkUpdate(hexo.config);
+var cacheHash = cache.getCacheHash(hexo.config);
+
+hexo.config.generator_amp = assign({},
+	hexo.config.generator_amp, {
+		"hash" : shush ,
+		"isCasheUpdate": (shush != cacheHash),
+		"isCasheClear": (shush != cacheHash)
+	}
+);
 
 hexo.extend.generator.register('amp', require('./lib/generator'));
 hexo.extend.filter.register('after_post_render', require('./lib/eyeCatchVars') );
