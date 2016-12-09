@@ -1,10 +1,11 @@
 {
   "name": "hexo-generator-amp",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "index",
   "dependencies": {
     "cheerio": "^0.22.0",
     "ejs": "^2.4.1",
+    "hasha": "^2.2.0",
     "hexo-env": "^0.0.1",
     "hexo-fs": "^0.1.6",
     "hexo-pagination": "^0.0.2",
@@ -36,7 +37,8 @@
     "html",
     "google",
     "mobile",
-    "The-Accelerated-Mobile-Pages"
+    "The-Accelerated-Mobile-Pages",
+    "Static-site-generator"
   ],
   "license": "MIT",
   "maintainers": [
