@@ -1,18 +1,19 @@
 {
   "name": "hexo-generator-amp",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "main": "index",
   "dependencies": {
     "cheerio": "^0.22.0",
-    "ejs": "^2.4.1",
+    "ejs": "^2.5.5",
     "hexo-env": "^0.0.1",
     "hexo-fs": "^0.1.6",
-    "hexo-pagination": "^0.0.2",
-    "html-minifier": "^2.1.2",
+    "hexo-pagination": "^0.1.0",
+    "html-minifier": "^3.2.3",
     "image-size": "^0.5.0",
     "log-util": "^1.1.2",
     "mkdirp": "^0.5.1",
-    "object-assign": "^2.0.0"
+    "moment": "^2.17.1",
+    "object-assign": "^4.1.0"
   },
   "description": "AMP ⚡ HTML (Accelerated Mobile Pages) generator for Hexo.",
   "devDependencies": {},
