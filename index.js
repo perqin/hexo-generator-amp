@@ -17,7 +17,6 @@ if(hexo.config.generator_amp && hexo.config.generator_amp.onlyForDeploy){
 	lg.log("info", "'onlyForDeploy' option deprecated. Please set the 'cache' option." , null);
 }
 
-console.log('__dirname=' + __dirname);
 //default path
 var ejsPath     = '../template/sample-amp.ejs';
 var cssPath     = '../template/sample-amp.css';
