@@ -145,6 +145,10 @@ Option can use as follows.
 
 #### 1. Google Adsense Option
 
+If an advertisement is found in an article, it will be converted to AMP specification.
+
+Adout Google Adsense , please see [Create an AMP ad unit](https://support.google.com/adsense/answer/7183212?hl=en) for the details.
+
 | option | description |
 | :---: | :--- |
 | data_ad_client | substitute data_ad_client id |

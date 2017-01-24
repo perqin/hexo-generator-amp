@@ -1230,6 +1230,9 @@ td.code,
   color: #fff;
   line-height: 2.3em;
 }
+amp-ad {
+  margin: 2.8em auto;
+}
 @media (min-width: 800px) {
   #container {
     width: 780px;
