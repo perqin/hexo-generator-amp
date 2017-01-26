@@ -70,6 +70,8 @@ Starts a local server. By default, this is at `http://localhost:4000/`.
 $ hexo server
 ```
 
+If occured plugin error , Please refer [#17](https://github.com/tea3/hexo-generator-amp/issues/17) and [other issue](https://github.com/tea3/hexo-generator-amp/issues?q=is%3Aissue+is%3Aclosed) .
+
 ### 4. Validate AMP Pages
 
 This plugin generated the AMP HTML. Output file path is `./your-parmalink/amp/`. 
@@ -78,7 +80,7 @@ Now validate your AMP pages. Open your AMP page in your browser. Open the Chrome
 
 > Accelerated Mobile Pages Project - [Validate AMP Pages](https://www.ampproject.org/docs/guides/validate.html)
 
-> How to validate AMP - [my blog](https://tea3.github.io/p/how-to-validate-amp/)
+> How to validate AMP - [my blog](https://tea3.github.io/p/how-to-validate-amp/) (Japanese)
 
 
 ## Options
