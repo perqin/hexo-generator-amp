@@ -1230,7 +1230,7 @@ td.code,
   color: #fff;
   line-height: 2.3em;
 }
-amp-instagram , amp-vimeo , amp-video , amp-youtube , amp-ad {
+amp-instagram , amp-vimeo , amp-video , amp-youtube , amp-ad , amp-twitter {
   margin: 2.8em auto;
 }
 @media (min-width: 800px) {

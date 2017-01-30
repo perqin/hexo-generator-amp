@@ -296,6 +296,7 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post.
 
 Supports the following external services.
 
+- [Twitter](https://github.com/ampproject/amphtml/blob/master/examples/twitter.amp.html)
 - [Youtube](https://github.com/ampproject/amphtml/blob/master/examples/youtube.amp.html)
 - [Vimeo](https://github.com/ampproject/amphtml/blob/master/examples/vimeo.amp.html)
 - [Instagram](https://github.com/ampproject/amphtml/blob/master/examples/instagram.amp.html)
