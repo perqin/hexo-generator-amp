@@ -7,6 +7,8 @@ AMP ⚡ HTML (Accelerated Mobile Pages Project HTML) generator for [Hexo](https:
 This plugin automatically generates [AMP HTML](https://www.ampproject.org/docs/get_started/about-amp.html) pages.
 Output file path is `./your-parmalink/amp/`.  Also, You can freely choose the template(.ejs) and style(.css).
 
+![Screenshot](src/img/hexo2amp.png)
+
 ###  Update Notice v1.0.3
 
 Added `cache` option. This option improves the generation speed. Old articles will not be generated AMP HTML again. Old articles will use cache.
@@ -82,6 +84,19 @@ Now validate your AMP pages. Open your AMP page in your browser. Open the Chrome
 
 > How to validate AMP - [my blog](https://tea3.github.io/p/how-to-validate-amp/) (Japanese)
 
+#### Internal validation (Auto AMP Validation)
+
+If you want to use [AMP Validator](https://validator.ampproject.org/) in this plugin , please change the `warningLog: true`. 
+
+``` yaml
+# If you want to use AMP Validation , please edit _config.yml.
+generator_amp:
+  warningLog: true   # If you want to validate, please set true.
+```
+
+For example , if occur the AMP validation error , this plugin displaying following error message .
+
+![ValidationAmp](src/img/ampvalid.png)
 
 ## Options
 
