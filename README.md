@@ -2,16 +2,12 @@
 
 AMP ⚡ HTML (Accelerated Mobile Pages Project HTML) generator for [Hexo](https://github.com/hexojs/hexo).
 
-## Orverview
-
-This plugin automatically generates [AMP HTML](https://www.ampproject.org/docs/get_started/about-amp.html) pages.
-Output file path is `./your-parmalink/amp/`.  Also, You can freely choose the template(.ejs) and style(.css).
-
 ![Screenshot](src/img/hexo2amp.png)
 
-###  Update Notice v1.0.3
+## Orverview
 
-Added `cache` option. This option improves the generation speed. Old articles will not be generated AMP HTML again. Old articles will use cache.
+This plugin automatically generates [AMP HTML](https://www.ampproject.org/docs/get_started/about-amp.html) pages and validate AMP HTML automaticaly.
+Output file path is `./your-posts-parmalink/amp/`.  Also, You can freely cutomize the template(.ejs) and style(.css). Further , you can also use caching to speed up generation time.
 
 ## DEMO
 
@@ -28,14 +24,26 @@ $ npm install hexo-generator-amp --save
 
 ## Usage
 
+To use this plug-in, follow the steps below.
+
+1. Edit your theme
+2. Set the quick option
+3. Run server
+4. Validate AMP HTML
+5. Deploy
+
 ### 1. Edit your theme
 
-First, add the following in your template files. For example , Please edit `themes/(your-theme)/layout/_partial/head.ejs`.
+You must add AMP HTML's link to non-AMP.
+
+> Accelerated Mobile Pages Project - [Prepare Your Page for Discovery and Distribution](https://www.ampproject.org/docs/get_started/create/prepare_for_discovery)
+
+First, add the following in your template files. For example , Please edit `themes/(your-theme)/layout/_partial/head.ejs` as following .
 
 ``` ejs
-  <% if (is_post() && config.generator_amp){ %>
-    <link rel="amphtml" href="./amp/index.html">
-  <% } %>
+<% if (is_post() && config.generator_amp){ %>
+  <link rel="amphtml" href="<%= config.url %>/<%= page.path %>/amp/index.html">
+<% } %>
 ```
 
 Please refer follow as about how to use this plugin with based other templates.
@@ -44,7 +52,7 @@ Please refer follow as about how to use this plugin with based other templates.
 - [swig](https://github.com/tea3/hexo-generator-amp/issues/14)
 
 
-### 2. Add your config file
+### 2. Set the quick option
 
 Please set the following options. Please edit `_config.yml`.
 
@@ -61,7 +69,7 @@ generator_amp:
     path:   sample/sample-substituteTitleImage.png
     width:  1024
     height: 800
-  warningLog: false   # If you want to validate, please set true.
+  warningLog: false   # To AMP HTML validate automatically, please set true.
 ```
 
 ### 3. Run server
@@ -72,35 +80,64 @@ Starts a local server. By default, this is at `http://localhost:4000/`.
 $ hexo server
 ```
 
+This plugin generated the AMP HTML. Please open `http://localhost:4000/your-posts-parmalink/amp/` in browser.
+
 If occured plugin error , Please refer [#17](https://github.com/tea3/hexo-generator-amp/issues/17) and [other issue](https://github.com/tea3/hexo-generator-amp/issues?q=is%3Aissue+is%3Aclosed) .
 
-### 4. Validate AMP Pages
+### 4. Validate AMP HTML
 
-This plugin generated the AMP HTML. Output file path is `./your-parmalink/amp/`. 
+This plugin generated the AMP HTML. Output file path is `./your-posts-parmalink/amp/`. You should validate AMP HTML .
 
-Now validate your AMP pages. Open your AMP page in your browser. Open the Chrome DevTools console and check for validation errors. Please Append `http://localhost:4000/your-parmalink/amp/#development=1` to the URL. Please see below for the details.
+#### About general validation method
+
+Now validate your AMP HTML. First off all , open your AMP HTML page in [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/). The Chrome DevTools console can check for AMP HTML . Second , please Append `http://localhost:4000/your-posts-parmalink/amp/#development=1` to the URL. Please see below for the details.
 
 > Accelerated Mobile Pages Project - [Validate AMP Pages](https://www.ampproject.org/docs/guides/validate.html)
 
 > How to validate AMP - [my blog](https://tea3.github.io/p/how-to-validate-amp/) (Japanese)
 
-#### Internal validation (Auto AMP Validation)
+#### Internal validation (Automatically validate AMP HTML)
 
-If you want to use [AMP Validator](https://validator.ampproject.org/) in this plugin , please change the `warningLog: true`. 
+This plugin can validate without being conscious AMP HTML automatically by [amphtml-validator ( AMP HTML validator command line tool )](https://www.npmjs.com/package/amphtml-validator).
+
+To use Internal Validation , please change the `warningLog: true`. 
 
 ``` yaml
-# If you want to use AMP Validation , please edit _config.yml.
+# Please edit _config.yml.
 generator_amp:
-  warningLog: true   # If you want to validate, please set true.
+  warningLog: true   # To AMP HTML validate automatically,, please set true.
 ```
 
-For example , if occur the AMP validation error , this plugin displaying following error message .
+For example , when occur the AMP validation error , this plugin displaying following error message .
 
 ![ValidationAmp](src/img/ampvalid.png)
 
+The content of the message is the same as [AMP Validator](https://validator.ampproject.org/) .
+
+## 5.Deploy
+
+If no AMP HTML Validation error is displayed , verification is complete . Please deploy at the end.
+
+``` bash
+$ hexo clean
+$ hexo server
+$ hexo deploy -g
+```
+
+When the deployment is completed , Please check the [AMP report](https://support.google.com/webmasters/answer/6328309?hl=en)
+
+## Can I customize template ?
+
+You can freely cutomize the template(.ejs) and style(.css).  Please edit template files included in the `/amp-template/` . Also , template directory can change in the `_config.yml`. 
+
+``` yaml
+generator_amp:
+  templateDir:  amp-template # change this
+```
+
 ## Options
 
-This plugin can set the following options. Please edit `_config.yml`.
+This plugin can set the following options for more detail. Please edit `_config.yml`.
 
 ``` yaml
 # Advanced Settings of hexo-amp-generator
@@ -137,7 +174,7 @@ generator_amp:
   # 4. Minify Option
   html_minifier:                              #(optional)
   
-  # 5. Log Option
+  # 5. Log & AMP Validation Option
   warningLog: true                            #(optional)
   
   # 6. Cache Option
@@ -182,15 +219,17 @@ Adout Google Adsense , please see [Create an AMP ad unit](https://support.google
 |**templateDir**|File path of a your AMP template files.|
 |**assetDistDir**|File path of a your public AMP Assets.|
 
-##### `logo`
+##### logo
+
+`logo` use for [AMP with structured data](https://developers.google.com/search/docs/data-types/articles) .
 
 | option | description |
 | :---: | :--- |
 |**path**|File path of a your logo (schema.org logo for AMP) image.|
-|**width**|Width of a your logo (schema.org logo for AMP) image. ([width <= 600px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))|
-|**height**|Height of a your logo (schema.org logo for AMP) image. ([height <= 60px](https://developers.google.com/structured-data/carousels/top-stories#logo_guidelines))|
+|**width**|Width of a your logo (schema.org logo for AMP) image. ([width <= 600px](https://developers.google.com/search/docs/data-types/articles#logo-guidelines))|
+|**height**|Height of a your logo (schema.org logo for AMP) image. ([height <= 60px](https://developers.google.com/search/docs/data-types/articles#logo-guidelines))|
 
-##### `logo_topImage`
+##### logo_topImage
 
 | option | description |
 | :---: | :--- |
@@ -198,12 +237,18 @@ Adout Google Adsense , please see [Create an AMP ad unit](https://support.google
 |width|Width of a your site logo image.|
 |height|Height of a your site logo image.|
 
-##### `substituteTitleImage`
+##### substituteTitleImage
+
+`substituteTitleImage` use for [AMP with structured data](https://developers.google.com/search/docs/data-types/articles) .
+
+This plugin search automaticaly the information that the AMP carousel need for [structured data](https://developers.google.com/search/docs/data-types/articles)([schema.org/BlogPosting](https://schema.org/BlogPosting)).
+
+However, if an [image that use for schema.org/BlogPosting](https://schema.org/BlogPosting) can not be found in content , this  substitute image is used.
 
 | option | description |
 | :---: | :--- |
 |**path**|File path of a your substitute title image. (Use this when the image is not in the markdown)|
-|**width**|Width of a your substitute title image. ([width >= 696px](https://developers.google.com/structured-data/carousels/top-stories#markup_specification))|
+|**width**|Width of a your substitute title image. ([width >= 696px](https://developers.google.com/search/docs/data-types/articles#article_types))|
 |**height**|Height of a your substitute title image.|
 
 ##### cssFilePath & templateFilePath
@@ -226,27 +271,31 @@ Adout Google Adsense , please see [Create an AMP ad unit](https://support.google
 | :---: | :--- |
 |html_minifier|Enabled html_minifier. Please see [kangax/html-minifier](https://github.com/kangax/html-minifier) for the details.|
 
-#### 5. Log Option
+#### 5. Log & Auto Validation Option 
 
 | option | description |
 | :---: | :--- |
-|warningLog|Enabled warnings.|
+|warningLog| Enabled warnings and AMP HTML Validation . |
 
 #### 6. Cache Option
 
+This option improves the generation speed. Old articles will not be generated AMP HTML again and skip AMP HTML Validation . Old articles will use cache.
+
 | option | description |
 | :---: | :--- |
-|cache|This option improves the generation speed. Old articles will not be generated AMP HTML again. Old articles will use cache.|
+|cache| Enabled cache |
 
 #### 7. Footer Option (authorDetail)
 
-##### `authorReading`
+This option use for sample template for AMP HTML.
+
+##### authorReading
 
 | option | description |
 | :---: | :--- |
 |authorReading|Your name description.|
 
-##### `avatar`
+##### avatar
 
 | option | description |
 | :---: | :--- |
@@ -254,13 +303,13 @@ Adout Google Adsense , please see [Create an AMP ad unit](https://support.google
 |width|Width of a your avator image.|
 |height|Height of a your avator image.|
 
-##### `description`
+##### description
 
 | option | description |
 | :---: | :--- |
 |description|Self introduction.|
 
-##### `copyright_notice`
+##### copyright_notice
 
 | option | description |
 | :---: | :--- |
@@ -271,9 +320,13 @@ Adout Google Adsense , please see [Create an AMP ad unit](https://support.google
 
 ## Front-matter option.
 
+This plugin search automaticaly the information that the AMP carousel need for [structured data](https://developers.google.com/search/docs/data-types/articles)([schema.org/BlogPosting](https://schema.org/BlogPosting))
+
+But you can also specify information for each article.
 
 ### ampSettings.titleImage.path (optional)
-You can choose path of schema.org image on a per post. If your post is not contain this option , this plugin search image from content. 
+
+You can choose URL of [image in BlogPosting(schema.org)](https://schema.org/BlogPosting) on a per post. If post is not contain this option , this plugin search the first image's URL from the content.
 
 For example : `hello-world.md` , Please set the following options.
 
