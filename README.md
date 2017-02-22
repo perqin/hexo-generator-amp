@@ -395,7 +395,7 @@ Supports the following external services.
 - [Google Adsense (amp-ad)](https://www.ampproject.org/docs/reference/components/amp-ad)
 - [Sound Cloud (amp-soundcloud)](https://www.ampproject.org/docs/reference/components/amp-soundcloud) for [hexo-tag-soundcloud](https://github.com/tea3/hexo-tag-soundcloud)
 
-In addition to the above, the embedded `<iframe>` tag is converted to [<amp-iframe>](https://www.ampproject.org/docs/guides/iframes) tag.
+In addition to the above, the embedded `<iframe>` tag is converted to [amp-iframe](https://www.ampproject.org/docs/guides/iframes) tag.
 
 If you want to supports other services , please [add new filter](https://github.com/tea3/hexo-generator-amp/tree/master/lib/filter) and [give me pull request](https://github.com/tea3/hexo-generator-amp/pulls) .
 
