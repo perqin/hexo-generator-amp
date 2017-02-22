@@ -18,18 +18,19 @@ if(hexo.config.generator_amp && hexo.config.generator_amp.onlyForDeploy){
 }
 
 //default path
-var ejsPath     = '../template/sample-amp.ejs';
-var cssPath     = '../template/sample-amp.css';
-var logoPath    = '../template/sample-logo.png';
-var sitelogoPath= '../template/sample-yoursite-logo.png';
-var avatarPath  = '../template/sample-avator.png';
+var ejsPath         = '../template/sample-amp.ejs';
+var cssPath         = '../template/sample-amp.css';
+var logoPath        = '../template/sample-logo.png';
+var sitelogoPath    = '../template/sample-yoursite-logo.png';
+var avatarPath      = '../template/sample-avator.png';
+var placeholderPath = '../template/sample-placeholder.png';
 var substituteTitleImagePath    = '../template/sample-substituteTitleImage.png';
 
 //------------------------------------
 // copy template file
 //------------------------------------
 if(hexo.config.generator_amp && hexo.config.generator_amp.templateDir && hexo.config.generator_amp.assetDistDir && hexo.config.generator_amp.logo && hexo.config.generator_amp.logo.path && hexo.config.generator_amp.substituteTitleImage && hexo.config.generator_amp.substituteTitleImage.path){
-	ic.initCopy( pathFn.join(hexo.config.generator_amp.templateDir) , [ejsPath, cssPath, logoPath, sitelogoPath, substituteTitleImagePath, avatarPath]);
+	ic.initCopy( pathFn.join(hexo.config.generator_amp.templateDir) , [ejsPath, cssPath, logoPath, sitelogoPath, substituteTitleImagePath, avatarPath , placeholderPath]);
 }else{
 	lg.log("error", "Please set the generator_amp option." , "_config.yml");
 	return null;
@@ -40,6 +41,11 @@ if(hexo.config.authorDetail && hexo.config.authorDetail.avatar && hexo.config.au
 	avatorDefaultPath = hexo.config.authorDetail.avatar.path;
 }
 
+var placeholderDefaultPath = "sample/" + pathFn.basename( placeholderPath );
+if(hexo.config.generator_amp.placeholderImg && hexo.config.generator_amp.placeholderImg.path){
+	placeholderDefaultPath = hexo.config.generator_amp.placeholderImg.path;
+}
+
 var siteLogImagePath = "";
 if(hexo.config.generator_amp.logo_topImage && hexo.config.generator_amp.logo_topImage.path){
 	siteLogImagePath = hexo.config.generator_amp.logo_topImage.path;
@@ -47,7 +53,7 @@ if(hexo.config.generator_amp.logo_topImage && hexo.config.generator_amp.logo_top
 	siteLogImagePath = hexo.config.generator_amp.logo.path;
 }
 
-var copyAssetsStatus  = ic.copyAssets(hexo.config.generator_amp.templateDir, hexo.config.generator_amp.assetDistDir, [hexo.config.generator_amp.logo.path, hexo.config.generator_amp.substituteTitleImage.path, avatorDefaultPath, siteLogImagePath]);
+var copyAssetsStatus  = ic.copyAssets(hexo.config.generator_amp.templateDir, hexo.config.generator_amp.assetDistDir, [hexo.config.generator_amp.logo.path, hexo.config.generator_amp.substituteTitleImage.path, avatorDefaultPath, siteLogImagePath , placeholderDefaultPath]);
 if(!copyAssetsStatus)return null;
 
 
@@ -60,6 +66,7 @@ hexo.config.generator_amp = assign({
 		"css" : cssPath ,
 		"logo": logoPath ,
 		"avator" : avatarPath ,
+		"placeholder": placeholderPath ,
 		"substituteTitleImage" : substituteTitleImagePath
 	}
 });

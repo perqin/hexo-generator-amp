@@ -6,8 +6,8 @@ AMP ⚡ HTML (Accelerated Mobile Pages Project HTML) generator for [Hexo](https:
 
 ## Orverview
 
-This plugin automatically generates [AMP HTML](https://www.ampproject.org/docs/get_started/about-amp.html) pages and validate AMP HTML automaticaly.
-Output file path is `./your-posts-parmalink/amp/`.  Also, You can freely cutomize the template(.ejs) and style(.css). Further , you can also use caching to speed up generation time.
+This plugin automatically generates new [AMP HTML](https://www.ampproject.org/docs/get_started/about-amp.html) pages and [validate AMP HTML automaticaly](https://github.com/tea3/hexo-generator-amp#internal-validation-automatically-validate-amp-html).
+Output file path is `./your-posts-parmalink/amp/`.  Also, You can [freely cutomize](https://github.com/tea3/hexo-generator-amp#can-i-customize-template-) the template(.ejs) and style(.css). Further , you can also [use caching](https://github.com/tea3/hexo-generator-amp#6-cache-option) to speed up generation time.
 
 ## DEMO
 
@@ -24,13 +24,24 @@ $ npm install hexo-generator-amp --save
 
 ## Usage
 
-To use this plug-in, follow the steps below.
+This is an easy step to publish AMP HTML.
 
-1. Edit your theme
-2. Set the quick option
-3. Run server
-4. Validate AMP HTML
-5. Deploy
+1. [Edit your theme](https://github.com/tea3/hexo-generator-amp#1-edit-your-theme)
+2. [Set the quick option](https://github.com/tea3/hexo-generator-amp#2-set-the-quick-option)
+3. [Run server](https://github.com/tea3/hexo-generator-amp#3-run-server)
+4. [Validate AMP HTML](https://github.com/tea3/hexo-generator-amp#4-validate-amp-html)
+5. [Deploy](https://github.com/tea3/hexo-generator-amp#5-deploy)
+
+In addition, the following things are possible.
+
+- [Can I customize template ?](https://github.com/tea3/hexo-generator-amp#can-i-customize-template-)
+- [Options](https://github.com/tea3/hexo-generator-amp#options)
+- [Front-matter option](https://github.com/tea3/hexo-generator-amp#front-matter-option)
+- [Supports external services](https://github.com/tea3/hexo-generator-amp#supports-external-services)
+
+## Simply installation method
+
+To use this plug-in simply , follow the steps below.
 
 ### 1. Edit your theme
 
@@ -114,13 +125,14 @@ For example , when occur the AMP validation error , this plugin displaying follo
 
 The content of the message is the same as [AMP Validator](https://validator.ampproject.org/) .
 
-## 5.Deploy
+## 5. Deploy
 
 If no AMP HTML Validation error is displayed , verification is complete . Please deploy at the end.
 
 ``` bash
 $ hexo clean
 $ hexo server
+$ hexo generate
 $ hexo deploy -g
 ```
 
@@ -132,8 +144,10 @@ You can freely cutomize the template(.ejs) and style(.css).  Please edit templat
 
 ``` yaml
 generator_amp:
-  templateDir:  amp-template # change this
+  templateDir:  amp-template # Please customize template files included this folder .
 ```
+
+`amp-template/sample-amp.ejs` and `amp-template/sample-amp.css` is a very simple template , so please customize it as you like . If you have a cool design template please let me know [the issues](https://github.com/tea3/hexo-generator-amp/issues). I would like to introduce your template in this chapter.
 
 ## Options
 
@@ -165,6 +179,8 @@ generator_amp:
     path:   sample/sample-substituteTitleImage.png
     width:  1024 # width >= 696px
     height: 800
+  placeholderImg:                             #(optional)
+    path: sample/sample-placeholder.png
   cssFilePath:      sample/sample-amp.css     #(optional)
   templateFilePath: sample/sample-amp.ejs     #(optional)
   
@@ -250,6 +266,14 @@ However, if an [image that use for schema.org/BlogPosting](https://schema.org/Bl
 |**path**|File path of a your substitute title image. (Use this when the image is not in the markdown)|
 |**width**|Width of a your substitute title image. ([width >= 696px](https://developers.google.com/search/docs/data-types/articles#article_types))|
 |**height**|Height of a your substitute title image.|
+
+##### placeholderImg
+
+This option is the image path used in `<amp-iframe>`'s placeholder. Please see [ampproject/amp-iframe](https://www.ampproject.org/ja/docs/reference/components/amp-iframe) for the detial.
+
+| option | description |
+| :---: | :--- |
+|**path**| File path of a your placeholder image. |
 
 ##### cssFilePath & templateFilePath
 
@@ -364,10 +388,17 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post.
 
 Supports the following external services.
 
-- [Twitter](https://github.com/ampproject/amphtml/blob/master/examples/twitter.amp.html)
-- [Youtube](https://github.com/ampproject/amphtml/blob/master/examples/youtube.amp.html)
-- [Vimeo](https://github.com/ampproject/amphtml/blob/master/examples/vimeo.amp.html)
-- [Instagram](https://github.com/ampproject/amphtml/blob/master/examples/instagram.amp.html)
+- [Twitter (amp-twitter)](https://www.ampproject.org/pt_br/docs/reference/components/amp-twitter) for [hexo-tag-twitter](https://github.com/tea3/hexo-tag-twitter)
+- [Youtube (amp-youtube)](https://www.ampproject.org/docs/reference/components/amp-youtube)
+- [Vimeo (amp-vimeo)](https://www.ampproject.org/docs/reference/components/amp-vimeo)
+- [Instagram (amp-instagram)](https://www.ampproject.org/ja/docs/reference/components/amp-instagram) for [hexo-tag-instagram](https://github.com/tea3/hexo-tag-instagram)
+- [Google Adsense (amp-ad)](https://www.ampproject.org/docs/reference/components/amp-ad)
+- [Sound Cloud (amp-soundcloud)](https://www.ampproject.org/docs/reference/components/amp-soundcloud) for [hexo-tag-soundcloud](https://github.com/tea3/hexo-tag-soundcloud)
+
+In addition to the above, the embedded `<iframe>` tag is converted to [<amp-iframe>](https://www.ampproject.org/docs/guides/iframes) tag.
+
+If you want to supports other services , please [add new filter](https://github.com/tea3/hexo-generator-amp/tree/master/lib/filter) and [give me pull request](https://github.com/tea3/hexo-generator-amp/pulls) .
+
 
 
 ## License
