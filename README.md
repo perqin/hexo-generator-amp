@@ -80,6 +80,8 @@ generator_amp:
     path:   sample/sample-substituteTitleImage.png
     width:  1024
     height: 800
+  theme:
+    menu:
   warningLog: false   # To AMP HTML validate automatically, please set true.
 ```
 
