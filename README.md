@@ -80,8 +80,6 @@ generator_amp:
     path:   sample/sample-substituteTitleImage.png
     width:  1024
     height: 800
-  theme:
-    menu:
   warningLog: false   # To AMP HTML validate automatically, please set true.
 ```
 
@@ -185,6 +183,10 @@ generator_amp:
     path: sample/sample-placeholder.png
   cssFilePath:      sample/sample-amp.css     #(optional)
   templateFilePath: sample/sample-amp.ejs     #(optional)
+  # theme:                                    #(optional)
+  #   menu:                                   #(optional)
+  #     diary: /categories/diary/             #(optional) example menu
+  #     archives: /archives                   #(optional) example menu
   
   # 3. Google Analytics Option
   google_analytics: UA-123456789-1            #(optional)
@@ -283,6 +285,12 @@ This option is the image path used in `<amp-iframe>`'s placeholder. Please see [
 | :---: | :--- |
 |cssFilePath|File path of a your css file for AMP. (e.g. ./sample-amp.css) [It is a validation error if the author stylesheet is larger than 50,000 bytes.](https://github.com/ampproject/amphtml/blob/master/spec/amp-html-format.md#maximum-size)|
 |templateFilePath|File path of a your template file for AMP. (e.g. ./sample-amp.ejs)|
+
+##### theme.menu
+
+This option allows you to specify which menus can be used with the sample theme (`sample-amp.ejs`).
+
+Please set the menu name and path.
 
 
 #### 3. Google Analytics Option

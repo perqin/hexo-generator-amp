@@ -138,7 +138,7 @@
 			      archives: /archives
       	-->
         <li><a href="/">Home</a></li>
-        <% if( config.generator_amp && config.generator_amp.theme.menu ){ %>
+        <% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.menu ){ %>
 			<% for (var i in config.generator_amp.theme.menu){ %>
 				<li><a href="<%- config.generator_amp.theme.menu[i] %>"><%= i %></a></li>
 			<% } %>
