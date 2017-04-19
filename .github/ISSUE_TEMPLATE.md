@@ -8,7 +8,7 @@ $ npm install -g hexo-cli
 $ hexo init hexo6101
 $ cd hexo6101
 $ npm install
-$ npm install this-plugin-name --save
+$ npm install hexo-generator-amp --save
 ```
 
 ## For BUG

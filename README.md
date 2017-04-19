@@ -49,7 +49,7 @@ You must add AMP HTML's link to non-AMP.
 
 > Accelerated Mobile Pages Project - [Prepare Your Page for Discovery and Distribution](https://www.ampproject.org/docs/get_started/create/prepare_for_discovery)
 
-First, add the following in your template files. For example , Please edit `themes/(your-theme)/layout/_partial/head.ejs` as following .
+First, add the following in your template files. For example , Please edit `themes/(your-theme)/layout/_partial/head.ejs` as following .  For example , In [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) you will edit `themes/landscape/layout/_partial/head.ejs`.
 
 ``` ejs
 <% if (is_post() && config.generator_amp){ %>
@@ -80,7 +80,7 @@ generator_amp:
     path:   sample/sample-substituteTitleImage.png
     width:  1024
     height: 800
-  warningLog: false   # To AMP HTML validate automatically, please set true.
+  warningLog: false   # To display warning, please set true.
 ```
 
 ### 3. Run server
@@ -111,12 +111,12 @@ Now validate your AMP HTML. First off all , open your AMP HTML page in [Chrome D
 
 This plugin can validate without being conscious AMP HTML automatically by [amphtml-validator ( AMP HTML validator command line tool )](https://www.npmjs.com/package/amphtml-validator).
 
-To use Internal Validation , please change the `warningLog: true`. 
+To use Internal Validation , please change the `validateAMP: true`. 
 
 ``` yaml
 # Please edit _config.yml.
 generator_amp:
-  warningLog: true   # To AMP HTML validate automatically,, please set true.
+  validateAMP: true   # To AMP HTML validate automatically, please set true.
 ```
 
 For example , when occur the AMP validation error , this plugin displaying following error message .
@@ -200,8 +200,11 @@ generator_amp:
   # 6. Cache Option
   cache: hexo-generator-amp-cached.json       #(optional)
   # onlyForDeploy: false                      #(optional) #Deprecated <= v1.0.3
+  
+  # 7. Automatically validate AMP HTML
+  validateAMP: true                           #(optional)
 
-# 7. Footer Option (authorDetail)
+# 8. Footer Option (authorDetail)
 authorDetail:
   authorReading: Your name description        #(optional)
   avatar:                                     #(optional)
@@ -319,7 +322,16 @@ This option improves the generation speed. Old articles will not be generated AM
 | :---: | :--- |
 |cache| Enabled cache |
 
-#### 7. Footer Option (authorDetail)
+
+#### 7. Automatically validate AMP HTML option
+
+To AMP HTML validate automatically, please set true. Please see [Validate AMP HTML](https://github.com/tea3/hexo-generator-amp#4-validate-amp-html) for more detail.
+
+| option | description |
+| :---: | :--- |
+| validateAMP | Enable AMP HTML validate automatically |
+
+#### 8. Footer Option (authorDetail)
 
 This option use for sample template for AMP HTML.
 
@@ -370,23 +382,6 @@ title: Hello World
 ampSettings: 
  titleImage:
    path: titleImage-on-the-local-folder.png
----
-
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. 
-...
-
-```
-
-If image on the external , Please set the width and height options.
-
-``` markdown
----
-title: Hello World
-ampSettings: 
- titleImage:
-   path: http://titleImage-on-the-external.png
-   width: 1024
-   height: 800
 ---
 
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. 

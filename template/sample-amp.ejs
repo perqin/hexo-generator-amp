@@ -222,10 +222,11 @@
 		  	
 		  	
 		  	<!-- meta (categories , tags) -->
+		  	<% if ( (post.categories && post.categories.length) || (post.tags && post.tags.length) ){ %>
 		  	<div class="meta-content">
 		  	
+		  		<% if (post.categories && post.categories.length){ %>
 		  		<div class="meta-wrapper">
-				  	<% if (post.tags && post.tags.length){ %>
 				  	<h6 class="categories">Category</h6>
 				  	<div class="article-categories">
 						<ul class="article-categories-list">
@@ -238,11 +239,11 @@
 							<% }); %>
 						</ul>
 					</div>
-					<% } %>
 				</div>
+				<% } %>
 				
+				<% if (post.tags && post.tags.length){ %>
 				<div class="meta-wrapper">
-				  	<% if (post.tags && post.tags.length){ %>
 				  	<h6 class="tag">Tag</h6>
 				  	<div class="article-tag">
 						<ul class="article-tag-list">
@@ -255,11 +256,10 @@
 							<% }); %>
 						</ul>
 					</div>
-					<% } %>
 				</div>
-				
+				<% } %>
 			</div>
-		  	
+		  	<% } %>
 		  	
 		  	<!-- article nav -->
 		  	<% if (post.prev || post.next){ %>
