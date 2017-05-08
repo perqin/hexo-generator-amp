@@ -7,7 +7,7 @@ AMP ⚡ HTML (Accelerated Mobile Pages Project HTML) generator for [Hexo](https:
 ## Orverview
 
 This plugin automatically generates new [AMP HTML](https://www.ampproject.org/docs/get_started/about-amp.html) pages and [validate AMP HTML automaticaly](https://github.com/tea3/hexo-generator-amp#internal-validation-automatically-validate-amp-html).
-Output file path is `./your-posts-parmalink/amp/`.  Also, You can [freely cutomize](https://github.com/tea3/hexo-generator-amp#can-i-customize-template-) the template(.ejs) and style(.css). Further , you can also [use caching](https://github.com/tea3/hexo-generator-amp#6-cache-option) to speed up generation time.
+Output file path is `./your-posts-parmalink/amp/`.  Also, You can [freely cutomize](https://github.com/tea3/hexo-generator-amp#can-i-customize-template-) the template(.ejs) and style(.css) and AMP path. Further , you can also [use caching](https://github.com/tea3/hexo-generator-amp#6-cache-option) to speed up generation time.
 
 ## DEMO
 
@@ -158,11 +158,11 @@ This plugin can set the following options for more detail. Please edit `_config.
 generator_amp:
   
   # 1. Google Adsense option
-  substituteGoogle_adsense:                   #(optional)
-    data_ad_client: ca-pub-123456789876543    #(optional)
-    data_ad_slot:   0123456789                #(optional)
-    width:  336                               #(optional)
-    height: 280                               #(optional)
+  substituteGoogle_adsense:                       #(optional)
+    data_ad_client: ca-pub-123456789876543        #(optional)
+    data_ad_slot:   0123456789                    #(optional)
+    width:  336                                   #(optional)
+    height: 280                                   #(optional)
   
   # 2. Template Option
   templateDir:  amp-template
@@ -171,48 +171,50 @@ generator_amp:
     path:   sample/sample-logo.png
     width:  600 # width <= 600px
     height: 60  # width <= 60px
-  logo_topImage:                              #(optional)
-    path:   sample/sample-yoursite-logo.png   #(optional)
-    width:  1024                              #(optional)
-    height: 400                               #(optional)
+  logo_topImage:                                  #(optional)
+    path:   sample/sample-yoursite-logo.png       #(optional)
+    width:  1024                                  #(optional)
+    height: 400                                   #(optional)
   substituteTitleImage: 
     path:   sample/sample-substituteTitleImage.png
     width:  1024 # width >= 696px
     height: 800
-  placeholderImg:                             #(optional)
+  placeholderImg:                                 #(optional)
     path: sample/sample-placeholder.png
-  cssFilePath:      sample/sample-amp.css     #(optional)
-  templateFilePath: sample/sample-amp.ejs     #(optional)
-  # theme:                                    #(optional)
-  #   menu:                                   #(optional)
-  #     diary: /categories/diary/             #(optional) example menu
-  #     archives: /archives                   #(optional) example menu
+  cssFilePath:      sample/sample-amp.css         #(optional)
+  templateFilePath: sample/sample-amp.ejs         #(optional)
+  generateAmpPath: :year/:month/:day/:title/amp/  #(optional) Custom AMP HTML Path
+  # theme:                                        #(optional) Sample AMP template's option
+  #   facebook_app_id: 1234567890                 #(optional) api_id is necessary with the facebook's social button.
+  #   menu:                                       #(optional) Sample AMP template's menu option
+  #     diary: /categories/diary/                 #(optional) example menu
+  #     archives: /archives                       #(optional) example menu
   
   # 3. Google Analytics Option
-  google_analytics: UA-123456789-1            #(optional)
+  google_analytics: UA-123456789-1                #(optional)
   
   # 4. Minify Option
-  html_minifier:                              #(optional)
+  html_minifier:                                  #(optional)
   
   # 5. Log & AMP Validation Option
-  warningLog: true                            #(optional)
+  warningLog: true                                #(optional)
   
   # 6. Cache Option
-  cache: hexo-generator-amp-cached.json       #(optional)
-  # onlyForDeploy: false                      #(optional) #Deprecated <= v1.0.3
+  cache: hexo-generator-amp-cached.json           #(optional)
+  # onlyForDeploy: false                          #(optional) #Deprecated <= v1.0.3
   
   # 7. Automatically validate AMP HTML
-  validateAMP: true                           #(optional)
+  validateAMP: true                               #(optional)
 
 # 8. Footer Option (authorDetail)
 authorDetail:
-  authorReading: Your name description        #(optional)
-  avatar:                                     #(optional)
-    path:   sample/sample-avator.png          #(optional)
-    width:  150                               #(optional)
-    height: 150                               #(optional)
-  description: Self introduction              #(optional)
-copyright_notice: The footer copyright notice #(optional)
+  authorReading: Your name description            #(optional)
+  avatar:                                         #(optional)
+    path:   sample/sample-avator.png              #(optional)
+    width:  150                                   #(optional)
+    height: 150                                   #(optional)
+  description: Self introduction                  #(optional)
+copyright_notice: The footer copyright notice     #(optional)
 ```
 
 
@@ -289,11 +291,22 @@ This option is the image path used in `<amp-iframe>`'s placeholder. Please see [
 |cssFilePath|File path of a your css file for AMP. (e.g. ./sample-amp.css) [It is a validation error if the author stylesheet is larger than 50,000 bytes.](https://github.com/ampproject/amphtml/blob/master/spec/amp-html-format.md#maximum-size)|
 |templateFilePath|File path of a your template file for AMP. (e.g. ./sample-amp.ejs)|
 
+##### generateAmpPath
+
+If you want to change the path of generate amp files , please set the this option. This option can be describe like [Permalinks](https://hexo.io/docs/permalinks.html).
+
+| option | description |
+| :---: | :--- |
+|**generateAmpPath**| path of generate amp (default:`./your-posts-parmalink/amp/index.html`) |
+
+
 ##### theme.menu
 
-This option allows you to specify which menus can be used with the sample theme (`sample-amp.ejs`).
+This option allows you to specify which menus can be used with the sample theme (`sample-amp.ejs`).Please set the menu name and path.
 
-Please set the menu name and path.
+Also , `theme.facebook_app_id` is necessary with the facebook's social button. Please see the follow how to create facebook app id.
+
+[https://developers.facebook.com/docs/apps/register](https://developers.facebook.com/docs/apps/register)
 
 
 #### 3. Google Analytics Option
