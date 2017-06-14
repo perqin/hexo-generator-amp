@@ -22,6 +22,11 @@ First of all, please see the examples. The following is my hexo blog.
 $ npm install hexo-generator-amp --save
 ```
 
+If you occur `ERROR Plugin load failed:` error or `DTraceProviderBindings.node` error , please see below.
+
+- [ISSUE_TEMPLATE](https://github.com/tea3/hexo-generator-amp/blob/master/.github/ISSUE_TEMPLATE.md)
+- [DTraceProviderBindings.node issue #1 (hexo-related-popular-posts)](https://github.com/tea3/hexo-related-popular-posts/issues/1)
+
 ## Usage
 
 This is an easy step to publish AMP HTML.
@@ -137,6 +142,8 @@ $ hexo deploy -g
 ```
 
 When the deployment is completed , Please check the [AMP report](https://support.google.com/webmasters/answer/6328309?hl=en)
+
+---
 
 ## Can I customize template ?
 

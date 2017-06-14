@@ -11,6 +11,9 @@ $ npm install
 $ npm install hexo-generator-amp --save
 ```
 
+Also , if you occur `DTraceProviderBindings.node` error , please see [issue#1 (hexo-related-popular-posts)](https://github.com/tea3/hexo-related-popular-posts/issues/1).
+
+
 ## For BUG
 
 - BUG description
