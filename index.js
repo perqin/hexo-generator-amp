@@ -77,8 +77,8 @@ var cacheHash = cache.getCacheHash(hexo.config);
 hexo.config.generator_amp = assign({},
 	hexo.config.generator_amp, {
 		"hash" : shush ,
-		"isCasheUpdate": (shush != cacheHash),
-		"isCasheClear": (shush != cacheHash)
+		"isCacheUpdate": (shush != cacheHash),
+		"isCacheClear": (shush != cacheHash)
 	}
 );
 
