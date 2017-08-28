@@ -122,7 +122,7 @@ body {
   color: #3a484b;
   font-family: sans-serif;
   font-size: 102%;
-  font-wight: 500;
+  font-weight: 500;
   line-height: 2em;
   text-rendering: optimizelegibility;
 }
@@ -913,7 +913,7 @@ pre .lisp .string,
 pre .pi,
 pre .template_comment {
   color: #d4d0cd;
-  font-wight: normal;
+  font-weight: normal;
 }
 sub {
   bottom: -0.2em;
