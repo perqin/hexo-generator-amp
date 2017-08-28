@@ -196,6 +196,13 @@ generator_amp:
   #   menu:                                       #(optional) Sample AMP template's menu option
   #     diary: /categories/diary/                 #(optional) example menu
   #     archives: /archives                       #(optional) example menu
+  #   authorLink:
+  #     mail_url: https://your-mail-form/
+  #     twitter_id: xxx
+  #     facebook_id: xxx
+  #     instagram_id: xxx
+  #     github_id: xxxx
+  
   
   # 3. Google Analytics Option
   google_analytics: UA-123456789-1                #(optional)
@@ -309,12 +316,15 @@ If you want to change the path of generate amp files , please set the this optio
 
 ##### theme.menu
 
-This option allows you to specify which menus can be used with the sample theme (`sample-amp.ejs`).Please set the menu name and path.
+This option allows you to specify which menus can be used with the sample theme (`sample-amp.ejs`). Please set the menu name and path.
 
 Also , `theme.facebook_app_id` is necessary with the facebook's social button. Please see the follow how to create facebook app id.
 
 [https://developers.facebook.com/docs/apps/register](https://developers.facebook.com/docs/apps/register)
 
+##### theme.authorLink
+
+This option allows you to specify which social links can be used with the sample theme (`sample-amp.ejs`). Please set the social id.
 
 #### 3. Google Analytics Option
 

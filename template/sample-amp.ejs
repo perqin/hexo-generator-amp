@@ -2,8 +2,8 @@
 <html ⚡>
   <head>
     <meta charset="utf-8">
-    <link rel="canonical" href="<%= config.url %>/<%= post.path %>index.html" >
-    <title><%= post.title %> | <%= config.title %></title>
+    <link rel="canonical" href="<%= config.url %>/<%= post.path %>" >
+    <title><%= post.title %> - <%= config.subtitle %></title>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
     <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -80,6 +80,9 @@
 			}
 		}
 	</script>
+	<% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.authorLink ){ %>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<% } %>
 	<% if (cssTxt != ""){ %>
 	<style amp-custom>
 		<%- cssTxt %>
@@ -138,7 +141,7 @@
 			      archives: /archives
       	-->
         <li><a href="/">Home</a></li>
-        <% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.menu ){ %>
+        <% if( config.generator_amp && config.generator_amp.theme.menu ){ %>
 			<% for (var i in config.generator_amp.theme.menu){ %>
 				<li><a href="<%- config.generator_amp.theme.menu[i] %>"><%= i %></a></li>
 			<% } %>
@@ -176,9 +179,56 @@
 				
 				<!-- entry content -->
 			    <div class="entry-content ecp">
-			    
-			    
 			    	<!-- social share button -->
+			    	<!--
+			      		To use the facebook button, add the facebook_app_id option of _config.yml.
+			      		
+			      		(e.g.)
+			      		generator_amp:
+			      		  theme:
+    						facebook_app_id: 123456789
+			      	-->
+			    	<div class="social-share">
+			    		<amp-social-share type="twitter" width="40" height="40"></amp-social-share>
+			    		<% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.facebook_app_id ){ %>
+			    			<amp-social-share type="facebook" width="40" height="40" data-param-app_id="<%- config.generator_amp.theme.facebook_app_id %>" data-param-text="" data-param-href="<%= config.url %>/<%= post.path %>"></amp-social-share>
+			    		<% } %>
+			    		<!--
+			    		<amp-social-share type="pinterest" width="40" height="40"></amp-social-share>
+			    		-->
+			    		<amp-social-share type="gplus" width="40" height="40"></amp-social-share>
+			    		<!--
+			    		<amp-social-share type="tumblr" width="40" height="40"></amp-social-share>
+			    		<amp-social-share type="whatsapp" width="40" height="40"></amp-social-share>
+			    		<amp-social-share type="linkedin" width="40" height="40"></amp-social-share>
+			    		<amp-social-share type="email" width="40" height="40"></amp-social-share>
+			    		-->
+			    	</div>
+			    	
+			    	
+			    	<!-- google Adsense -->
+			    	<!--
+			  		<% if (config.generator_amp.substituteGoogle_adsense && config.generator_amp.substituteGoogle_adsense.data_ad_client && config.generator_amp.substituteGoogle_adsense.data_ad_slot && config.generator_amp.substituteGoogle_adsense.width && config.generator_amp.substituteGoogle_adsense.height){ %>
+			  		<div class="ad-footer">
+			  			<amp-ad layout="responsive"	width="<%- config.generator_amp.substituteGoogle_adsense.width %>" height="<%- config.generator_amp.substituteGoogle_adsense.height %>" type="adsense" data-ad-client="<%- config.generator_amp.substituteGoogle_adsense.data_ad_client %>" data-ad-slot="<%- config.generator_amp.substituteGoogle_adsense.data_ad_slot %>">
+						</amp-ad>
+					</div>
+					<% } %>
+					-->
+			    	
+			    	<!-- content -->
+			  		<%- content %>
+			  		
+			  		
+			  		<!-- google Adsense -->
+			  		<% if (config.generator_amp.substituteGoogle_adsense && config.generator_amp.substituteGoogle_adsense.data_ad_client && config.generator_amp.substituteGoogle_adsense.data_ad_slot && config.generator_amp.substituteGoogle_adsense.width && config.generator_amp.substituteGoogle_adsense.height){ %>
+			  		<div class="ad-footer">
+			  			<amp-ad layout="responsive"	width="<%- config.generator_amp.substituteGoogle_adsense.width %>" height="<%- config.generator_amp.substituteGoogle_adsense.height %>" type="adsense" data-ad-client="<%- config.generator_amp.substituteGoogle_adsense.data_ad_client %>" data-ad-slot="<%- config.generator_amp.substituteGoogle_adsense.data_ad_slot %>">
+						</amp-ad>
+					</div>
+					<% } %>
+					
+					<!-- social share button -->
 			    	<!--
 			      		To use the facebook button, add the facebook_app_id option of _config.yml.
 			      		
@@ -202,19 +252,6 @@
 			    		<amp-social-share type="email" width="40" height="40"></amp-social-share>
 			    		-->
 			    	</div>
-			    	
-			    	
-			    	<!-- content -->
-			  		<%- content %>
-			  		
-			  		
-			  		<!-- google Adsense -->
-			  		<% if (config.generator_amp.substituteGoogle_adsense && config.generator_amp.substituteGoogle_adsense.data_ad_client && config.generator_amp.substituteGoogle_adsense.data_ad_slot && config.generator_amp.substituteGoogle_adsense.width && config.generator_amp.substituteGoogle_adsense.height){ %>
-			  		<div class="ad-footer">
-			  			<amp-ad layout="responsive"	width="<%- config.generator_amp.substituteGoogle_adsense.width %>" height="<%- config.generator_amp.substituteGoogle_adsense.height %>" type="adsense" data-ad-client="<%- config.generator_amp.substituteGoogle_adsense.data_ad_client %>" data-ad-slot="<%- config.generator_amp.substituteGoogle_adsense.data_ad_slot %>">
-						</amp-ad>
-					</div>
-					<% } %>
 					
 			  	</div>
 				
@@ -261,7 +298,9 @@
 			</div>
 		  	<% } %>
 		  	
+		  	
 		  	<!-- article nav -->
+		  	
 		  	<% if (post.prev || post.next){ %>
 			<nav id="article-nav">
 			  <% if (post.prev){ %>
@@ -290,6 +329,7 @@
 			  <% } %>
 			</nav>
 			<% } %>
+			
 			
 		</div>
 		
@@ -320,6 +360,35 @@
 							<%= config.authorDetail.description %>
 						</p>
 						<% } %>
+						<% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.authorLink ){ %>
+						<div class="sns-link">
+							<% if( config.generator_amp.theme.authorLink.twitter_id ){ %>
+							<a href="https://twitter.com/<%= config.generator_amp.theme.authorLink.twitter_id %>" target="_blank">
+								<i class="fa fa-twitter"></i>
+							</a>
+							<% } %>
+							<% if( config.generator_amp.theme.authorLink.instagram_id ){ %>
+							<a href="https://www.instagram.com/<%= config.generator_amp.theme.authorLink.instagram_id %>/" target="_blank">
+								<i class="fa fa-instagram"></i>
+							</a>
+							<% } %>
+							<% if( config.generator_amp.theme.authorLink.facebook_id ){ %>
+							<a href="https://www.facebook.com/<%= config.generator_amp.theme.authorLink.facebook_id %>" target="_blank">
+								<i class="fa fa-facebook"></i>
+							</a>
+							<% } %>
+							<% if( config.generator_amp.theme.authorLink.github_id ){ %>
+							<a href="https://github.com/<%= config.generator_amp.theme.authorLink.github_id %>" target="_blank">
+								<i class="fa fa-github"></i>
+							</a>
+							<% } %>
+							<% if( config.generator_amp.theme.authorLink.mail_url ){ %>
+							<a href="<%= config.generator_amp.theme.authorLink.mail_url %>" target="_blank">
+								<i class="fa fa-envelope"></i>
+							</a>
+							<% } %>
+						</div>
+						<% } %>
 					</div>
 					<% } %>
 					
@@ -328,11 +397,9 @@
 			<% } %>
 			
 			
-			
 			<div class="homeLink">
 		  		<a href="/">Home</a>
 		  	</div>
-			
 			
 			<div class="copyright-tool">
 				<div class="copyright-title">

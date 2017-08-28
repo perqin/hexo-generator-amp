@@ -8,7 +8,7 @@ a {
   -ms-transition: 0.7s;
   -o-transition: 0.7s;
   -webkit-transition: 0.7s;
-  color: #0379c4;
+  color: #e94f76;
   -webkit-transition: 0.7s;
   -moz-transition: 0.7s;
   -o-transition: 0.7s;
@@ -32,7 +32,7 @@ a:hover {
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
   -webkit-transition: 0.3s;
-  color: #31adfc;
+  color: #f4aabd;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
@@ -218,7 +218,7 @@ del {
   margin-right: auto;
 }
 #footer {
-  background-color: #0379c4;
+  background-color: #4f7086;
   display: block;
   font-size: 70%;
   line-height: 1.6;
@@ -412,11 +412,11 @@ a {
 }
 h6.tag,
 h6.categories {
-  color: #0379c4;
+  color: #4f7086;
   font-size: 110%;
 }
 .entry-content {
-  width: 93.75%;
+  width: 91.75%;
   margin: 0 auto;
   font-size: 100%;
 }
@@ -438,30 +438,30 @@ h6.categories {
   margin: 1em 0 0.8em;
 }
 .entry-content h2 {
-  border-bottom: 2px solid #0379c4;
-  color: #0379c4;
+  border-bottom: 2px solid #4f7086;
+  color: #4f7086;
   font-size: 160%;
-  margin: 1.8em 0 0.5em;
+  margin: 2.2em 0 0.5em;
   padding: 0.8em 0;
 }
 .entry-content h3 {
-  color: #0379c4;
+  color: #4f7086;
   font-size: 150%;
-  margin: 1.8em 0 0.5em;
+  margin: 2.2em 0 0.5em;
   padding: 0.8em 0.5em;
 }
 .entry-content h4 {
-  border-left: 2px solid #0379c4;
-  color: #0379c4;
+  border-left: 2px solid #4f7086;
+  color: #4f7086;
   font-size: 120%;
-  margin: 1.8em 0 0.5em;
+  margin: 2.2em 0 0.5em;
   padding-left: 1.2em;
   text-align: left;
 }
 .entry-content h5,
 .entry-content h6 {
-  color: #0379c4;
-  margin: 1.8em 0 0.5em;
+  color: #4f7086;
+  margin: 2.2em 0 0.5em;
   text-align: left;
 }
 .entry-content h5 {
@@ -475,7 +475,7 @@ h6.categories {
   font-size: 1em;
   letter-spacing: 0;
   line-height: 2.2em;
-  margin: 1.8em 0;
+  margin: 2em 1em;
 }
 .entry-content p em {
   background-color: #faf7dc;
@@ -494,7 +494,7 @@ h6.categories {
 .entry-content dl,
 .entry-content ol,
 .entry-content ul {
-  margin: 1.8em 0 1.8em 1em;
+  margin: 2em 0 2em 1em;
   padding: 0;
 }
 .entry-content ol p,
@@ -504,7 +504,7 @@ h6.categories {
 }
 .entry-content dl li,
 .entry-content ol li {
-  line-height: 1.8em;
+  line-height: 2em;
   margin: 0.5em;
 }
 .entry-content ol {
@@ -512,13 +512,9 @@ h6.categories {
 }
 .entry-content ol li {
   font-size: 1em;
-  margin: 0.2em 0 0.2em 2.6em;
+  margin: 0.2em 0 0.6em 2.6em;
   padding: 0 0 0 0.1em;
   position: relative;
-}
-.entry-content ol p:not(:first-child),
-.entry-content ul p:not(:first-child) {
-  color: #506468;
 }
 .entry-content ol {
   padding: 0 /* paddingキャンセル */;
@@ -541,7 +537,7 @@ h6.categories {
   margin: 0 0.5em 0 0;
   padding: 0;
   float: left;
-  background: #6abcf0;
+  background: #b6b6b6;
   width: 1.6em;
   height: 1.6em;
   border-radius: 50%;
@@ -560,7 +556,7 @@ h6.categories {
 }
 .entry-content ul li {
   font-size: 1em;
-  margin: 0.2em 0 0.2em 0.5em;
+  margin: 0.2em 0 0.6em 0.5em;
   padding: 0 0 0 0.2em;
   position: relative;
 }
@@ -568,11 +564,12 @@ h6.categories {
   display: block;
   content: '';
   position: absolute;
-  top: 0.4em;
+  top: 0.75em;
   left: -1em;
-  width: 8px;
-  height: 8px;
-  border-bottom: 3px solid #ddd;
+  width: 0.6em;
+  height: 0.6em;
+  background-color: #b6b6b6;
+  border-radius: 100%;
 }
 .entry-content dl li ol,
 .entry-content dl li ul {
@@ -586,13 +583,18 @@ h6.categories {
 .entry-content ul li ul {
   margin-bottom: 2em;
 }
+.entry-content ol p:not(:first-child),
+.entry-content ul p:not(:first-child) {
+  color: #667f85;
+  margin: 1em;
+}
 .entry-content blockquote p:last-child,
 .entry-content .archive .post {
   margin-bottom: 0;
 }
 .entry-content blockquote {
-  margin: 1.8em 0;
-  padding: 0.5em 20px;
+  margin: 2em 0;
+  padding: 1em 1.8em;
   position: relative;
   background-color: #f6f6f4;
 }
@@ -643,24 +645,24 @@ h6.categories {
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 0.85em;
-  margin: 1.8em auto;
+  margin: 2em auto;
   width: auto;
 }
 .entry-content td {
   border: 1px solid #c4c4c4;
-  line-height: 1.5em;
-  padding: 0.6em 0.4em;
+  line-height: 1.8em;
+  padding: 0.8em 0.8em;
 }
 .entry-content th {
   background-color: #fdf7f4;
   border: 1px solid #c4c4c4;
-  padding: 0.6em 0.4em;
+  padding: 0.8em 0.8em;
 }
 .entry-content iframe {
   width: 100% !important;
 }
 .entry-content figure.highlight {
-  margin: 1.8em 0;
+  margin: 2em 0;
 }
 .entry-content figure.highlight td {
   border: 0;
@@ -808,7 +810,7 @@ h3 a:hover,
 h4 a:hover,
 h5 a:hover,
 h6 a:hover {
-  color: #0379c4;
+  color: #4f7086;
 }
 img.responsive-img {
   height: auto;
@@ -975,7 +977,7 @@ td.code,
   transition: 0.3s;
 }
 .entry-content .toc ul li a:hover {
-  color: #0379c4;
+  color: #4f7086;
   background-color: #98d1f5;
 }
 .entry-content .toc ul li a:before {
@@ -1204,7 +1206,7 @@ amp-sidebar li a {
   padding: 10px 20px;
 }
 .title-cover {
-  background-color: #0379c4;
+  background-color: #4f7086;
   color: #fff;
   padding: 30px 15px 20px 15px;
   text-align: center;
@@ -1301,7 +1303,7 @@ amp-sidebar li a {
 }
 #totop a:hover {
   text-decoration: none;
-  background: #0379c4;
+  background: #4f7086;
   color: #fff;
   line-height: 2.3em;
 }
@@ -1349,7 +1351,7 @@ amp-sidebar li a {
 .article-tag-list li a:hover,
 .article-categories-list li a:hover {
   color: #fff;
-  background-color: #0498f6;
+  background-color: #648aa4;
 }
 .homeLink,
 .htmlPageLink {
@@ -1386,17 +1388,17 @@ amp-sidebar li a {
 }
 .homeLink {
   font-size: 120%;
-  background: #18a3fb;
+  background: #7496ad;
 }
 .homeLink:hover {
-  background: #4ab7fc;
+  background: #94afc0;
 }
 .htmlPageLink {
   font-size: 110%;
-  background: #18a3fb;
+  background: #7496ad;
 }
 .htmlPageLink:hover {
-  background: #4ab7fc;
+  background: #94afc0;
 }
 .googleAdPost,
 .ad-footer,
@@ -1405,7 +1407,19 @@ amp-vimeo,
 amp-video,
 amp-youtube,
 amp-twitter {
-  margin: 2.8em auto;
+  margin: 2.8em 0;
+}
+.sns-link {
+  margin: 1em 0;
+}
+.sns-link a {
+  font-size: 2.6em;
+  padding: 0.4em 0.1em;
+  margin: 0 0.1em;
+  color: #d0d0d0;
+}
+.sns-link a:hover {
+  color: #4f7086;
 }
 @media (min-width: 800px) {
   .entry-header,
