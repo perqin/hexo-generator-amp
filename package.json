@@ -1,6 +1,6 @@
 {
   "name": "hexo-generator-amp",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "main": "index",
   "dependencies": {
     "amphtml-validator": "^1.0.20",
@@ -27,7 +27,7 @@
   "author": {
     "email": "tea3gtinfo@gmail.com",
     "name": "tea3",
-    "url": "https://tea3.github.io/"
+    "url": "https://photo-tea.com/"
   },
   "bugs": {
     "url": "https://github.com/tea3/hexo-generator-amp/issues"
