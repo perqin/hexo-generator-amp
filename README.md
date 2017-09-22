@@ -168,8 +168,13 @@ generator_amp:
   substituteGoogle_adsense:                       #(optional)
     data_ad_client: ca-pub-123456789876543        #(optional)
     data_ad_slot:   0123456789                    #(optional)
-    width:  336                                   #(optional)
-    height: 280                                   #(optional)
+    layout: responsive                            #(optional)
+    width: 300                                    #(optional)
+    height: 250                                   #(optional)
+    data_ad_slot_matched: 54678901234             #(optional)
+    layout_matched: fixed-height                  #(optional)
+    # width_matched: 300                          #(optional)
+    height_matched: 1221                          #(optional)
   
   # 2. Template Option
   templateDir:  amp-template
@@ -240,14 +245,33 @@ Option can use as follows.
 
 If an advertisement is found in an article, it will be converted to AMP specification.
 
-Adout Google Adsense , please see [Create an AMP ad unit](https://support.google.com/adsense/answer/7183212?hl=en) for the details.
+Adout Google Adsense , please see [Create an AMP ad unit](https://support.google.com/adsense/answer/7183212?hl=en) and [Matched content](https://support.google.com/adsense/answer/6111336?hl=en) for the details.
 
 | option | description |
 | :---: | :--- |
-| data_ad_client | substitute data_ad_client id |
-| data_ad_slot | substitute data_ad_slot id |
-| width | substitute ad width |
-| height | substitute ad height |
+| data_ad_client | substitute `data-ad-client` |
+
+##### Adsense unit option
+
+This setting can set the option about Google Adsense unit. Adout Google Adsense , please see [Create an AMP ad unit](https://support.google.com/adsense/answer/7183212?hl=en) for the details.
+
+| option | description |
+| :---: | :--- |
+| data_ad_slot | substitute `data-ad-slot` |
+| layout | adsense unit's `layout` |
+| width | adsense unit's `width` |
+| height | adsense unit's `height` |
+
+##### Adsense Matched content unit option
+
+This setting can set the option about Google Adsense Matched content unit. Adout Google Adsense Matched content , please see [Matched content](https://support.google.com/adsense/answer/6111336?hl=en) for the details.
+
+| option | description |
+| :---: | :--- |
+| data_ad_slot_matched | Matched content unit's `data-ad-slot`  |
+| layout_matched | Matched content unit's `layout` |
+| width_matched | Matched content unit's `width` |
+| height_matched | Matched content unit's `height` |
 
 #### 2. Template Option
 

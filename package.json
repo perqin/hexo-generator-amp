@@ -1,6 +1,6 @@
 {
   "name": "hexo-generator-amp",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "main": "index",
   "dependencies": {
     "amphtml-validator": "^1.0.20",
@@ -9,9 +9,9 @@
     "ejs": "^2.5.7",
     "hasha": "^3.0.0",
     "hexo-env": "^0.0.1",
-    "hexo-fs": "^0.2.1",
+    "hexo-fs": "^0.2.2",
     "hexo-util": "^0.6.1",
-    "html-minifier": "^3.5.3",
+    "html-minifier": "^3.5.5",
     "image-size": "^0.6.1",
     "log-util": "^1.2.0",
     "lodash": "^4.17.4",
