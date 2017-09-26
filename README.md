@@ -73,6 +73,7 @@ Please refer follow as about how to use this plugin with based other templates.
 Please set the following options. Please edit `_config.yml`.
 
 ``` yaml
+# hexo-generator-amp
 # The following settings is the quick start options.
 generator_amp:
   templateDir:  amp-template
@@ -161,6 +162,7 @@ generator_amp:
 This plugin can set the following options for more detail. Please edit `_config.yml`.
 
 ``` yaml
+# hexo-generator-amp
 # Advanced Settings of hexo-amp-generator
 generator_amp:
   

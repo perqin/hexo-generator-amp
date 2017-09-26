@@ -1421,6 +1421,20 @@ amp-twitter {
 .sns-link a:hover {
   color: #4f7086;
 }
+.breadcrumb ol li {
+  list-style: none;
+  display: inline-block;
+  margin: 0.4em 0;
+}
+.breadcrumb ol li:after {
+  content: "/";
+  display: inline-block;
+  margin: 0 0.4em;
+}
+.breadcrumb ol li:last-child:after {
+  content: "";
+  margin: 0;
+}
 @media (min-width: 800px) {
   .entry-header,
   .entry-title,
