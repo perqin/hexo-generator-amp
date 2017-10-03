@@ -3,6 +3,7 @@
 var assign      = require('object-assign');
 var pathFn      = require('path');
 var hexo_env    = require('hexo-env');
+var gen         = require('./lib/generator');
 var ic          = require('./lib/copyAssets.js');
 var lg          = require('./lib/log.js');
 var su          = require('./lib/settingsUpdate.js');
@@ -82,5 +83,7 @@ hexo.config.generator_amp = assign({},
 	}
 );
 
-hexo.extend.generator.register('amp', require('./lib/generator'));
+hexo.extend.generator.register('amp', module.exports = function(locals) {
+	return gen( locals , hexo );
+});
 hexo.extend.filter.register('after_post_render', require('./lib/eyeCatchVars') );

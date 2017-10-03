@@ -155,7 +155,9 @@ generator_amp:
   templateDir:  amp-template # Please customize template files included this folder .
 ```
 
-`amp-template/sample-amp.ejs` and `amp-template/sample-amp.css` is a very simple template , so please customize it as you like . If you have a cool design template please let me know [the issues](https://github.com/tea3/hexo-generator-amp/issues). I would like to introduce your template in this chapter.
+`amp-template/sample-amp.ejs` and `amp-template/sample-amp.css` is a very simple template , so please customize it as you like . To generate css , please see [how-to-customize-css-file.md](https://github.com/tea3/hexo-generator-amp/tree/master/template/style/how-to-customize-css-file.md)
+
+ If you have a cool design template please let [me](https://github.com/tea3/hexo-generator-amp/issues) know. I would like to introduce your template in this chapter.
 
 ## Options
 
@@ -199,16 +201,25 @@ generator_amp:
   templateFilePath: sample/sample-amp.ejs         #(optional)
   generateAmpPath: :year/:month/:day/:title/amp/  #(optional) Custom AMP HTML Path
   # theme:                                        #(optional) Sample AMP template's option
-  #   facebook_app_id: 1234567890                 #(optional) api_id is necessary with the facebook's social button.
-  #   menu:                                       #(optional) Sample AMP template's menu option
-  #     diary: /categories/diary/                 #(optional) example menu
-  #     archives: /archives                       #(optional) example menu
-  #   authorLink:
-  #     mail_url: https://your-mail-form/
-  #     twitter_id: xxx
-  #     facebook_id: xxx
-  #     instagram_id: xxx
-  #     github_id: xxxx
+  #    menu:                                       #(optional) Sample AMP template's menu option
+  #      diary: /categories/diary/                 #(optional) example menu
+  #      archives: /archives                       #(optional) example menu
+  #    facebook_app_id: 1234567890                #(optional) api_id is necessary with the facebook's social button.
+  #    facebook_admins: 1234567890                #(optional) admins is necessary with the facebook's social button.
+  #    share_button:                              #(optional) Share button option
+  #      twitter: true                            #(optional) Enable Twitter share button
+  #      facebook: true                           #(optional) Enable Facebook share button
+  #      google: true                             #(optional) Enable Goolge+ share button
+  #      hatena: true                             #(optional) Enable Hatena share button
+  #      tumblr: true                             #(optional) Enable Tumblr share button
+  #    category_posts: true                       #(optional) Enable category posts
+  #    latests: true                              #(optional) Enable latests posts
+  #    authorLink:                                #(optional) Enable footer profile link
+  #      mail_url: https://your-mail-form/
+  #      twitter_id: xxx
+  #      facebook_id: xxx
+  #      instagram_id: xxx
+  #      github_id: xxxx
   
   
   # 3. Google Analytics Option
@@ -344,7 +355,7 @@ If you want to change the path of generate amp files , please set the this optio
 
 This option allows you to specify which menus can be used with the sample theme (`sample-amp.ejs`). Please set the menu name and path.
 
-Also , `theme.facebook_app_id` is necessary with the facebook's social button. Please see the follow how to create facebook app id.
+Also , `theme.facebook_app_id` and `theme.facebook_admins` is necessary with the facebook's social button. Please see the follow how to create facebook app id.
 
 [https://developers.facebook.com/docs/apps/register](https://developers.facebook.com/docs/apps/register)
 

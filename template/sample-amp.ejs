@@ -1,14 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ⚡>
   <head>
     <meta charset="utf-8">
     <link rel="canonical" href="<%= config.url %>/<%= post.path %>" >
     <title><%= post.title %> - <%= config.title %></title>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    
+    <meta property="og:title" content="<%= post.title %>">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="<%= config.url %>/<%= post.path %>">
+	<% if (post.titleImageForAmp){ %>
+		<meta property="og:image" content="<%= post.titleImageForAmp %>">
+	<% } %>
+	<meta property="og:site_name" content="<%= config.title %>">
+	<% if (post.description){ %>
+		<meta property="og:description" content="<%= post.description %>">
+	<% } else if (post.excerpt){ %>
+		<meta property="og:description" content="<%= post.excerpt %>">
+	<% } %>
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="<%= config.title %>">
+	<meta name="twitter:url" content="<%= config.url %>/<%= post.path %>">
+	<meta name="twitter:title" content="<%= post.title %> - <%= config.title %>">
+	<% if (post.description){ %>
+		<meta name="twitter:description" content="<%= post.description %>">
+	<% } else if (post.excerpt){ %>
+		<meta name="twitter:description" content="<%= post.excerpt %>">
+	<% } %>
+    <% if (post.titleImageForAmp){ %>
+    	<meta name="twitter:image" content="<%= post.titleImageForAmp %>">
+	<% } %>
+	<% if (config.generator_amp.theme && config.generator_amp.theme.facebook_admins){ %>
+		<meta property="fb:admins" content="<%- config.generator_amp.theme.facebook_admins %>">
+	<% } %>
+	<% if (config.generator_amp.theme && config.generator_amp.theme.facebook_app_id){ %>
+		<meta property="fb:app_id" content="<%- config.generator_amp.theme.facebook_app_id %>">
+	<% } %>
+    
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
     <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <!--
   	<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    -->
     <% if (isVimeoContain){ %>
     <script async custom-element="amp-vimeo" src="https://cdn.ampproject.org/v0/amp-vimeo-0.1.js"></script>
     <% } %>
@@ -80,9 +114,7 @@
 			}
 		}
 	</script>
-	<% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.authorLink ){ %>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<% } %>
 	<% if (cssTxt != ""){ %>
 	<style amp-custom>
 		<%- cssTxt %>
@@ -155,118 +187,16 @@
 	  	<div id="main">
 		    <article id="<%= post.layout %>-<%= post.slug %>" class="post">
 		    
-		    	<!-- entry title -->
-				<div class="title-cover">
-					<div class="entry-header">
-						<% if (post.link){ %>
-						  <h1 itemprop="name" class="entry-title">
-						    <a class="article-title" href="<%- post.link %>" target="_blank" itemprop="url"><%= post.title %></a>
-						  </h1>
-						<% } else if (post.title){ %>
-						  <h1 class="article-title entry-title" itemprop="name">
-						    <a href="<%- config.url %>/<%- post.path %>" target="_blank" itemprop="url"><%= post.title %></a>
-						  </h1>
-						<% } %>
-					</div>
-					
-					<!-- datePublished -->
-					<div class="entry-meta-header">
-						<span class="meta-elements date">
-							<time datetime="<%= datePublished %>" itemprop="datePublished"><%= datePublished %></time>
-						</span>
-					</div>
-				</div>
-				
-				<!-- entry content -->
-			    <div class="entry-content ecp">
-			    	<!-- social share button -->
-			    	<!--
-			      		To use the facebook button, add the facebook_app_id option of _config.yml.
-			      		
-			      		(e.g.)
-			      		generator_amp:
-			      		  theme:
-    						facebook_app_id: 123456789
-			      	-->
-			    	<div class="social-share">
-			    		<amp-social-share type="twitter" width="40" height="40"></amp-social-share>
-			    		<% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.facebook_app_id ){ %>
-			    			<amp-social-share type="facebook" width="40" height="40" data-param-app_id="<%- config.generator_amp.theme.facebook_app_id %>" data-param-text="" data-param-href="<%= config.url %>/<%= post.path %>"></amp-social-share>
-			    		<% } %>
-			    		<!--
-			    		<amp-social-share type="pinterest" width="40" height="40"></amp-social-share>
-			    		-->
-			    		<amp-social-share type="gplus" width="40" height="40"></amp-social-share>
-			    		<!--
-			    		<amp-social-share type="tumblr" width="40" height="40"></amp-social-share>
-			    		<amp-social-share type="whatsapp" width="40" height="40"></amp-social-share>
-			    		<amp-social-share type="linkedin" width="40" height="40"></amp-social-share>
-			    		<amp-social-share type="email" width="40" height="40"></amp-social-share>
-			    		-->
-			    	</div>
-			    	
-			    	<!-- content -->
-			  		<%- content %>
-			  		
-			  		<!-- google Adsense -->
-			  		<% if (config.generator_amp.substituteGoogle_adsense && config.generator_amp.substituteGoogle_adsense.data_ad_client && config.generator_amp.substituteGoogle_adsense.data_ad_slot && ( config.generator_amp.substituteGoogle_adsense.width || config.generator_amp.substituteGoogle_adsense.height) ){ %>
-			  		<div class="ad-footer">
-			  			<amp-ad layout="<%- config.generator_amp.substituteGoogle_adsense.layout || 'responsive' %>"<% if(config.generator_amp.substituteGoogle_adsense.width){ %> width="<%- config.generator_amp.substituteGoogle_adsense.width %>"<% } %><% if(config.generator_amp.substituteGoogle_adsense.height){ %> height="<%- config.generator_amp.substituteGoogle_adsense.height %>"<% } %> type="adsense" data-ad-client="<%- config.generator_amp.substituteGoogle_adsense.data_ad_client %>" data-ad-slot="<%- config.generator_amp.substituteGoogle_adsense.data_ad_slot %>">
-						</amp-ad>
-					</div>
-					<% } %>
-					
-					<!-- social share button -->
-			    	<!--
-			      		To use the facebook button, add the facebook_app_id option of _config.yml.
-			      		
-			      		generator_amp:
-			      		  theme:
-    						facebook_app_id: 123456789
-			      	-->
-			    	<div class="social-share">
-			    		<amp-social-share type="twitter" width="40" height="40"></amp-social-share>
-			    		<% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.facebook_app_id ){ %>
-			    			<amp-social-share type="facebook" width="40" height="40" data-param-app_id="<%- config.generator_amp.theme.facebook_app_id %>" data-param-text="" data-param-href="<%= config.url %>/<%= post.path %>"></amp-social-share>
-			    		<% } %>
-			    		<!--
-			    		<amp-social-share type="pinterest" width="40" height="40"></amp-social-share>
-			    		-->
-			    		<amp-social-share type="gplus" width="40" height="40"></amp-social-share>
-			    		<!--
-			    		<amp-social-share type="tumblr" width="40" height="40"></amp-social-share>
-			    		<amp-social-share type="whatsapp" width="40" height="40"></amp-social-share>
-			    		<amp-social-share type="linkedin" width="40" height="40"></amp-social-share>
-			    		<amp-social-share type="email" width="40" height="40"></amp-social-share>
-			    		-->
-			    	</div>
-					
-					<!-- google Adsense Matched content -->
-			  		<% if (config.generator_amp.substituteGoogle_adsense && config.generator_amp.substituteGoogle_adsense.data_ad_client && config.generator_amp.substituteGoogle_adsense.data_ad_slot_matched && ( config.generator_amp.substituteGoogle_adsense.width_matched || config.generator_amp.substituteGoogle_adsense.height_matched) ){ %>
-			  		<div class="ad-footer">
-						<amp-ad layout="<%- config.generator_amp.substituteGoogle_adsense.layout_matched || 'responsive' %>"<% if(config.generator_amp.substituteGoogle_adsense.width_matched){ %> width="<%- config.generator_amp.substituteGoogle_adsense.width_matched %>"<% } %><% if(config.generator_amp.substituteGoogle_adsense.height_matched){ %> height="<%- config.generator_amp.substituteGoogle_adsense.height_matched %>"<% } %> type="adsense" data-ad-client="<%- config.generator_amp.substituteGoogle_adsense.data_ad_client %>" data-ad-slot="<%- config.generator_amp.substituteGoogle_adsense.data_ad_slot_matched %>">
-					</div>
-					<% } %>
-			  	</div>
-				
-		  	</article>
-		  	
-		  	
-		  	<!-- meta (categories , tags) -->
-		  	<% if ( (post.categories && post.categories.length) || (post.tags && post.tags.length) ){ %>
-		  	<div class="meta-content">
-		  	
-		  		<% if (post.categories && post.categories.length){ %>
-				<div class="meta-wrapper">
-				  	<h6 class="categories">Category</h6>
-				  	<div class="article-categories">
-				  	
+		   		<!-- categories and bread crumb -->
+		    	<% if ( (post.categories && post.categories.length) ){ %>
+				<div class="categories-header">
+					<div class="categories">
 						<div class="breadcrumb inline-icon">
 							<ol itemscope itemtype="http://schema.org/BreadcrumbList">
 							  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 							    <a itemprop="item" href="<%- config.root %>">
 							    	<span class="sns-icon home-icon"></span>
-							        <span itemprop="name">Home</span>
+							        <span itemprop="name"><span class="fa fa-fw fa-home"></span></span>
 							    </a>
 							    <meta itemprop="position" content="1" />
 							  </li>
@@ -288,10 +218,134 @@
 					</div>
 				</div>
 				<% } %>
+		    
+		    	<!-- entry title -->
+				<div class="title-cover">
+					<div class="entry-header">
+						
+						<% if (post.eyeCatchImage && post.eyeCatchImage != "" && post.eyeCatchImageProperty && post.eyeCatchImageProperty.width && post.eyeCatchImageProperty.height){ %>
+						<%
+			          		var rW = ( Number(post.eyeCatchImageProperty.width) > Number(post.eyeCatchImageProperty.height) ) ? Math.floor(post.eyeCatchImageProperty.width * 100 / post.eyeCatchImageProperty.height) : 100;
+			          		
+			          		var rH = ( Number(post.eyeCatchImageProperty.width) > Number(post.eyeCatchImageProperty.height) ) ? 100 : Math.floor(post.eyeCatchImageProperty.height * 100 / post.eyeCatchImageProperty.width);
+			          	%>
+			          	<div class="header-thumb flx">
+			          		<div class="thumbImg-w circle">
+			          			<amp-img class="thumbImg" layout="fixed" width="<%- rW %>" height="<%- rH %>" src="<%- post.titleImageForAmp %>">
+			          			</amp-img>
+			          		</div>
+			          	</div>
+			            <% } %>
+			            
+			            <div class="header-cap flx">
+							<% if (post.link){ %>
+							  <h1 itemprop="name" class="entry-title">
+							    <a class="article-title" href="<%- post.link %>" target="_blank" itemprop="url"><%= post.title %></a>
+							  </h1>
+							<% } else if (post.title){ %>
+							  <h1 class="article-title entry-title" itemprop="name">
+							    <a href="<%- config.url %>/<%- post.path %>" target="_blank" itemprop="url"><%= post.title %></a>
+							  </h1>
+							<% } %>
+						</div>
+					</div>
+					
+					<!-- datePublished -->
+					<div class="entry-meta-header">
+						<span class="meta-elements date">
+							<span class="fa fa-fw fa-clock-o"></span>
+							<time datetime="<%= datePublished %>" itemprop="datePublished"><%= post.date.toISOString().replace(/T.*/g , "").replace(/\-/g , ".") %></time>
+						</span>
+					</div>
+				</div>
 				
+				
+				
+				<!-- entry content -->
+			    <div class="entry-content ecp">
+			    	<!-- social share button -->
+			    	
+			    	<% if( config.generator_amp.theme && config.generator_amp.theme.share_button ){ %>
+			    	<div class="social-share">
+			    		<% if( config.generator_amp.theme && config.generator_amp.theme.share_button && config.generator_amp.theme.share_button.twitter ){ %>
+			    			<a class="sbtn tw" rel="nofollow" target="_blank" href="http://twitter.com/intent/tweet?url=<%= encodeURIComponent(config.url + config.root + post.path) %>&text=<%= encodeURIComponent(post.title) %>&tw_p=tweetbutton"><span class="fa fa-fw fa-twitter"></span></a>
+			    		<% } %>
+
+			    		<% if( config.generator_amp.theme && config.generator_amp.theme.share_button && config.generator_amp.theme.share_button.facebook ){ %>
+			    		<a class="sbtn fb" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=<%= encodeURIComponent(config.url + config.root + post.path) %>&t=<%= encodeURIComponent(post.title) %>"><span class="fa fa-fw fa-facebook"></span></a>
+			    		<% } %>
+			    		
+			    		<% if( config.generator_amp.theme && config.generator_amp.theme.share_button && config.generator_amp.theme.share_button.google ){ %>
+			    		<a class="sbtn gp" rel="nofollow" target="_blank" href="https://plus.google.com/share?url=<%= encodeURIComponent(config.url + config.root + post.path) %>"><span class="fa fa-fw fa-google-plus"></span></a>
+			    		<% } %>
+			    		
+			    		<% if( config.generator_amp.theme && config.generator_amp.theme.share_button && config.generator_amp.theme.share_button.hatena ){ %>
+			    		<a class="sbtn ht" rel="nofollow" target="_blank" href="https://b.hatena.ne.jp/entry/<%= encodeURIComponent(config.url + config.root + post.path) %>"><span class="icon-hatena"></span></a>
+			    		<% } %>
+			    		
+			    		<% if( config.generator_amp.theme && config.generator_amp.theme.share_button && config.generator_amp.theme.share_button.tumblr ){ %>
+			    		<a class="sbtn tb" rel="nofollow" target="_blank" href="http://www.tumblr.com/share/link?url=<%= encodeURIComponent(config.url + config.root + post.path) %>&name=<%= encodeURIComponent(post.title) %>"><span class="fa fa-fw fa-tumblr"></span></a>
+			    		<% } %>
+			    		
+			    	</div>
+			    	<% } %>
+			    	
+			    	<!-- content -->
+			  		<%- content %>
+			  		
+			  		<!-- google Adsense -->
+			  		<% if (config.generator_amp.substituteGoogle_adsense && config.generator_amp.substituteGoogle_adsense.data_ad_client && config.generator_amp.substituteGoogle_adsense.data_ad_slot && ( config.generator_amp.substituteGoogle_adsense.width || config.generator_amp.substituteGoogle_adsense.height) ){ %>
+			  		<div class="ad-footer">
+			  			<amp-ad layout="<%- config.generator_amp.substituteGoogle_adsense.layout || 'responsive' %>"<% if(config.generator_amp.substituteGoogle_adsense.width){ %> width="<%- config.generator_amp.substituteGoogle_adsense.width %>"<% } %><% if(config.generator_amp.substituteGoogle_adsense.height){ %> height="<%- config.generator_amp.substituteGoogle_adsense.height %>"<% } %> type="adsense" data-ad-client="<%- config.generator_amp.substituteGoogle_adsense.data_ad_client %>" data-ad-slot="<%- config.generator_amp.substituteGoogle_adsense.data_ad_slot %>">
+						</amp-ad>
+					</div>
+					<% } %>
+					
+					
+					
+					<% if( config.generator_amp.theme && config.generator_amp.theme.share_button ){ %>
+			    	<div class="social-share">
+			    		<% if( config.generator_amp.theme && config.generator_amp.theme.share_button && config.generator_amp.theme.share_button.twitter ){ %>
+			    			<a class="sbtn tw" rel="nofollow" target="_blank" href="http://twitter.com/intent/tweet?url=<%= encodeURIComponent(config.url + config.root + post.path) %>&text=<%= encodeURIComponent(post.title) %>&tw_p=tweetbutton"><span class="fa fa-fw fa-twitter"></span></a>
+			    		<% } %>
+			    		
+			    		<% if( config.generator_amp.theme && config.generator_amp.theme.share_button && config.generator_amp.theme.share_button.facebook ){ %>
+			    		<a class="sbtn fb" rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=<%= encodeURIComponent(config.url + config.root + post.path) %>&t=<%= encodeURIComponent(post.title) %>"><span class="fa fa-fw fa-facebook"></span></a>
+			    		<% } %>
+			    		
+			    		<% if( config.generator_amp.theme && config.generator_amp.theme.share_button && config.generator_amp.theme.share_button.google ){ %>
+			    		<a class="sbtn gp" rel="nofollow" target="_blank" href="https://plus.google.com/share?url=<%= encodeURIComponent(config.url + config.root + post.path) %>"><span class="fa fa-fw fa-google-plus"></span></a>
+			    		<% } %>
+			    		
+			    		<% if( config.generator_amp.theme && config.generator_amp.theme.share_button && config.generator_amp.theme.share_button.hatena ){ %>
+			    		<a class="sbtn ht" rel="nofollow" target="_blank" href="https://b.hatena.ne.jp/entry/<%= encodeURIComponent(config.url + config.root + post.path) %>"><span class="icon-hatena"></span></a>
+			    		<% } %>
+			    		
+			    		<% if( config.generator_amp.theme && config.generator_amp.theme.share_button && config.generator_amp.theme.share_button.tumblr ){ %>
+			    		<a class="sbtn tb" rel="nofollow" target="_blank" href="http://www.tumblr.com/share/link?url=<%= encodeURIComponent(config.url + config.root + post.path) %>&name=<%= encodeURIComponent(post.title) %>"><span class="fa fa-fw fa-tumblr"></span></a>
+			    		<% } %>
+			    		
+			    	</div>
+			    	<% } %>
+			    	
+					
+					<!-- google Adsense Matched content -->
+			  		<% if (config.generator_amp.substituteGoogle_adsense && config.generator_amp.substituteGoogle_adsense.data_ad_client && config.generator_amp.substituteGoogle_adsense.data_ad_slot_matched && ( config.generator_amp.substituteGoogle_adsense.width_matched || config.generator_amp.substituteGoogle_adsense.height_matched) ){ %>
+			  		<div class="ad-footer">
+						<amp-ad layout="<%- config.generator_amp.substituteGoogle_adsense.layout_matched || 'responsive' %>"<% if(config.generator_amp.substituteGoogle_adsense.width_matched){ %> width="<%- config.generator_amp.substituteGoogle_adsense.width_matched %>"<% } %><% if(config.generator_amp.substituteGoogle_adsense.height_matched){ %> height="<%- config.generator_amp.substituteGoogle_adsense.height_matched %>"<% } %> type="adsense" data-ad-client="<%- config.generator_amp.substituteGoogle_adsense.data_ad_client %>" data-ad-slot="<%- config.generator_amp.substituteGoogle_adsense.data_ad_slot_matched %>">
+					</div>
+					<% } %>
+			  	</div>
+				
+		  	</article>
+		  	
+		  	
+		  	<!-- TAGS -->
+		  	<% if ( post.tags && post.tags.length ){ %>
+		  	<div class="meta-content">
 				<% if (post.tags && post.tags.length){ %>
-				<div class="meta-wrapper">
-				  	<h6 class="tag">Tag</h6>
+				<div class="widget">
+				  	<h6 class="tag"><span class="fa fa-fw fa-tag"></span>TAGS</h6>
 				  	<div class="article-tag">
 						<ul class="article-tag-list">
 							<% post.tags.data.forEach(function(item){ %>
@@ -308,38 +362,104 @@
 			</div>
 		  	<% } %>
 		  	
-		  	
-		  	<!-- article nav -->
-		  	<!--
-		  	<% if (post.prev || post.next){ %>
-			<nav id="article-nav">
-			  <% if (post.prev){ %>
-			  <a href="<%- config.root %><%- post.prev.path %>" id="article-nav-newer" class="article-nav-link-wrap">
-			    <strong class="article-nav-caption">Newer</strong>
-			    <div class="article-nav-title">
-			      <% if (post.prev.title){ %>
-			        <%= post.prev.title %>
-			      <% } else { %>
-			        (no title)
-			      <% } %>
+		  	<!-- Categories posts -->
+		  	<% if (config.generator_amp.theme && config.generator_amp.theme.category_posts && posts.length && post.categories && post.categories.length){ %>
+		  	<div class="meta-content">
+			  <div class="widget">
+			  	<div class="widget-h">
+			  		<h6><span class="fa fa-fw fa-folder-open-o"></span>&nbsp;<%- post.categories.data[0].name %></h6>
 			    </div>
-			  </a>
-			  <% } %>
-			  <% if (post.next){ %>
-			  <a href="<%- config.root %><%- post.next.path %>" id="article-nav-older" class="article-nav-link-wrap">
-			    <strong class="article-nav-caption">Older</strong>
-			    <div class="article-nav-title">
-			      <% if (post.next.title){ %>
-			        <%= post.next.title %>
-			      <% } else { %>
-			        (no title)
-			      <% } %>
+			    <div class="widget-content">
+			    	<div class="posts-list">
+				      <ul>
+				      	<%
+				      	var posts_d = posts.sort('date', -1);
+				      	var posts_cat = [];
+				      	posts_d.each(function(p){
+				      		if(p.categories && p.categories.length && p.categories.data[0].name == post.categories.data[0].name ){
+				      			posts_cat.push(p);
+				      		}
+				      	});
+				      	%>
+				      	<% for( var i=0; (i < posts_cat.length && i < 5); i++ ){ %>
+				          <li>
+				          	<%
+				          		var rW = ( Number(posts_cat[i].eyeCatchImageProperty.width) > Number(posts_cat[i].eyeCatchImageProperty.height) ) ? Math.floor(posts_cat[i].eyeCatchImageProperty.width * 100 / posts_cat[i].eyeCatchImageProperty.height) : 100;
+				          		
+				          		var rH = ( Number(posts_cat[i].eyeCatchImageProperty.width) > Number(posts_cat[i].eyeCatchImageProperty.height) ) ? 100 : Math.floor(posts_cat[i].eyeCatchImageProperty.height * 100 / posts_cat[i].eyeCatchImageProperty.width);
+				          	%>
+				          	<div class="posts-list-thumb flx">
+					          	<div class="thumbImg-w">
+					          		<div class="thumbImg">
+					          			<a href="<%- config.root %><%- posts_cat[i].path %>">
+						          			<amp-img class="thumbImg" layout="fixed" width="<%- rW %>" height="<%- rH %>" src="<%- posts_cat[i].eyeCatchImage %>">
+						          			</amp-img>
+						          		</a>
+					          		</div>
+					          	</div>
+					        </div>
+				          	<div class="posts-list-link flx">
+				            	<a href="<%- config.root %><%- posts_cat[i].path %>"><%= posts_cat[i].title || '(no title)' %></a>
+				            	<div class="posts-list-meta">
+				            		<span class="fa fa-fw fa-clock-o"></span>
+				            		<%= posts_cat[i].date.toISOString().replace(/T.*/g , "").replace(/\-/g , ".") %>
+				            	</div>
+				            </div>
+				          </li>
+				        <% } %>
+				      </ul>
+				    </div>
 			    </div>
-			  </a>
-			  <% } %>
-			</nav>
+			  </div>
+			</div>
 			<% } %>
-			-->
+		  	
+		  	
+		  	<!-- Latests -->
+		  	<% if (config.generator_amp.theme && config.generator_amp.theme.latests && posts.length > 1){ %>
+		  	<div class="meta-content">
+			  	<div class="widget">
+			  		<div class="widget-h">
+			  			<h6><span class="fa fa-fw fa-file-text-o"></span>&nbsp;LATESTS</h6>
+			  		</div>
+				    <div class="widget-content">
+				    	<div class="posts-list">
+					      <ul>
+					        <% posts.sort('date', -1).limit(5).each(function(p){ %>
+					          <li>
+					          	<%
+					          		var rW = ( Number(p.eyeCatchImageProperty.width) > Number(p.eyeCatchImageProperty.height) ) ? Math.floor(p.eyeCatchImageProperty.width * 100 / p.eyeCatchImageProperty.height) : 100;
+					          		
+					          		var rH = ( Number(p.eyeCatchImageProperty.width) > Number(p.eyeCatchImageProperty.height) ) ? 100 : Math.floor(p.eyeCatchImageProperty.height * 100 / p.eyeCatchImageProperty.width);
+					          	%>
+					            
+					            <div class="posts-list-thumb flx">
+						            <div class="thumbImg-w">
+						          		<div class="thumbImg">
+						          			<a href="<%- config.root %><%- p.path %>">
+						          				<amp-img class="thumbImg" layout="fixed" width="<%- rW %>" height="<%- rH %>" src="<%- p.eyeCatchImage %>">
+						          				</amp-img>
+						          			</a>
+						          		</div>
+						          	</div>
+						        </div>
+					          	<div class="posts-list-link flx">
+					            	<a href="<%- config.root %><%- p.path %>"><%= p.title || '(no title)' %></a>
+					            	<div class="posts-list-meta">
+					            		<span class="fa fa-fw fa-clock-o"></span>
+					            		<%= p.date.toISOString().replace(/T.*/g , "").replace(/\-/g , ".") %>
+					            	</div>
+					            </div>
+					            
+					          </li>
+					        <% }) %>
+					      </ul>
+					    </div>
+				    </div>
+				</div>
+			  </div>
+			</div>
+			<% } %>
 			
 		</div>
 		
@@ -348,23 +468,24 @@
 		
 			<% if (config.author && config.authorDetail ){ %>
 			<div class="site-author-info">
+				<h6>Profile</h6>
 				<div class="site-author-info-wrapper">
 				
 					<% if (config.authorDetail && config.authorDetail.avatar && config.authorDetail.avatar.path && config.authorDetail.avatar.width && config.authorDetail.avatar.height ){ %>
-					<div class="gravatar-wrapper">
+					<div class="gravatar-wrapper flx">
 						<div class="gravatar-area">
-							<amp-img alt="gravatar" layout="responsive" class="circle responsive-img" src="<%= avatarPath %>" width="<%= config.authorDetail.avatar.width %>" height="<%= config.authorDetail.avatar.height %>"></amp-img>
+							<amp-img alt="gravatar" layout="fixed" class="circle responsive-img" src="<%= avatarPath %>" width="<%= config.authorDetail.avatar.width %>" height="<%= config.authorDetail.avatar.height %>"></amp-img>
 						</div>
 					</div>
 					<% } %>
 					
 					<% if (config.author ){ %>
-					<div class="authorCap-wrapper">
-						<h6 class="authorCap"><%= config.author %>&nbsp;
+					<div class="authorCap-wrapper flx">
+						<div class="authorCap"><%= config.author %>&nbsp;
 							<% if (config.authorDetail && config.authorDetail.authorReading){ %>
 							<span class="authorReading">(<%= config.authorDetail.authorReading %>)</span>
 							<% } %>
-						</h6>
+						</div>
 						<% if (config.authorDetail && config.authorDetail.description){ %>
 						<p class="site-author-desc">
 							<%= config.authorDetail.description %>
@@ -407,16 +528,8 @@
 			<% } %>
 			
 			
-			<div class="homeLink">
-		  		<a href="/">Home</a>
-		  	</div>
-			
 			<div class="copyright-tool">
-				<div class="copyright-title">
-					<span>
-					&copy; <%= copyrightDate %>&nbsp;<%= config.author || config.title %>
-					</span>
-				</div>
+				
 				<% if (config.copyright_notice){ %>
 				<div class="copyright-notice">
 					<p>
@@ -424,6 +537,18 @@
 					</p>
 				</div>
 				<% } %>
+				
+				<div class="copyright-title">
+					<span>
+					&copy; <%= copyrightDate %>&nbsp;<%= config.title %>
+					</span>
+				</div>
+				
+				<div class="copyright-license">
+					<aside>
+						Powered by <a href="https://hexo.io/">Hexo</a>. <a href="https://github.com/tea3/hexo-generator-amp">AMP-Theme</a> designed by <a href="https://photo-tea.com/">tea</a>.
+					</aside>
+				</div>
 			</div>
 			
 		</footer>
