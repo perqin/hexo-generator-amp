@@ -2,13 +2,13 @@
 <html ⚡>
   <head>
     <meta charset="utf-8">
-    <link rel="canonical" href="<%= config.url %>/<%= post.path %>" >
+    <link rel="canonical" href="<%= config.url %><%= config.root %><%= post.path %>" >
     <title><%= post.title %> - <%= config.title %></title>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     
     <meta property="og:title" content="<%= post.title %>">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="<%= config.url %>/<%= post.path %>">
+	<meta property="og:url" content="<%= config.url %><%= config.root %><%= post.path %>">
 	<% if (post.titleImageForAmp){ %>
 		<meta property="og:image" content="<%= post.titleImageForAmp %>">
 	<% } %>
@@ -20,7 +20,7 @@
 	<% } %>
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="<%= config.title %>">
-	<meta name="twitter:url" content="<%= config.url %>/<%= post.path %>">
+	<meta name="twitter:url" content="<%= config.url %><%= config.root %><%= post.path %>">
 	<meta name="twitter:title" content="<%= post.title %> - <%= config.title %>">
 	<% if (post.description){ %>
 		<meta name="twitter:description" content="<%= post.description %>">
@@ -83,7 +83,7 @@
 			<% } %>
 			"mainEntityOfPage":{
 			    "@type":"WebPage",
-			    "@id":"<%= config.url %>/<%= post.path %>"
+			    "@id":"<%= config.url %><%= config.root %><%= post.path %>"
 			},
 			"datePublished": "<%= post.date.toISOString() %>",
 			"dateModified": "<%= post.updated.toISOString() %>",
@@ -152,14 +152,17 @@
 	  				<a href="<%- config.root %>"><%= config.title %></a>
 	  			</div>
 	  		</div>
-	  		<div class="right alt">
-	  			<button on='tap:sidebar.toggle' class="tab hamburger"></button>
-	  		</div>
+	  		<% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.menu ){ %>
+		  		<div class="right alt">
+		  			<button on='tap:sidebar.toggle' class="tab hamburger"></button>
+		  		</div>
+	  		<% } %>
 	  	</div>
     </header>
   	
   	
   	<!-- sidebar -->
+  	<% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.menu ){ %>
   	<amp-sidebar id='sidebar' layout="nodisplay" side="left">
       <ul>
       	<!--
@@ -172,15 +175,12 @@
 			      gallery: /categories/archive-gallery
 			      archives: /archives
       	-->
-        <li><a href="/">Home</a></li>
-        <% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.menu ){ %>
 			<% for (var i in config.generator_amp.theme.menu){ %>
 				<li><a href="<%- config.generator_amp.theme.menu[i] %>"><%= i %></a></li>
 			<% } %>
-		<% } %>
       </ul>
     </amp-sidebar>
-  	
+  	<% } %>
   	
   	<!-- container -->
   	<div id="container">
@@ -204,7 +204,7 @@
 								<% for(var ci=0; ci < post.categories.data.length; ci++ ){ %>
 						    		<li itemprop="itemListElement" itemscope
 									      itemtype="http://schema.org/ListItem">
-									    <a itemprop="item" href="/<%- post.categories.data[ci].path %>">
+									    <a itemprop="item" href="<%= config.root %><%- post.categories.data[ci].path %>">
 									      <% if (ci == 0){ %>
 									      	<span class="sns-icon folder-icon"></span>
 									      <% } %>
@@ -244,7 +244,7 @@
 							  </h1>
 							<% } else if (post.title){ %>
 							  <h1 class="article-title entry-title" itemprop="name">
-							    <a href="<%- config.url %>/<%- post.path %>" target="_blank" itemprop="url"><%= post.title %></a>
+							    <a href="<%- config.url %><%= config.root %><%- post.path %>" target="_blank" itemprop="url"><%= post.title %></a>
 							  </h1>
 							<% } %>
 						</div>
@@ -350,7 +350,7 @@
 						<ul class="article-tag-list">
 							<% post.tags.data.forEach(function(item){ %>
 					    		<li class="article-tag-list-item">
-					    			<a class="article-tag-list-link" href="/<%- item.path %>" class="link-gaTrack" data-linkType="link-tag">
+					    			<a class="article-tag-list-link" href="<%= config.root %><%- item.path %>" class="link-gaTrack" data-linkType="link-tag">
 					    				<%- item.name %>
 					    			</a>
 					    		</li>
@@ -364,54 +364,126 @@
 		  	
 		  	<!-- Categories posts -->
 		  	<% if (config.generator_amp.theme && config.generator_amp.theme.category_posts && posts.length && post.categories && post.categories.length){ %>
-		  	<div class="meta-content">
-			  <div class="widget">
-			  	<div class="widget-h">
-			  		<h6><span class="fa fa-fw fa-folder-open-o"></span>&nbsp;<%- post.categories.data[0].name %></h6>
-			    </div>
-			    <div class="widget-content">
-			    	<div class="posts-list">
-				      <ul>
-				      	<%
-				      	var posts_d = posts.sort('date', -1);
-				      	var posts_cat = [];
-				      	posts_d.each(function(p){
-				      		if(p.categories && p.categories.length && p.categories.data[0].name == post.categories.data[0].name ){
-				      			posts_cat.push(p);
-				      		}
-				      	});
-				      	%>
-				      	<% for( var i=0; (i < posts_cat.length && i < 5); i++ ){ %>
-				          <li>
-				          	<%
-				          		var rW = ( Number(posts_cat[i].eyeCatchImageProperty.width) > Number(posts_cat[i].eyeCatchImageProperty.height) ) ? Math.floor(posts_cat[i].eyeCatchImageProperty.width * 100 / posts_cat[i].eyeCatchImageProperty.height) : 100;
-				          		
-				          		var rH = ( Number(posts_cat[i].eyeCatchImageProperty.width) > Number(posts_cat[i].eyeCatchImageProperty.height) ) ? 100 : Math.floor(posts_cat[i].eyeCatchImageProperty.height * 100 / posts_cat[i].eyeCatchImageProperty.width);
-				          	%>
-				          	<div class="posts-list-thumb flx">
-					          	<div class="thumbImg-w">
-					          		<div class="thumbImg">
-					          			<a href="<%- config.root %><%- posts_cat[i].path %>">
-						          			<amp-img class="thumbImg" layout="fixed" width="<%- rW %>" height="<%- rH %>" src="<%- posts_cat[i].eyeCatchImage %>">
-						          			</amp-img>
-						          		</a>
-					          		</div>
-					          	</div>
-					        </div>
-				          	<div class="posts-list-link flx">
-				            	<a href="<%- config.root %><%- posts_cat[i].path %>"><%= posts_cat[i].title || '(no title)' %></a>
-				            	<div class="posts-list-meta">
-				            		<span class="fa fa-fw fa-clock-o"></span>
-				            		<%= posts_cat[i].date.toISOString().replace(/T.*/g , "").replace(/\-/g , ".") %>
-				            	</div>
-				            </div>
-				          </li>
-				        <% } %>
-				      </ul>
-				    </div>
-			    </div>
-			  </div>
-			</div>
+		  	
+			  	<%
+			      	var posts_d = posts.sort('date', -1);
+			      	var posts_cat = [];
+			      	posts_d.each(function(p){
+			      		if(p.categories && p.categories.length && p.categories.data[0].name == post.categories.data[0].name ){
+			      			posts_cat.push(p);
+			      		}
+			      	});
+		      	%>
+		  	
+			  	<% if( posts_cat.length > 0){ %>
+				  	<div class="meta-content">
+					  <div class="widget">
+					  	<div class="widget-h">
+					  		<h6><span class="fa fa-fw fa-folder-open-o"></span>&nbsp;<%- post.categories.data[0].name %></h6>
+					    </div>
+					    <div class="widget-content">
+					    	<div class="posts-list">
+						      <ul>
+						      	
+						      	<% for( var i=0; (i < posts_cat.length && i < (config.generator_amp.theme.list_limts || 5)); i++ ){ %>
+						          <li>
+						          	<%
+						          		var rW = ( Number(posts_cat[i].eyeCatchImageProperty.width) > Number(posts_cat[i].eyeCatchImageProperty.height) ) ? Math.floor(posts_cat[i].eyeCatchImageProperty.width * 100 / posts_cat[i].eyeCatchImageProperty.height) : 100;
+						          		
+						          		var rH = ( Number(posts_cat[i].eyeCatchImageProperty.width) > Number(posts_cat[i].eyeCatchImageProperty.height) ) ? 100 : Math.floor(posts_cat[i].eyeCatchImageProperty.height * 100 / posts_cat[i].eyeCatchImageProperty.width);
+						          	%>
+						          	<div class="posts-list-thumb flx">
+							          	<div class="thumbImg-w">
+							          		<div class="thumbImg">
+							          			<a href="<%- config.root %><%- posts_cat[i].path %>">
+								          			<amp-img class="thumbImg" layout="fixed" width="<%- rW %>" height="<%- rH %>" src="<%- posts_cat[i].eyeCatchImage %>">
+								          			</amp-img>
+								          		</a>
+							          		</div>
+							          	</div>
+							        </div>
+						          	<div class="posts-list-link flx">
+						            	<a href="<%- config.root %><%- posts_cat[i].path %>"><%= posts_cat[i].title || '(no title)' %></a>
+						            	<div class="posts-list-meta">
+						            		<span class="fa fa-fw fa-clock-o"></span>
+						            		<%= posts_cat[i].date.toISOString().replace(/T.*/g , "").replace(/\-/g , ".") %>
+						            	</div>
+						            </div>
+						          </li>
+						        <% } %>
+						      </ul>
+						    </div>
+					    </div>
+					  </div>
+					</div>
+				<% } %>
+			<% } %>
+		  	
+		  	
+		  	<!-- Detailed categories  posts -->
+		  	<% if (config.generator_amp.theme && config.generator_amp.theme.category_posts_detailed && posts.length && post.categories && post.categories.length){ %>
+			  	<%
+			      	var posts_d = posts.sort('date', -1);
+			      	var posts_cat = [];
+			      	posts_d.each(function(p){
+			      		if(p.categories && p.categories.length && p.categories.data[0].name == post.categories.data[0].name ){
+			      			if(p.categories.length == post.categories.length){
+			      				var isMatchedCategories = true;
+			      				for(var i=0; i<p.categories.length; i++){
+			      					if(p.categories.data[i].name != post.categories.data[i].name ){
+			      						isMatchedCategories = false;
+			      					}
+			      				}
+			      				if(isMatchedCategories){
+			      					posts_cat.push(p);
+			      				}
+			      			}
+			      		}
+			      	});
+		      	%>
+		      	
+		      	<% if( posts_cat.length > 0){ %>
+				  	<div class="meta-content">
+					  <div class="widget">
+					  	<div class="widget-h">
+					  		<h6><span class="fa fa-fw fa-folder-open-o"></span>&nbsp;<%- post.categories.data[post.categories.length - 1].name %></h6>
+					    </div>
+					    <div class="widget-content">
+					    	<div class="posts-list">
+						      <ul>
+						      	
+						      	<% for( var i=0; (i < posts_cat.length && i < (config.generator_amp.theme.list_limts || 5)); i++ ){ %>
+						          <li>
+						          	<%
+						          		var rW = ( Number(posts_cat[i].eyeCatchImageProperty.width) > Number(posts_cat[i].eyeCatchImageProperty.height) ) ? Math.floor(posts_cat[i].eyeCatchImageProperty.width * 100 / posts_cat[i].eyeCatchImageProperty.height) : 100;
+						          		
+						          		var rH = ( Number(posts_cat[i].eyeCatchImageProperty.width) > Number(posts_cat[i].eyeCatchImageProperty.height) ) ? 100 : Math.floor(posts_cat[i].eyeCatchImageProperty.height * 100 / posts_cat[i].eyeCatchImageProperty.width);
+						          	%>
+						          	<div class="posts-list-thumb flx">
+							          	<div class="thumbImg-w">
+							          		<div class="thumbImg">
+							          			<a href="<%- config.root %><%- posts_cat[i].path %>">
+								          			<amp-img class="thumbImg" layout="fixed" width="<%- rW %>" height="<%- rH %>" src="<%- posts_cat[i].eyeCatchImage %>">
+								          			</amp-img>
+								          		</a>
+							          		</div>
+							          	</div>
+							        </div>
+						          	<div class="posts-list-link flx">
+						            	<a href="<%- config.root %><%- posts_cat[i].path %>"><%= posts_cat[i].title || '(no title)' %></a>
+						            	<div class="posts-list-meta">
+						            		<span class="fa fa-fw fa-clock-o"></span>
+						            		<%= posts_cat[i].date.toISOString().replace(/T.*/g , "").replace(/\-/g , ".") %>
+						            	</div>
+						            </div>
+						          </li>
+						        <% } %>
+						      </ul>
+						    </div>
+					    </div>
+					  </div>
+					</div>
+				<% } %>
 			<% } %>
 		  	
 		  	
@@ -425,7 +497,7 @@
 				    <div class="widget-content">
 				    	<div class="posts-list">
 					      <ul>
-					        <% posts.sort('date', -1).limit(5).each(function(p){ %>
+					        <% posts.sort('date', -1).limit((config.generator_amp.theme.list_limts || 5)).each(function(p){ %>
 					          <li>
 					          	<%
 					          		var rW = ( Number(p.eyeCatchImageProperty.width) > Number(p.eyeCatchImageProperty.height) ) ? Math.floor(p.eyeCatchImageProperty.width * 100 / p.eyeCatchImageProperty.height) : 100;
@@ -527,6 +599,15 @@
 			</div>
 			<% } %>
 			
+			<% if( config.generator_amp && config.generator_amp.theme && config.generator_amp.theme.menu ){ %>
+			<div class="footer-menu">
+				<ul>
+					<% for (var i in config.generator_amp.theme.menu){ %>
+						<li><a href="<%- config.generator_amp.theme.menu[i] %>"><%= i %></a></li>
+					<% } %>
+				</ul>
+			</div>
+			<% } %>
 			
 			<div class="copyright-tool">
 				
