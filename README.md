@@ -71,7 +71,7 @@ generator_amp:
   warningLog: false   # To display warning, please set true.
 ```
 
-To set the detail option , please see [wiki](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#to-customize-template).
+To set the detail option , please see [wiki](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#options).
 
 ### 3. Run server
 
