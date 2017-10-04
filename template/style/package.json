@@ -1,0 +1,58 @@
+{
+  "name": "hexo-generator-amp",
+  "version": "3.0.8",
+  "main": "index",
+  "dependencies": {
+    "amphtml-validator": "^1.0.20",
+    "bluebird" : "^3.5.0",
+    "cheerio": "^1.0.0-rc.2",
+    "ejs": "^2.5.7",
+    "hasha": "^3.0.0",
+    "hexo-env": "^0.0.1",
+    "hexo-fs": "^0.2.2",
+    "hexo-util": "^0.6.1",
+    "html-minifier": "^3.5.5",
+    "image-size": "^0.6.1",
+    "log-util": "^1.2.0",
+    "lodash": "^4.17.4",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.18.1",
+    "object-assign": "^4.1.1"
+  },
+  "description": "AMP ⚡ HTML (Accelerated Mobile Pages) generator for Hexo.",
+  "devDependencies": {},
+  "directories": {
+    "lib": "./lib"
+  },
+  "author": {
+    "email": "tea3gtinfo@gmail.com",
+    "name": "tea3",
+    "url": "https://photo-tea.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/tea3/hexo-generator-amp/issues"
+  },
+  "keywords": [
+    "auto",
+    "generator",
+    "hexo",
+    "blog",
+    "amp",
+    "html",
+    "google",
+    "mobile",
+    "The-Accelerated-Mobile-Pages",
+    "Static-site-generator"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "tea3gt",
+      "email": "tea3gtinfo@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tea3/hexo-generator-amp.git"
+  }
+}
