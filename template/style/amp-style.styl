@@ -14,7 +14,7 @@
 @import "_footer"
 @import "_shareBtn"
 @import "_totop"
-// @import "_custom"
+@import "_custom"
 
 
 
@@ -28,8 +28,15 @@
     margin: 0 auto
 @media (min-width : 0px) and (max-width : 480px)
   .site-author-info-wrapper
-  	display: block
+    display: block
   .gravatar-area
-  	text-align: center
-  	amp-img
-  	  display: inline-block
+    text-align: center
+    amp-img
+      display: inline-block
+  .entry-content
+    td , th
+      line-height: 1.8em
+      padding: font-size * 0.6 font-size * 0.6
+      font-size: font-size * 0.5
+      em , strong , a
+        font-size: font-size * 0.5

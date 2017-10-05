@@ -775,15 +775,26 @@ h6 a:hover {
   margin: 0 auto;
   width: auto;
 }
-.entry-content td {
-  border: 1px solid #c4c4c4;
+.entry-content td,
+.entry-content th {
   line-height: 1.8em;
   padding: 0.8rem 0.8rem;
+  font-size: 0.85rem;
+}
+.entry-content td em,
+.entry-content th em,
+.entry-content td strong,
+.entry-content th strong,
+.entry-content td a,
+.entry-content th a {
+  font-size: 0.85rem;
+}
+.entry-content td {
+  border: 1px solid #c4c4c4;
 }
 .entry-content th {
   background-color: #ecf5f7;
   border: 1px solid #c4c4c4;
-  padding: 0.8rem 0.8rem;
 }
 .entry-content .table-align-center {
   text-align: center;
@@ -1620,5 +1631,19 @@ h6.categories {
   }
   .gravatar-area amp-img {
     display: inline-block;
+  }
+  .entry-content td,
+  .entry-content th {
+    line-height: 1.8em;
+    padding: 0.6rem 0.6rem;
+    font-size: 0.5rem;
+  }
+  .entry-content td em,
+  .entry-content th em,
+  .entry-content td strong,
+  .entry-content th strong,
+  .entry-content td a,
+  .entry-content th a {
+    font-size: 0.5rem;
   }
 }
