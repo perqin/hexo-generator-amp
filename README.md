@@ -2,9 +2,7 @@
 
 AMP ⚡ HTML (Accelerated Mobile Pages Project HTML) generator for [Hexo](https://github.com/hexojs/hexo).
 
-DEMO
-
-[HTML](https://photo-tea.com/p/hexo-markdown-notation/) | [AMP HTML](https://photo-tea.com/p/hexo-markdown-notation/amp/#development=1)
+DEMO:　[HTML](https://photo-tea.com/p/hexo-markdown-notation/) | [AMP HTML](https://photo-tea.com/p/hexo-markdown-notation/amp/#development=1)
 
 ![Screenshot](src/img/hexo2amp.png)
 
