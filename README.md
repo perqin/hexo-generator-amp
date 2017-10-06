@@ -10,10 +10,10 @@ DEMO:　[HTML](https://photo-tea.com/p/hexo-markdown-notation/) | [AMP HTML](htt
 
 You able to generate an AMP site with almost little effort.
 
-- Automatically generates new [AMP HTML](https://www.ampproject.org/docs/get_started/about-amp.html) pages.
-- [Freely customize AMP HTML template.](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#to-customize-template)
-- [Automatically validate AMP HTML pages.](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#7-automatically-validate-amp-html-option).
-- [Improve generation speed (Cache mode)](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#6-cache-option).
+- Automatically generates new [AMP HTML](https://www.ampproject.org/docs/get_started/about-amp.html) pages
+- [Freely customize AMP HTML template](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#to-customize-template)
+- [Automatically validate AMP HTML pages](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#7-automatically-validate-amp-html-option)
+- [Improve generation speed (Cache mode)](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#6-cache-option)
 - [Supports external services](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#supports-external-services)
 
 
