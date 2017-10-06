@@ -771,6 +771,8 @@ h6 a:hover {
 .entry-content table {
   border-collapse: collapse;
   border-spacing: 0;
+  overflow: auto;
+  display: block;
   font-size: 0.85rem;
   margin: 0 auto;
   width: auto;
