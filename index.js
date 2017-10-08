@@ -63,7 +63,7 @@ hexo.config.generator_amp = assign({
 	
 }, hexo.config.generator_amp, {
 	"defaultAssetsPath" : {
-		"ejs" : ejsPath ,
+		"tmpl" : ejsPath ,
 		"css" : cssPath ,
 		"logo": logoPath ,
 		"avator" : avatarPath ,
