@@ -2,7 +2,6 @@
 
 var assign      = require('object-assign');
 var pathFn      = require('path');
-var hexo_env    = require('hexo-env');
 var gen         = require('./lib/generator');
 var ic          = require('./lib/copyAssets.js');
 var lg          = require('./lib/log.js');
