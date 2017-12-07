@@ -290,6 +290,13 @@
 			    	</div>
 			    	<% } %>
 			    	
+                    <!-- google Adsense Matched content -->
+                    <% if (config.generator_amp.substituteGoogle_adsense && config.generator_amp.substituteGoogle_adsense.data_ad_client && config.generator_amp.substituteGoogle_adsense.data_ad_slot_matched && ( config.generator_amp.substituteGoogle_adsense.width_matched || config.generator_amp.substituteGoogle_adsense.height_matched) ){ %>
+                    <div class="ad-footer">
+                        <amp-ad layout="<%- config.generator_amp.substituteGoogle_adsense.layout_matched || 'responsive' %>"<% if(config.generator_amp.substituteGoogle_adsense.width_matched){ %> width="<%- config.generator_amp.substituteGoogle_adsense.width_matched %>"<% } %><% if(config.generator_amp.substituteGoogle_adsense.height_matched){ %> height="<%- Math.floor(Number(config.generator_amp.substituteGoogle_adsense.height_matched)*0.55) %>"<% } %> type="adsense" data-ad-client="<%- config.generator_amp.substituteGoogle_adsense.data_ad_client %>" data-ad-slot="<%- config.generator_amp.substituteGoogle_adsense.data_ad_slot_matched %>">
+                    </div>
+                    <% } %>
+                    
 			    	<!-- content -->
 			  		<%- content %>
 			  		
