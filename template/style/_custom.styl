@@ -82,8 +82,10 @@
     position: absolute
     display: none
 
-  .babylink-amazonBtn
+  .bl-btn
     margin: font-size * 1.4 0 font-size 0
+  .babylink-comm
+    margin: font-size * 0.2 0
     height: font-size * 4.0
     a.amb
       utilAni(0.1s)
@@ -93,19 +95,45 @@
       line-height: font-size * 3.5
       text-align: center
       color: color-background
-      width: 85%
+      width: 95%
       margin: 0 auto
       padding: 0
       display: block
-      background-color: color-amazon
       border-top: 1px solid color-background
-      border-bottom: 4px solid darken(color-amazon , 15)
       border-radius: 4px
 
       &:hover
         color: color-background
         border-top: 4px solid color-background
+
+  .babylink-amazonBtn
+    a.amb
+      background-color: color-amazon
+      border-bottom: 4px solid darken(color-amazon , 15)
+      &:hover
         border-bottom: 1px solid darken(color-amazon , 15)
+  
+  .babylink-rakutenBtn
+    a.amb
+      background-color: color-rakuten
+      border-bottom: 4px solid darken(color-rakuten , 15)
+      &:hover
+        border-bottom: 1px solid darken(color-rakuten , 15)
+
+  .rakuten-icon
+    &:before
+      display: inline-block
+      font-family: font-sans
+      content: "R"
+      font-weight: bold
+      color: color-rakuten
+      font-size: 0.8 * font-size
+      background-color: color-background
+      border-radius: 50%
+      line-height: 1.4 * font-size
+      width: 1.4 * font-size
+      height: 1.4 * font-size
+      
   .amazon-icon
     &:before
       content: "\f270"
