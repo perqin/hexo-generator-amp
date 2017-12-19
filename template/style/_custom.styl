@@ -85,42 +85,18 @@
   .bl-btn
     margin: font-size * 1.4 0 font-size 0
   .babylink-comm
-    margin: font-size * 0.2 0
-    height: font-size * 4.0
-    a.amb
-      utilAni(0.1s)
-      font-size: font-size
-      font-weight: bold
-      height: font-size * 3.5
-      line-height: font-size * 3.5
-      text-align: center
-      color: color-background
-      width: 95%
-      margin: 0 auto
-      padding: 0
-      display: block
-      border-top: 1px solid color-background
-      border-radius: 4px
-
-      &:hover
-        color: color-background
-        border-top: 4px solid color-background
+    BtnDefault()
 
   .babylink-amazonBtn
-    a.amb
-      background-color: color-amazon
-      border-bottom: 4px solid darken(color-amazon , 15)
-      &:hover
-        border-bottom: 1px solid darken(color-amazon , 15)
+    BtnColor(color-amazon)
   
   .babylink-rakutenBtn
-    a.amb
-      background-color: color-rakuten
-      border-bottom: 4px solid darken(color-rakuten , 15)
-      &:hover
-        border-bottom: 1px solid darken(color-rakuten , 15)
+    BtnColor(color-rakuten)
 
-  .rakuten-icon
+  .babylink-yahooBtn
+    BtnColor(color-yahoo-white)
+    
+  .icon-rakuten
     &:before
       display: inline-block
       font-family: font-sans
@@ -134,6 +110,22 @@
       line-height: 1.4 * font-size
       width: 1.4 * font-size
       height: 1.4 * font-size
+  
+  .icon-yahoo-shop
+    &:before
+      display: inline-block
+      font-family: font-sans
+      content: "Y"
+      font-weight: bold
+      text-shadow: 0.3px 0.3px 0 color-yahoo
+      color: color-yahoo
+      font-size: 0.8 * font-size
+      line-height: 1.4 * font-size
+      width: 1.4 * font-size
+      height: 1.4 * font-size
+      
+  .yahoo-black
+    color: color-yahoo-black
       
   .amazon-icon
     &:before
