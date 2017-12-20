@@ -45,11 +45,11 @@
 
 
 .babylink-box , .applink-wrapper
-  border: 1px solid color-amazon
+  border: 2px solid color-border
   position: relative
   margin: content-margin content-margin-side
   padding: 0
-  border-radius: 2px
+  border-radius: 4px
   .amp-img-wrapper
     margin: font-size content-margin-side
   .babylink-wrapper, .applink
@@ -59,6 +59,20 @@
     display: inline-block
     vertical-align : middle
     width: 40%
+    a
+      position: relative
+      display: block
+      &:before
+        utilAni(0.2s)
+        position: absolute
+        display: block
+        content: ""
+        width: 100%
+        height: 100%
+        background-color: rgba(color-background , 0.0)
+      &:hover
+        &:before
+          background-color: rgba(color-background , 0.3)
   .babylink-info, .app-title
     margin: 0
     display: inline-block
@@ -68,6 +82,9 @@
     margin: font-size content-margin-side
   .babylink-description
     line-height: font-size * 1.8
+    font-size: font-size * 0.9
+    a
+      font-size: font-size * 0.9
   .babylink-manufacturer
     margin: font-size * 0.8 0
     line-height: font-size * 1.8
@@ -76,8 +93,14 @@
     margin: font-size * 0.8 0
     line-height: font-size * 1.8
     a
+      color: color-default
       display: block
       padding: font-size 0
+      font-weight: bold
+      &:hover
+        color: color-link
+        .am-t-desc
+          color: color-link
   .aicon
     position: absolute
     display: none
@@ -132,6 +155,12 @@
       content: "\f270"
       font-family: fontawesome
       color: #FFF
+  
+  .am-t-desc
+    font-size: font-size * 0.75
+    letter-spacing: 0.06em
+    font-weight: normal
+    color: color-default-weak
 
 
 p.openMap
