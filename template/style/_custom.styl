@@ -339,3 +339,27 @@ amp-img , img
   .strong
     background-color: lighten(color-default,1)
     color: color-background
+    
+
+@media (min-width : 0px) and (max-width : 375px)
+  .babylink-box
+    .babylink-title
+      margin: 0 font-size * 0.8
+      a
+        padding: font-size * 0.5 0
+    .babylink-image
+      width: 100%
+      margin: 0 0
+      display: block
+      a
+        .amp-img-wrapper
+          margin: 0 0
+          amp-img
+            width: 60%
+            margin: 0 auto
+    .babylink-info
+      width: 100%
+      display: block
+    .am-t-desc
+      font-size: font-size * 0.5
+      line-height: 1em
