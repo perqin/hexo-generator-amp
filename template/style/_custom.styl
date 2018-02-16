@@ -192,8 +192,13 @@ p.openMap
     border-right: none
   h5.label, h6.label
     text-align: left
+  ul , ol , dl
+    border: none
+  p.label
+    margin: content-margin-side * 2 content-margin-side
 
 .attention
+  background-color: color-attention-weak
   border: 1px solid color-attention
   h5.label-title
     &:first-child:before
@@ -201,7 +206,7 @@ p.openMap
   h5.label-title , h5.label-title span
     background-color: color-attention
   h5.label, h6.label , h5.label span, h6.label span
-    background-color: color-background
+    background-color: color-attention-weak
     color: color-attention
   ul li
     &::after
@@ -210,6 +215,7 @@ p.openMap
     &:before
       background-color: lighten(color-attention , 5)
 .r-download
+  background-color: color-download-weak
   border: 1px solid color-download
   h5.label-title
     &:first-child:before
@@ -217,7 +223,7 @@ p.openMap
   h5.label-title , h5.label-title span
     background-color: color-download
   h5.label, h6.label , h5.label span, h6.label span
-    background-color: color-background
+    background-color: color-download-weak
     color: color-download
   ul li
     &::after
@@ -226,6 +232,7 @@ p.openMap
     &:before
       background-color: lighten(color-download , 5)
 .r-memo
+  background-color: color-memo-weak
   border: 1px solid color-memo
   h5.label-title
     &:first-child:before
@@ -233,7 +240,7 @@ p.openMap
   h5.label-title , h5.label-title span
     background-color: color-memo
   h5.label, h6.label , h5.label span, h6.label span
-    background-color: color-background
+    background-color: color-memo-weak
     color: color-memo
   ul li
     &::after

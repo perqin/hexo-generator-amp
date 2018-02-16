@@ -152,10 +152,12 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
 
 
   ul , ol , dl
-    margin: content-margin 0 content-margin content-margin-side * 2
-    padding: 0
+    margin: content-margin-side
+    padding: content-margin-side content-margin-side content-margin-side content-margin-side * 2
     list-style: none
     font-size: font-size
+    border: 1px solid color-h-border
+    border-radius: 4px
     li
       line-height: line-height
       position: relative
@@ -164,7 +166,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
         line-height: line-height
         margin: 0
         &:not(:first-child)
-          color: lighten(color-default,20)
+          color: color-default-weak
           margin: font-size * 0.5
       ul , ol , dl
         margin: font-size
