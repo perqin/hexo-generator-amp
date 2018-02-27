@@ -587,6 +587,11 @@
 								<i class="fa fa-facebook"></i>
 							</a>
 							<% } %>
+							<% if( config.generator_amp.theme.authorLink.youtube_channel ){ %>
+                                                        <a href="https://www.youtube.com/channel/<%= config.generator_amp.theme.authorLink.youtube_channel %>" target="_blank">
+                                                                <i class="fa fa-youtube-play"></i>
+                                                        </a>
+                                                        <% } %>
 							<% if( config.generator_amp.theme.authorLink.github_id ){ %>
 							<a href="https://github.com/<%= config.generator_amp.theme.authorLink.github_id %>" target="_blank">
 								<i class="fa fa-github"></i>
