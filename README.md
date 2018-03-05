@@ -50,6 +50,7 @@ Please refer follow as about how to use this plugin with based other templates.
 - [Jade template](https://github.com/tea3/hexo-generator-amp/issues/13)
 - [Swig template (e.g. hexo-theme-next)](https://github.com/tea3/hexo-generator-amp/issues/14)
 
+To change path of AMP HTML , please see [wiki](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#generateamppath).
 
 ### 2. Set the quick option
 
@@ -121,7 +122,7 @@ When the deployment is completed , Please check the [AMP report](https://support
 Please see the [wiki](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings) for detailed usage.
 
 - [To customize template](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#to-customize-template)
-- [To change AMP HTML path](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#generateamppath)
+- [To change path of AMP HTML](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#generateamppath)
 - [About more option](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#options)
 
     - [Google Adsense Option](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#1-google-adsense-option)
