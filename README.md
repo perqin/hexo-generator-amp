@@ -120,6 +120,20 @@ When the deployment is completed , Please check the [AMP report](https://support
 
 Please see the [wiki](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings) for detailed usage.
 
+- [To customize template](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#to-customize-template)
+- [To change AMP HTML path](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#generateamppath)
+- [About more option](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#options)
+
+    - [Google Adsense Option](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#1-google-adsense-option)
+    - [Template Option](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#2-template-option)
+    - [Google Analytics Option](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#3-google-analytics-option)
+    - [Minify Option](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#4-minify-option)
+    - [Log & Auto Validation Log Option](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#5-log--auto-validation-log-option)
+    - [Cache Option](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#6-cache-option)
+    - [Automatically validate AMP HTML option](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#7-automatically-validate-amp-html-option)
+    - [Footer Option (authorDetail)](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#8-footer-option-authordetail)
+    - [Front-matter option](https://github.com/tea3/hexo-generator-amp/wiki/More-Settings#front-matter-option)
+    
 
 ## License
 
