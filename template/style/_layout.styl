@@ -25,46 +25,62 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
     line-height: 1.5
     margin: 1em 0 0.8em
   h2, h3, h4, h5, h6 , h2 span, h3 span, h4 span, h5 span, h6 span
-    color: color-h
     font-weight: bold
   h2 , h2 span
-    font-size: font-size * 1.8
-    line-height: font-size * 2.6
+    font-size: font-size * 1.2
+    line-height: font-size * 2.0
     text-align: center
+    padding: 0.5em
+    color: color-background
+    border-radius: 0.1em
+  h2 span
+    &:before
+      content: "\f15c"
+      font-family: font-awesome
+      color: color-h-weak
+      display: inline-block
+      margin: 0 0.4em 0 0
   h2
     border-bottom: 2px solid color-h-border
     margin: content-margin * 1.5 0 0.5em
-    padding: 0.8em 0
+    background-color: color-h
+    padding: 0.5em
   h3 , h3 span
-    font-size: font-size * 1.6
-    line-height: font-size * 2.2
-    text-align: center
-  h3
-    margin: content-margin * 1.2 content-margin-side content-margin content-margin-side
-    padding: 0
-  h4 , h4 span
-    font-size: font-size * 1.4
+    font-size: font-size * 1.2
     line-height: font-size * 2.0
     text-align: center
+    background-color: color-h-weak
+    border-radius: 0.1em
+  h3
+    margin: content-margin * 1.2 content-margin-side content-margin content-margin-side
+    padding: 0.3em
+  h4 , h4 span
+    font-size: font-size * 1.2
+    line-height: font-size * 2.0
+    text-align: center
+    color: color-h
   h4
     margin: content-margin * 1.2 content-margin-side content-margin content-margin-side
     padding: 0
   h5 , h5 span
     font-size: font-size * 1.2
     line-height: font-size * 1.8
-    text-align: center
+    text-align: left
+    color: color-h
   h5
     margin: content-margin * 1.2 content-margin-side content-margin content-margin-side
     padding: 0
   h6 , h6 span
     font-size: font-size * 1.1
     line-height: font-size * 1.6
-    text-align: center
+    text-align: left
+    color: color-h
   h6
     margin: content-margin * 1.2 content-margin-side content-margin content-margin-side
     padding: 0
 
-
+  > p:first-child
+    margin: 0 content-margin-side content-margin content-margin-side
   p
     font-size: font-size
     letter-spacing: letter-spacing
@@ -74,10 +90,10 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
       word-wrap : break-word
       overflow-wrap : break-word
       display: inline
-      border-bottom: 1px dashed lighten(color-link , 18)
+      border-bottom: 2px solid rgba( color-link , 0.0 )
       padding-bottom: font-size * 0.3
       &:hover
-        border-bottom: 1px dashed darken(color-link , 18)
+        border-bottom: 2px solid lighten(color-link , 18)
         padding-bottom: font-size * 0.4
   em
     // background-color: color-em-background
@@ -114,16 +130,34 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
     margin: content-margin content-margin-side
     padding: font-size font-size * 1.8
     position: relative
-    background-color: none
-    border-left: 3px solid color-blockquote-border
-    font-style: italic
+    background-color: lighten( color-h-weak,6)
+    box-shadow: 2px 2px 10px darken(color-background, 10)
+    &:before
+      content: "”"
+      font-size: 500%
+      line-height: 1em
+      // font-family: font-mono
+      color: darken(color-h-weak,10)
+      position: absolute
+      right: 0.05em
+      top: 0.05em
+      z-index: 1
     p
       margin: font-size * 0.5 0
+    a
+      border-bottom: 2px solid lighten( color-h-weak,6)
     blockquote
       border-left: none
+      box-shadow: none
+      &:before
+        content: ""
+      &:after
+        content: ""
 
   .table-wrapper
     margin: content-margin content-margin-side
+    td
+      background-color: color-background
   table
     border-collapse: collapse
     border-spacing: 0
@@ -138,11 +172,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
     font-size: font-size * 0.85
     em , strong ,a
       font-size: font-size * 0.85
+      padding: 0.2em
   td
     border: 1px solid darken(color-border,10)
   th
     background-color: color-tableBack
     border: 1px solid darken(color-border,10)
+    font-weight: bold
   .table-align-center
     text-align: center
   .table-align-right
@@ -156,8 +192,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
     padding: content-margin-side content-margin-side content-margin-side content-margin-side * 2
     list-style: none
     font-size: font-size
-    border: 1px solid color-h-border
     border-radius: 4px
+    background-color: lighten(color-h-weak , 6)
+    box-shadow: 2px 2px 10px darken(color-background, 10)
     li
       line-height: line-height
       position: relative
@@ -166,7 +203,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
         line-height: line-height
         margin: 0
         &:not(:first-child)
-          color: color-default-weak
+          color: color-default-weak2
           margin: font-size * 0.5
       ul , ol , dl
         margin: font-size

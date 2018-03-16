@@ -45,8 +45,9 @@
 
 
 .babylink-box , .applink-wrapper
-  background-color: darken(color-background , 2)
-  border: 2px solid color-border
+  background-color: darken(color-background , 1)
+  border: 1px solid color-background
+  box-shadow: 1px 1px 6px darken(color-background, 20) inset
   position: relative
   margin: content-margin content-margin-side
   padding: 0
@@ -169,8 +170,9 @@ p.openMap
 
 .attention , .r-download, .r-memo
   margin: content-margin content-margin-side
-  padding: 0
+  padding: 0 0 font-size * 0.5 0
   border-radius: 2px
+  box-shadow: 2px 2px 10px darken(color-background, 10)
   .label-content
     margin: content-margin-side content-margin-side
     padding: 0
@@ -184,7 +186,7 @@ p.openMap
     color: color-background
     text-align: center
   h5.label, h6.label , h5.label-title
-    padding: font-size content-margin-side
+    padding: font-size * 0.5 content-margin-side
     margin: 0
     border: none
     border-top: none
@@ -200,7 +202,6 @@ p.openMap
 
 .attention
   background-color: color-attention-weak
-  border: 1px solid color-attention
   h5.label-title
     &:first-child:before
       content: "\f071"
@@ -209,15 +210,20 @@ p.openMap
   h5.label, h6.label , h5.label span, h6.label span
     background-color: color-attention-weak
     color: color-attention
-  ul li
-    &::after
-      background-color: lighten(color-attention , 5)
-  ol li
-    &:before
-      background-color: lighten(color-attention , 5)
+  ul
+    box-shadow: none
+    background-color: darken(color-attention-weak , 5)
+    li
+      &::after
+        background-color: lighten(color-attention , 5)
+  ol
+    box-shadow: none
+    background-color: darken(color-attention-weak , 5)
+    li
+      &:before
+        background-color: lighten(color-attention , 5)
 .r-download
   background-color: color-download-weak
-  border: 1px solid color-download
   h5.label-title
     &:first-child:before
       content: "\f019"
@@ -226,15 +232,20 @@ p.openMap
   h5.label, h6.label , h5.label span, h6.label span
     background-color: color-download-weak
     color: color-download
-  ul li
-    &::after
-      background-color: lighten(color-download , 5)
-  ol li
-    &:before
-      background-color: lighten(color-download , 5)
+  ul
+    box-shadow: none
+    background-color: darken(color-download-weak , 5)
+    li
+      &::after
+        background-color: lighten(color-download , 5)
+  ol
+    box-shadow: none
+    background-color: darken(color-download-weak , 5)
+    li
+      &:before
+        background-color: lighten(color-download , 5)
 .r-memo
   background-color: color-memo-weak
-  border: 1px solid color-memo
   h5.label-title
     &:first-child:before
       content: "\f0f6"
@@ -243,13 +254,18 @@ p.openMap
   h5.label, h6.label , h5.label span, h6.label span
     background-color: color-memo-weak
     color: color-memo
-  ul li
-    &::after
-      background-color: lighten(color-memo , 5)
-  ol li
-    &:before
-      background-color: lighten(color-memo , 5)
-
+  ul
+    box-shadow: none
+    background-color: darken(color-memo-weak , 5)
+    li
+      &::after
+        background-color: lighten(color-memo , 5)
+  ol
+    box-shadow: none
+    background-color: darken(color-memo-weak , 5)
+    li
+      &:before
+        background-color: lighten(color-memo , 5)
 
 .amSimple
   margin: content-margin content-margin-side
