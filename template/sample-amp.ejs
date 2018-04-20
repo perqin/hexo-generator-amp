@@ -303,8 +303,13 @@
 			  		<!-- google Adsense -->
 			  		<% if (config.generator_amp.substituteGoogle_adsense && config.generator_amp.substituteGoogle_adsense.data_ad_client && config.generator_amp.substituteGoogle_adsense.data_ad_slot && ( config.generator_amp.substituteGoogle_adsense.width || config.generator_amp.substituteGoogle_adsense.height) ){ %>
 			  		<div class="ad-footer">
-			  			<amp-ad layout="<%- config.generator_amp.substituteGoogle_adsense.layout || 'responsive' %>"<% if(config.generator_amp.substituteGoogle_adsense.width){ %> width="<%- config.generator_amp.substituteGoogle_adsense.width %>"<% } %><% if(config.generator_amp.substituteGoogle_adsense.height){ %> height="<%- config.generator_amp.substituteGoogle_adsense.height %>"<% } %> type="adsense" data-ad-client="<%- config.generator_amp.substituteGoogle_adsense.data_ad_client %>" data-ad-slot="<%- config.generator_amp.substituteGoogle_adsense.data_ad_slot %>">
-						</amp-ad>
+                        <% if(config.generator_amp.substituteGoogle_adsense.layout != 'responsive'){ %>
+			  			    <amp-ad layout="<%- config.generator_amp.substituteGoogle_adsense.layout || 'responsive' %>"<% if(config.generator_amp.substituteGoogle_adsense.width){ %> width="<%- config.generator_amp.substituteGoogle_adsense.width %>"<% } %><% if(config.generator_amp.substituteGoogle_adsense.height){ %> height="<%- config.generator_amp.substituteGoogle_adsense.height %>"<% } %> type="adsense" data-ad-client="<%- config.generator_amp.substituteGoogle_adsense.data_ad_client %>" data-ad-slot="<%- config.generator_amp.substituteGoogle_adsense.data_ad_slot %>">
+						    </amp-ad>
+                        <% }else{ %>
+                            <amp-ad width="100vw" height=320 type="adsense" data-ad-client="<%- config.generator_amp.substituteGoogle_adsense.data_ad_client %>" data-ad-slot="<%- config.generator_amp.substituteGoogle_adsense.data_ad_slot %>" data-auto-format="rspv" data-full-width><div overflow></div>
+                            </amp-ad>
+                        <% } %>
 					</div>
 					<% } %>
 					
