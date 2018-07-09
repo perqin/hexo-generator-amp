@@ -6,7 +6,7 @@ DEMO:　[HTML](https://photo-tea.com/p/hexo-markdown-notation/) | [AMP HTML](htt
 
 ![Screenshot](src/img/hexo2amp.png)
 
-## Orverview
+## Overview
 
 You able to generate an AMP site with almost little effort.
 
