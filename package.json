@@ -1,6 +1,6 @@
 {
   "name": "hexo-generator-amp",
-  "version": "3.0.16",
+  "version": "3.0.17",
   "main": "index",
   "dependencies": {
     "amphtml-validator": "^1.0.21",
