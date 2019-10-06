@@ -27,5 +27,8 @@ Icon
 # VS Code
 .vscode
 
+# Webstorm
+.idea
+
 # Folder Ignores
 node_modules
